@@ -11,6 +11,7 @@ import Avatar from "@material-ui/core/Avatar";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import MessageIcon from '@material-ui/icons/Message';
+import { IconButton } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,7 +36,13 @@ const useStyles = makeStyles((theme) => ({
     },
     content: {
         padding: 0
-    } 
+    },
+    favorite: {
+        marginLeft: 'auto'
+    },
+    reaction: {
+
+    }
 }));
 
 function PostCard({ post }){
@@ -75,7 +82,29 @@ function PostCard({ post }){
                 </CardActionArea>
             </CardContent>
             <CardActions disableSpacing>
-
+                <IconButton arial-label="like">
+                    <FavoriteIcon></FavoriteIcon>
+                        <Typography
+                            style={{cursor: 'pointer'}}
+                            color="textSecondary"
+                            variant="body2"
+                        >
+                            {'10'}
+                        </Typography>
+                </IconButton>
+                <IconButton arial-label="comment">
+                    <MessageIcon></MessageIcon>
+                        <Typography
+                            className={classes.reaction}
+                            color="textSecondary"
+                            variant="body2"
+                        >
+                            {'30'}
+                        </Typography>
+                </IconButton>
+                <IconButton arial-label="favorite" className={classes.favorite}>
+                    <BookmarkIcon></BookmarkIcon>
+                </IconButton>
             </CardActions>
         </Card>
     ) 
