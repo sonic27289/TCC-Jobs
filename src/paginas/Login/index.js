@@ -23,7 +23,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundImage: 'url(/images/loginbackground.jpg)',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
-        backgroundRepeat: 'none'
+        backgroundRepeat: 'none',
+        padding: theme.spacing(2),
+        textAlign: 'center'
     },
     box: {
         display: 'flex',
@@ -40,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(1)
     },
     form: {
-        margin: theme.spacing(0, 4)
+        margin: theme.spacing(2, 4)
     }
     // left: {
     //     background: 'blue',
@@ -66,6 +68,18 @@ const useStyles = makeStyles((theme) => ({
     // }
 }));
 
+function Copyright(){
+    return (
+        <Typography variant="body2" align="center">
+            {'Copyright © '}
+            <a color="inherit" href="/login">
+                Gustavo Barbosa
+            </a>{' '}
+            {new Date().getFullYear()} 
+        </Typography>
+    )
+}
+
 function LogIn(){
     const classes = useStyles();
 
@@ -83,7 +97,7 @@ function LogIn(){
                 <strong>Simplificando a forma de conectar desenvolvedores de Software !</strong>
             </Typography>
             <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 15, lineHeight: '30px'}}>
-                Compartilhe seu conhecimento com toda nossa rede de desenvolvedores de software. Se cadastre agora mesmo para uma versão de avaliação grátis !
+                Compartilhe seu conhecimento com toda nossa rede de desenvolvedores de software.
             </Typography>
         </Grid>
         <Grid item md={5}>
@@ -134,6 +148,7 @@ function LogIn(){
                         </Grid>
                     </Grid>
                 </form>
+                <Copyright></Copyright>
             </Box>
         </Grid>
        </Grid>
