@@ -1,9 +1,16 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
+import Avatar from "@material-ui/core/Avatar";
+import Typography from "@material-ui/core/Typography";
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Link from "@material-ui/core/Link"
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -12,6 +19,29 @@ const useStyles = makeStyles((theme) => ({
         height: '100vh',
 
     },
+    image: {
+        backgroundImage: 'url(/images/loginbackground.jpg)',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'none'
+    },
+    box: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginTop: theme.spacing(8)
+
+    },
+    avatar: {
+        background: theme.palette.primary.main,
+        marginBottom: theme.spacing(1)
+    },
+    button: {
+        marginTop: theme.spacing(1)
+    },
+    form: {
+        margin: theme.spacing(0, 4)
+    }
     // left: {
     //     background: 'blue',
     //     flexGrow: 0,
@@ -47,18 +77,65 @@ function LogIn(){
             direction="column"
             justify="center"
             alignItems="center" 
-            md={7}>
+            md={7}
+            className={classes.image}>
             <Typography style={{color: '#fff', fontSize: 35, lineHeight: '45px'}}>
                 <strong>Simplificando a forma de conectar desenvolvedores de Software !</strong>
             </Typography>
             <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 15, lineHeight: '30px'}}>
-                Compartilhe seu conhecimento com toda nossa rede de desenvolvedores de software.
+                Compartilhe seu conhecimento com toda nossa rede de desenvolvedores de software. Se cadastre agora mesmo para uma versão de avaliação grátis !
             </Typography>
         </Grid>
         <Grid item md={5}>
-
+            <Box className={classes.box}>
+                <Avatar className={classes.avatar}>
+                    <LockOutlinedIcon></LockOutlinedIcon>
+                </Avatar>
+                <Typography variant="h5">
+                    <b>Acesso</b>
+                </Typography>
+                <form className={classes.form}>
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="email"
+                        label="E-mail"
+                        name="email"
+                        autoComplete="email"
+                        autoFocus
+                    >
+                    </TextField>
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        name="password"
+                        label="Senha"
+                        type="password"
+                        id="password"
+                        autoComplete="current-password"
+                    >
+                    </TextField>
+                    <Button fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                        >Entrar
+                    </Button>
+                    <Grid container>
+                        <Grid item>
+                            <Link>Esqueceu sua senha? </Link>
+                        </Grid>
+                        <Grid item>
+                            <Link>Não tem uma conta? Registre-se</Link>
+                        </Grid>
+                    </Grid>
+                </form>
+            </Box>
         </Grid>
-        <Box></Box>
        </Grid>
         // /* Flex Container */
         // <div className={classes.root}>
