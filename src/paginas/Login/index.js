@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     // }
 }));
 
-function Login(){
+function LogIn(){
     const classes = useStyles();
 
     return (
@@ -49,15 +49,16 @@ function Login(){
             alignItems="center" 
             md={7}>
             <Typography style={{color: '#fff', fontSize: 35, lineHeight: '45px'}}>
-                <strong>Teste aaaaaaaaaaaaaaaaa Teste aaaaaaaaaaaaaaaaaa</strong>
+                <strong>Simplificando a forma de conectar desenvolvedores de Software !</strong>
             </Typography>
             <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 15, lineHeight: '30px'}}>
-                Compartilhe o CONHECIMETO ET BILUUU MEU AMIIGo
+                Compartilhe seu conhecimento com toda nossa rede de desenvolvedores de software.
             </Typography>
         </Grid>
         <Grid item md={5}>
 
         </Grid>
+        <Box></Box>
        </Grid>
         // /* Flex Container */
         // <div className={classes.root}>
@@ -82,4 +83,4 @@ function Login(){
     )
 }
 
-export default Login;
+export default LogIn;
