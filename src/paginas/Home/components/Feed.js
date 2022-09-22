@@ -51,7 +51,7 @@ function Feed(){
         <div>
             {
                 posts.map(post => (
-                    <PostCard key={post.id} post={post}></PostCard>
+                    <PostCard key={post.id} post={post} className={classes.root}></PostCard>
                 ))
             }
         </div>
