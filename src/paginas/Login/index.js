@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         // display: 'flex',
         // flexDirection: 'row',
-        // height: '100vh',
+        height: '100vh',
 
     },
     // left: {
@@ -40,8 +40,24 @@ function Login(){
     const classes = useStyles();
 
     return (
-       <Grid>
-        
+       <Grid container className={classes.root}>
+        <Grid 
+            item 
+            container
+            direction="column"
+            justify="center"
+            alignItems="center" 
+            md={7}>
+            <Typography style={{color: '#fff', fontSize: 35, lineHeight: '45px'}}>
+                <strong>Teste aaaaaaaaaaaaaaaaa Teste aaaaaaaaaaaaaaaaaa</strong>
+            </Typography>
+            <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 15, lineHeight: '30px'}}>
+                Compartilhe o CONHECIMETO ET BILUUU MEU AMIIGo
+            </Typography>
+        </Grid>
+        <Grid item md={5}>
+
+        </Grid>
        </Grid>
         // /* Flex Container */
         // <div className={classes.root}>
