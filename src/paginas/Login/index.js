@@ -10,7 +10,7 @@ import Link from "@material-ui/core/Link"
 
 import axios from "axios";
 
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 
 
@@ -80,7 +80,7 @@ function HandleLogIn(){
         .then(response => {
             console.log(response.data)
 
-            const user = response.data.login; //sonic27289
+            //const user = response.data.login; //sonic27289
         })
         .catch(error => {
             console.log("Ocorreu um Erro !")
@@ -101,7 +101,7 @@ function Copyright(){
 
 function LogIn(){
     const classes = useStyles();
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
 
     return (
        <Grid container className={classes.root}>
