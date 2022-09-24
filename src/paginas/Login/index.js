@@ -8,6 +8,8 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link"
 
+import axios from "axios";
+
 import { useNavigate } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -69,6 +71,22 @@ const useStyles = makeStyles((theme) => ({
     // }
 }));
 
+function HandleLogIn(){
+    //Chamada da API
+    
+
+    //Obj Promise
+    axios.get('https://api.github.com/users/sonic27289')
+        .then(response => {
+            console.log(response.data)
+
+            const user = response.data.login; //sonic27289
+        })
+        .catch(error => {
+            console.log("Ocorreu um Erro !")
+        })
+}
+
 function Copyright(){
     return (
         <Typography variant="body2" align="center">
@@ -91,7 +109,7 @@ function LogIn(){
             item 
             container
             direction="column"
-            justify="center"
+            justifyContent="center"
             alignItems="center" 
             md={7}
             className={classes.image}>
@@ -108,7 +126,7 @@ function LogIn(){
                     <LockOutlinedIcon></LockOutlinedIcon>
                 </Avatar>
                 <Typography variant="h5">
-                    <b>Acesso</b>
+                    <b>Acesso: </b>
                 </Typography>
                 <form className={classes.form}>
                     <TextField
@@ -139,7 +157,7 @@ function LogIn(){
                         variant="contained"
                         color="primary"
                         className={classes.button}
-                        onClick={() => navigate('/')}
+                        onClick={HandleLogIn}
                         >Entrar
                     </Button>
                     <Grid container>
