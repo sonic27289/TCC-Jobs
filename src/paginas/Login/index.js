@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Avatar from "@material-ui/core/Avatar";
@@ -7,12 +7,13 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link"
+import FormHelperText from '@material-ui/core/FormHelperText';
 import authService from "../../services/authService";
 
 //import axios from '../../utils/axios';
 //import axios from "axios";
 
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -71,7 +72,28 @@ const useStyles = makeStyles((theme) => ({
     // }
 }));
 
-//function HandleLogIn(){
+
+
+function Copyright(){
+    return (
+        <Typography variant="body2" align="center">
+            {'Copyright © '}
+            <a color="inherit" href="/login">
+                Gustavo Barbosa
+            </a>{' '}
+            {new Date().getFullYear()} 
+        </Typography>
+    )
+}
+
+function LogIn(){
+    const classes = useStyles();
+    const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState();
+
+    //function HandleLogIn(){
     //Chamada da API da Rede Social
     
 
@@ -89,16 +111,15 @@ const useStyles = makeStyles((theme) => ({
     //         console.log("Ocorreu um Erro !")
     //     })
 //}
+
 async function HandleLogIn(){
     //Chamada da API da Rede Social
-    
-
-    //Obj Promise
-
     try {
-        await authService.logIn('sonic27289@gmail.com', 'sonic27289');
+        await authService.logIn(email, password);
+        // HTTP 200 - Código de Página "OK"
+        navigate('/');
     } catch (error){
-        console.log(error.response)
+        setErrorMessage(error.response.data.message);
     }
 
     // const response = await axios.post('api/home/login', { email:'sonic27289@gmail.com', password: 'sonic27289'});
@@ -113,22 +134,6 @@ async function HandleLogIn(){
     //         console.log("Ocorreu um Erro !")
     //     })
 }
-
-function Copyright(){
-    return (
-        <Typography variant="body2" align="center">
-            {'Copyright © '}
-            <a color="inherit" href="/login">
-                Gustavo Barbosa
-            </a>{' '}
-            {new Date().getFullYear()} 
-        </Typography>
-    )
-}
-
-function LogIn(){
-    const classes = useStyles();
-    //const navigate = useNavigate();
 
     return (
        <Grid container className={classes.root}>
@@ -166,6 +171,8 @@ function LogIn(){
                         name="email"
                         autoComplete="email"
                         autoFocus
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
                     >
                     </TextField>
                     <TextField
@@ -178,6 +185,8 @@ function LogIn(){
                         type="password"
                         id="password"
                         autoComplete="current-password"
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
                     >
                     </TextField>
                     <Button fullWidth
@@ -187,6 +196,12 @@ function LogIn(){
                         onClick={HandleLogIn}
                         >Entrar
                     </Button>
+                    {
+                        errorMessage &&
+                        <FormHelperText error>
+                            {errorMessage}
+                        </FormHelperText>
+                    }
                     <Grid container>
                         <Grid item>
                             <Link>Esqueceu sua senha? </Link>
