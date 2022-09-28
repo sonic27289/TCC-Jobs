@@ -9,7 +9,8 @@ import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link"
 import FormHelperText from '@material-ui/core/FormHelperText';
 //import authService from "../../services/authService";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+//import { useSelector } from "react-redux";
 
 //import axios from '../../utils/axios';
 //import axios from "axios";
@@ -97,8 +98,8 @@ function LogIn(){
     const [errorMessage, setErrorMessage] = useState();
     const dispatch = useDispatch();
 
-    const account = useSelector(state => state.user)
-    console.log(account);
+    //const account = useSelector(state => state.user)
+    //console.log(account);
 
     //function HandleLogIn(){
     //Chamada da API da Rede Social
