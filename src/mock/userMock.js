@@ -19,7 +19,8 @@ mock.onPost('api/home/login').reply((config) => {
         id: 1,
         name: 'Gustavo Barbosa',
         username: 'sonic27289',
-        email: 'sonic27289@gmail.com'
+        email: 'sonic27289@gmail.com',
+        avatar: '/images/avatars/iconeperfil.jpg'
     }
 
     return[200, { user }]
