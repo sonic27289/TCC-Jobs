@@ -7,8 +7,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link"
+import authService from "../../services/authService";
 
-import axios from '../../utils/axios';
+//import axios from '../../utils/axios';
 //import axios from "axios";
 
 //import { useNavigate } from 'react-router-dom';
@@ -94,8 +95,14 @@ async function HandleLogIn(){
 
     //Obj Promise
 
-    const response = await axios.post('api/home/login');
-    console.log(response);
+    try {
+        await authService.logIn('sonic27289@gmail.com', 'sonic27289');
+    } catch (error){
+        console.log(error.response)
+    }
+
+    // const response = await axios.post('api/home/login', { email:'sonic27289@gmail.com', password: 'sonic27289'});
+    // console.log(response);
     // axios.get('https://api.github.com/users/sonic27289')
     //     .then(response => {
     //         console.log(response.data)
