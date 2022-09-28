@@ -11,6 +11,7 @@ import store from "./store";
 
 import './mock';
 import { redirectIfLogged } from "./routes/authenticatedRoute";
+//import redirectIfLogged from "./routes/RedirectIfLogged";
 //import { authenticatedRoute } from "./routes/authenticatedRoute";
 
 const router = createBrowserRouter([
