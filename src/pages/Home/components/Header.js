@@ -7,6 +7,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { Bell } from 'react-feather'; 
 //import '../style.css';
 import { makeStyles } from '@material-ui/core/styles';
+import { useSelector } from "react-redux";
 
 //import authService from "../../../services/authService";
 
@@ -37,7 +38,7 @@ const useStyles = makeStyles({
  
 function Header(){
     const classes = useStyles();
-    const user = null;
+    const user = useSelector(state => state.user);
     //console.log(user);
 
     return (

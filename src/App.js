@@ -10,10 +10,11 @@ import theme from "./theme";
 import store from "./store";
 
 import './mock';
-import { authenticatedRoute, redirectIfLogged } from "./routes/authenticatedRoute";
+import { redirectIfLogged } from "./routes/authenticatedRoute";
+//import { authenticatedRoute } from "./routes/authenticatedRoute";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Home></Home>, loader:authenticatedRoute},
+  { path: "/", element: <Home></Home>},
   { path: "/login", element: <LogIn></LogIn>, loader: redirectIfLogged },
   { path: "*", element: "Not Found 404" }
 ])
