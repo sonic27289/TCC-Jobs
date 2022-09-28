@@ -8,7 +8,7 @@ import { Bell } from 'react-feather';
 //import '../style.css';
 import { makeStyles } from '@material-ui/core/styles';
 
-import authService from "../../../services/authService";
+//import authService from "../../../services/authService";
 
 const useStyles = makeStyles({
     appbar: {
@@ -37,7 +37,7 @@ const useStyles = makeStyles({
  
 function Header(){
     const classes = useStyles();
-    const user = authService.getUser();
+    const user = null;
     //console.log(user);
 
     return (

@@ -8,13 +8,16 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link"
 import FormHelperText from '@material-ui/core/FormHelperText';
-import authService from "../../services/authService";
+//import authService from "../../services/authService";
+import { useSelector, useDispatch } from "react-redux";
 
 //import axios from '../../utils/axios';
 //import axios from "axios";
 
 import { useNavigate } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
+
+import logIn from "../../actions/accountActions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -92,6 +95,10 @@ function LogIn(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState();
+    const dispatch = useDispatch();
+
+    const account = useSelector(state => state.user)
+    console.log(account);
 
     //function HandleLogIn(){
     //Chamada da API da Rede Social
@@ -115,11 +122,14 @@ function LogIn(){
 async function HandleLogIn(){
     //Chamada da API da Rede Social
     try {
-        await authService.logIn(email, password);
-        // HTTP 200 - Código de Página "OK"
+        await dispatch(logIn(email, password));
         navigate('/');
+        // await authService.logIn(email, password);
+        // // HTTP 200 - Código de Página "OK"
+        // navigate('/');
     } catch (error){
-        setErrorMessage(error.response.data.message);
+        // console.log(error)
+        setErrorMessage(error.response.data.message);  
     }
 
     // const response = await axios.post('api/home/login', { email:'sonic27289@gmail.com', password: 'sonic27289'});

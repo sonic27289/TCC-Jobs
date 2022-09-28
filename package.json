@@ -15,10 +15,11 @@
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
     "react-redux": "^8.0.4",
-    "react-router": "^6.0.0-alpha.4",
-    "react-router-dom": "^6.0.0-alpha.4",
+    "react-router": "^6.4.1",
+    "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
-    "redux": "^4.2.0"
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
