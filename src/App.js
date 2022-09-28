@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from "@material-ui/core/styles";
 
-import Home from "./paginas/Home";
-import LogIn from "./paginas/LogIn";
+import GuestRoute from "./routes/GuestRoute";
+import Home from "./pages/Home";
+import LogIn from "./pages/LogIn";
 import theme from "./theme";
 
 import './mock';
@@ -14,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/login" element={<LogIn></LogIn>}></Route>
+          <GuestRoute path="/login" element={<LogIn></LogIn>}></GuestRoute>
           <Route path="*" element={<h1> Not found 404 !</h1>}></Route>
         </Routes>
       </BrowserRouter>
