@@ -6,6 +6,8 @@ import Home from "./paginas/Home";
 import LogIn from "./paginas/LogIn";
 import theme from "./theme";
 
+import './mock';
+
 function App() {
   return (
     <ThemeProvider theme={theme}>

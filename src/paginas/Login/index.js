@@ -8,12 +8,11 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link"
 
-import axios from "axios";
+import axios from '../../utils/axios';
+//import axios from "axios";
 
 //import { useNavigate } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
-
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -71,20 +70,41 @@ const useStyles = makeStyles((theme) => ({
     // }
 }));
 
-function HandleLogIn(){
-    //Chamada da API
+//function HandleLogIn(){
+    //Chamada da API da Rede Social
     
 
     //Obj Promise
-    axios.get('https://api.github.com/users/sonic27289')
-        .then(response => {
-            console.log(response.data)
 
-            //const user = response.data.login; //sonic27289
-        })
-        .catch(error => {
-            console.log("Ocorreu um Erro !")
-        })
+    //axios.post('api/home/login')
+        //.then(response => console.log(response));
+    // axios.get('https://api.github.com/users/sonic27289')
+    //     .then(response => {
+    //         console.log(response.data)
+
+    //         //const user = response.data.login; //sonic27289
+    //     })
+    //     .catch(error => {
+    //         console.log("Ocorreu um Erro !")
+    //     })
+//}
+async function HandleLogIn(){
+    //Chamada da API da Rede Social
+    
+
+    //Obj Promise
+
+    const response = await axios.post('api/home/login');
+    console.log(response);
+    // axios.get('https://api.github.com/users/sonic27289')
+    //     .then(response => {
+    //         console.log(response.data)
+
+    //         //const user = response.data.login; //sonic27289
+    //     })
+    //     .catch(error => {
+    //         console.log("Ocorreu um Erro !")
+    //     })
 }
 
 function Copyright(){
