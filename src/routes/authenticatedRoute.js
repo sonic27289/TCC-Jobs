@@ -1,10 +1,11 @@
 //import React from "react";
 import { redirect } from "react-router-dom";
+//import { useSelector } from "react-redux";
 
 import authService from "../services/authService";
 //import Home from "../pages/Home";
 
-export function authenticatedRoute() {
+function AuthenticatedRoute() {
     const isAuthenticated = authService.isAuthenticated();
     //console.log(isAuthenticated);
     if(!isAuthenticated){
@@ -12,10 +13,4 @@ export function authenticatedRoute() {
     }
 }
 
-export function redirectIfLogged(){
-    const isAuthenticated = authService.isAuthenticated();
-
-    if(isAuthenticated){
-        throw redirect('/')
-    }
-}
+export default AuthenticatedRoute;
