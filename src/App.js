@@ -17,7 +17,7 @@ import { redirectIfLogged } from "./routes/authenticatedRoute";
 const router = createBrowserRouter([
   { path: "/", element: <Home></Home>},
   { path: "/login", element: <LogIn></LogIn>, loader: redirectIfLogged },
-  { path: "*", element: "Not Found 404" }
+  { path: "*", element: <h1>Not Found 404</h1> }
 ])
 
 function App() {
