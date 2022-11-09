@@ -3,15 +3,14 @@ import axios from '../utils/axios';
 class AuthService {
     //Classe para a Autenticação de Dados da Rede Social
     //Diversas Funções serão Atríbuidas 
-    logIn = (email, password) => {
+    logInWithToken = () => {
 
         // Promise é um objeto usado para processamento assíncrono. 
         // Uma Promise (de "promessa") representa um valor que pode estar disponível agora, no futuro ou nunca.
         return new Promise((resolve, reject) => {
-            axios.post('/api/home/login', {email, password})
+            axios.post('/api/home/me') //enviando token pelo header da aplicação
             .then(response => {
                 if (response.data.user){
-                    this.setToken('JWT')
                     resolve(response.data.user)
                 } else {
                     reject(response.data.error)
@@ -23,16 +22,12 @@ class AuthService {
         })
     }
 
-    setToken = (user) => {
-        localStorage.setItem("user", JSON.stringify(user));
+    setToken = (token) => {
+        localStorage.setItem("accessToken", (token));
     }
 
     getToken = () => {
-        const user = localStorage.getItem("user");
-        if (user){
-            return JSON.parse(user)
-        }
-        return user;
+       localStorage.getItem("accessToken")
     }
 
     // isAuthenticated = () => {
