@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Avatar from "@material-ui/core/Avatar";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import { useNavigate } from "react-router";
 
 
 import { logOut } from "../../../../actions/accountActions";
@@ -12,6 +13,7 @@ function Account(){
     const [isOpen, setOpen] = useState(false);
     const ref = useRef();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const isAuthenticated = !!account.user
 
@@ -27,6 +29,7 @@ function Account(){
         handleClose();
 
         dispatch(logOut());
+        navigate('/');
     }
 
     return (

@@ -2,13 +2,15 @@ import React from "react";
 import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import SvgIcon from "@material-ui/core/SvgIcon";
+import Box from '@material-ui/core/Box';
+//import SvgIcon from "@material-ui/core/SvgIcon";
 //import Avatar from "@material-ui/core/Avatar";
-import { Bell } from 'react-feather'; 
+//import { Bell } from 'react-feather'; 
 //import '../style.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector } from "react-redux";
 import Account from "./Account";
+import Notifications from "./Notifications";
 //import authService from "../../../services/authService";
 
 const useStyles = makeStyles({
@@ -28,9 +30,12 @@ const useStyles = makeStyles({
     button: {
         marginRight: 10
     },
-    bell: {
-        marginRight: 10
-    },
+    // bell: {
+    //     marginRight: 10
+    // }
+    box: {
+        marginLeft: 2
+    }
     // avatar: {
     //     marginLeft: 10
     // }
@@ -50,10 +55,15 @@ function Header(){
                 <Button color="primary" variant="contained" className={classes.button}>
                     Novo Post
                 </Button>
-                <SvgIcon className={classes.bell}>
+                {/* <SvgIcon className={classes.bell}>
                     <Bell></Bell>
-                </SvgIcon>
-                <Account></Account>
+                </SvgIcon> */}
+                <Box marginLeft={2} className={classes.box}>
+                    <Notifications></Notifications>
+                </Box>
+                <Box marginLeft={2} className={classes.box}>
+                    <Account></Account>
+                </Box>
                 {/* <Avatar alt="Gustavo" src={account.user && account.user.avatar} className={classes.avatar}></Avatar> */}
             </div>
             {/* <div className="">
