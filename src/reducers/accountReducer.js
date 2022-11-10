@@ -1,6 +1,7 @@
 import {
     LOGIN_SUCCESS,
-    SILENT_LOGIN
+    SILENT_LOGIN,
+    LOGOUT
 } from '../actions/accountActions';
 
 const INITIAL_STATE = {
@@ -19,6 +20,12 @@ const accountReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 user: action.payload.user
+            }
+        }
+        case LOGOUT: {
+            return {
+                ...state,
+                user: null
             }
         }
         default: {

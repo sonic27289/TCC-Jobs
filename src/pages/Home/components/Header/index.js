@@ -3,12 +3,12 @@ import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import SvgIcon from "@material-ui/core/SvgIcon";
-import Avatar from "@material-ui/core/Avatar";
+//import Avatar from "@material-ui/core/Avatar";
 import { Bell } from 'react-feather'; 
 //import '../style.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector } from "react-redux";
-
+import Account from "./Account";
 //import authService from "../../../services/authService";
 
 const useStyles = makeStyles({
@@ -53,7 +53,8 @@ function Header(){
                 <SvgIcon className={classes.bell}>
                     <Bell></Bell>
                 </SvgIcon>
-                <Avatar alt="Gustavo" src={account.user && account.user.avatar} className={classes.avatar}></Avatar>
+                <Account></Account>
+                {/* <Avatar alt="Gustavo" src={account.user && account.user.avatar} className={classes.avatar}></Avatar> */}
             </div>
             {/* <div className="">
                 <a href='/'>JOBS - Alteração</a>
