@@ -29,7 +29,7 @@ function Account(){
         handleClose();
 
         dispatch(logOut());
-        navigate('/');
+        navigate('/login');
     }
 
     return (

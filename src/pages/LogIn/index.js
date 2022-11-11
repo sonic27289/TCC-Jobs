@@ -129,7 +129,7 @@ async function HandleLogIn(){
         // // HTTP 200 - Código de Página "OK"
         // navigate('/');
     } catch (error){
-        // console.log(error)
+        console.log(error)
         setErrorMessage(error.response.data.message);  
     }
 

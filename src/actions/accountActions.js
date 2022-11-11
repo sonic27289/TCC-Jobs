@@ -17,19 +17,6 @@ const logIn = (email, password) => {
     }
 }
 
-const setUserData = () => {
-    return async (dispatch) => {
-        const user = await authService.logInWithToken();
-        
-        dispatch({
-            type: SILENT_LOGIN,
-            payload: {
-                user
-            }
-        })
-    }
-}
-
 const logOut = () => {
     return async (dispatch) => {
         await authService.logOut();
@@ -40,4 +27,4 @@ const logOut = () => {
     }
 }
 
-export { logIn, setUserData, logOut };
+export { logIn, logOut };

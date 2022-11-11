@@ -1,4 +1,5 @@
 import axios from '../utils/axios';
+import decode from 'jwt-decode';
 
 class AuthService {
 
@@ -7,13 +8,13 @@ class AuthService {
         // Promise é um objeto usado para processamento assíncrono. 
         // Uma Promise (de "promessa") representa um valor que pode estar disponível agora, no futuro ou nunca.
         return new Promise((resolve, reject) => {
-            axios.post('/api/home/login', {email, password}) //enviando token pelo header da aplicação
+            axios.post('/api/login', {email, password}) //enviando token pelo header da aplicação
             .then(response => {
-                if (response.data.user){
-                    this.setToken('JWT')
-                    resolve(response.data.user)
-                } else {
-                    reject(response.data.error)
+                const token = response.data.token;
+                if (token){
+                    this.setToken(token)
+                    const user = decode(token);
+                    resolve(user)
                 }
             })
             .catch(error => {
@@ -23,25 +24,6 @@ class AuthService {
     }
     //Classe para a Autenticação de Dados da Rede Social
     //Diversas Funções serão Atríbuidas 
-    logInWithToken = () => {
-
-        // Promise é um objeto usado para processamento assíncrono. 
-        // Uma Promise (de "promessa") representa um valor que pode estar disponível agora, no futuro ou nunca.
-        return new Promise((resolve, reject) => {
-            axios.post('/api/home/me') //enviando token pelo header da aplicação
-            .then(response => {
-                if (response.data.user){
-                    resolve(response.data.user)
-                } else {
-                    reject(response.data.error)
-                }
-            })
-            .catch(error => {
-                reject(error)
-            })
-        })
-    }
-
     logOut = () => {
         this.removeToken();
     }
@@ -51,7 +33,7 @@ class AuthService {
     }
 
     getToken = () => {
-       localStorage.getItem("accessToken")
+       return localStorage.getItem("accessToken")
     }
 
     removeToken = () => {

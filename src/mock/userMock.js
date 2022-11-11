@@ -8,7 +8,7 @@ mock.onPost('api/home/me').reply(200, {
     }
 });
 
-mock.onPost('api/home/user').reply((config) => {
+mock.onPost('api/login').reply((config) => {
     //console.log(config);
     const { email, password } = JSON.parse(config.data);
     //console.log(email, password);
@@ -17,13 +17,13 @@ mock.onPost('api/home/user').reply((config) => {
         return[400, { message: 'Seu e-mail ou senha estão incorretos' }]
     }
 
-    const user = {
-        id: 1,
-        name: 'Gustavo Barbosa',
-        username: 'sonic27289',
-        email: 'sonic27289@gmail.com',
-        avatar: '/images/avatars/iconeperfil.jpg'
-    }
-
-    return[200, { user }]
+    // const user = {
+    //     id: 1,
+    //     name: 'Gustavo Barbosa',
+    //     username: 'sonic27289',
+    //     email: 'sonic27289@gmail.com',
+    //     avatar: '/images/avatars/iconeperfil.jpg'
+    // }
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYW1lIjoiR3VzdGF2byBCYXJib3NhIiwidXNlcm5hbWUiOiJzb25pYzI3Mjg5IiwiZW1haWwiOiJzb25pYzI3Mjg5QGdtYWlsLmNvbSIsImF2YXRhciI6Ii9pbWFnZXMvYXZhdGFycy9pY29uZXBlcmZpbC5qcGcifQ.UfElcBRWRmUVFXs0ngj8EkrGQs-OIO1NHfVM-7620kQ";
+    return[200, { token }]
 });
