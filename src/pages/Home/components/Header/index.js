@@ -1,5 +1,5 @@
 import React from "react";
-import Button from '@material-ui/core/Button';
+//import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box';
@@ -11,6 +11,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useSelector } from "react-redux";
 import Account from "./Account";
 import Notifications from "./Notifications";
+import WritePost from "./WritePost";
+//import { CenterFocusStrong } from "@material-ui/icons";
 //import authService from "../../../services/authService";
 
 const useStyles = makeStyles({
@@ -34,7 +36,8 @@ const useStyles = makeStyles({
     //     marginRight: 10
     // }
     box: {
-        marginLeft: 2
+        marginLeft: 4,
+        marginRight: 4
     }
     // avatar: {
     //     marginLeft: 10
@@ -52,9 +55,12 @@ function Header(){
             <img src="/images/logoexemplo.jpg" alt="logo" className={classes.img}></img> 
             <div className={classes.grow}></div>
             <div className={classes.userSection}>
-                <Button color="primary" variant="contained" className={classes.button}>
+                <Box marginLeft={2} className={classes.box}>
+                    <WritePost></WritePost>
+                </Box>
+                {/* <Button color="primary" variant="contained" className={classes.button}>
                     Novo Post
-                </Button>
+                </Button> */}
                 {/* <SvgIcon className={classes.bell}>
                     <Bell></Bell>
                 </SvgIcon> */}
