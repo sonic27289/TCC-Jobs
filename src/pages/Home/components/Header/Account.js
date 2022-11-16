@@ -38,6 +38,12 @@ function Account(){
         navigate('/login');
     }
 
+    const handleFeed = () => {
+        handleClose();
+
+        navigate('/feed');
+    }
+
     return (
         <>
             <Avatar 
@@ -60,7 +66,7 @@ function Account(){
                 onClose={handleClose}
                 getContentAnchorEl={null}
             >
-                <MenuItem>Perfil</MenuItem>
+                <MenuItem onClick={handleFeed}>Perfil</MenuItem>
                 <MenuItem>Meus Favoritos</MenuItem>
                 <MenuItem>Meus Posts</MenuItem>
                 <MenuItem>Minhas Conexões</MenuItem>
