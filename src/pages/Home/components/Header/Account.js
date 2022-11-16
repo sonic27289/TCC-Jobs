@@ -32,6 +32,12 @@ function Account(){
         navigate('/');
     }
 
+    const handleLogIn = () => {
+        handleClose();
+
+        navigate('/login');
+    }
+
     return (
         <>
             <Avatar 
@@ -71,7 +77,7 @@ function Account(){
                 onClose={handleClose}
                 getContentAnchorEl={null}
             >
-                <MenuItem>Entrar</MenuItem>
+                <MenuItem onClick={handleLogIn}>Entrar</MenuItem>
                 <MenuItem>Se Registrar</MenuItem>
             </Menu>
         }

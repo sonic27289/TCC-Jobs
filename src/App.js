@@ -18,6 +18,7 @@ import { redirectIfLogged } from "./routes/authenticatedRoute";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home></Home>},
+  { path: "/feed", element: <Home></Home>},
   { path: "/login", element: <LogIn></LogIn>, loader: redirectIfLogged },
   { path: "/post/new", element: <NewPost></NewPost>},
   { path: "*", element: <h1>Erro 404</h1>}
