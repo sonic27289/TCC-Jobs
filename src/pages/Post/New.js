@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import { useSelector } from "react-redux";
 import Header from "../Home/components/Header";
 import { makeStyles } from '@material-ui/core/styles';
 import Box from "@material-ui/core/Box";
@@ -53,13 +54,26 @@ const useStyles = makeStyles((theme) => ({
     },
     box3: {
       display: 'flex',
-      alignItems: 'center'  
+      alignItems: 'center',
+      marginBottom: 16  
+    },
+    box4: {
+        marginBottom: 16
+    },
+    box5: {
+        marginBottom: 16
+    },
+    box6: {
+        marginBottom: 16
+    },
+    box7: {
+        marginBottom: 16
     },
     image: {
         height: 250,
     },
     imagePreview: {
-        width: '100%'
+        width: '100%',
     },
     editor: {
         width: '100%',
@@ -86,6 +100,7 @@ function NewPost(){
     const [title, setTitle] = useState('');
     const [tags, setTags] = useState([{title: 'react.js'}]);
     const [markdownText, setMarkdownText] = useState('');
+    const account = useSelector((state) => state.account);
 
     const onDrop = useCallback(acceptedFiles => {
         const file = acceptedFiles[0];
@@ -123,12 +138,19 @@ function NewPost(){
             <main className={classes.main}>
                     <Box display="flex" className={classes.box}>
                         <Box className={classes.box1}>
-                            <div {...getRootProps()}>
+                            <Box {...getRootProps()} mb={1} className={classes.box4}>
                                 <input {...getInputProps()} />
                                 <Button>Carregar Imagem</Button>
-                            </div>
-                            {image && <img className={classes.image} src={image} alt="background"></img>}
-                            <TextField id="title" placeholder="Título" fullWidth value={title} onChange={handleTitleChange} />
+                            </Box>
+                            {image && (
+                                <Box className={classes.box5}>
+                                    <img className={classes.image} src={image} alt="background"></img>
+                                </Box>
+                            )}
+                            <Box className={classes.box6}>
+                                <TextField id="title" placeholder="Título" fullWidth value={title} onChange={handleTitleChange} />
+                            </Box>
+                            <Box className={classes.box7}>
                             <Autocomplete
                                 multiple
                                 id="tags-standard"
@@ -144,25 +166,35 @@ function NewPost(){
                                 />
                                 )}
                             />
+                            </Box>
                             <textarea onChange={handleMarkdownChange} className={classes.editor}>Editor</textarea>
                         </Box>
                         <Box className={classes.box2}>
-                            {image && <img className={classes.imagePreview} src={image} alt="background"></img>}
-                            <Typography variant="h2">
+                            
+                            {image && (
+                                <Box className={classes.box4}>
+                                    <img className={classes.imagePreview} src={image} alt="background"></img>
+                                </Box>
+                            )}
+                            <Box className={classes.box4}>
+                                <Typography variant="h2">
                                     {title}
-                            </Typography>
+                                </Typography>
+                            </Box>
                             <Box display="flex" alignItems="center" className={classes.box3}>
                                 <Box>
-                                    <Avatar className={classes.avatar}></Avatar>
+                                    <Avatar className={classes.avatar} src={account.user?.avatar}></Avatar>
                                 </Box>
                                 <Box>
-                                    <Typography variant="body1">Gustavo Barbosa</Typography>
+                                    <Typography variant="body1">{account.user?.name}</Typography>
                                     <Typography variant="body2" color="textSecondary">10 meses atrás</Typography>
                                 </Box>
                             </Box>
-                            <Typography variant="body1">
+                            <Box className={classes.box4}>
+                                <Typography variant="body1">
                                     {tags.map(item => item.title).join(',')}
-                            </Typography>
+                                </Typography>
+                            </Box>
                             <Divider></Divider>
                             <div className={classes.post}>
                                 <ReactMarkdown children={markdownText} />
