@@ -17,10 +17,7 @@ const useStyles = makeStyles({
 
     },
     main: {
-        height: '100vh',
-        display: 'flex',
-        width: '1280px',
-        margin: '0 auto',
+        height: 'calc(100vh - 64px)',
         padding: 24
     },
     toolbar: {
