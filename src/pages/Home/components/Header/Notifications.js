@@ -30,15 +30,19 @@ const iconsMap = {
     connection: ConnectionIcon
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     box: {
         padding: 8
-        }
-});
+        },
+    icon: {
+        background: theme.palette.secondary.main,
+        color: theme.palette.secondary.contrastText
+    }
+}));
 
 function Notifications(){
     const account = useSelector((state) => state.account);
-    const notifications = useSelector((state) => state.notifications);
+    const notifications = useSelector((state) => state.notifications.notifications);
     const isAuthenticated = !!account.user;
     const ref = useRef(null);
     const [isOpen, setOpen] = useState(false); 
@@ -83,20 +87,28 @@ function Notifications(){
                     Notificações
                 </Typography>
             </Box>
-            {
-                notifications.map((notifications))
-            }
             <List>
+                {notifications.map((notifications) => {
+                    const Icon = iconsMap[notifications.type];
+                    return (
                 <ListItem>
                     <ListItemAvatar>
-                        <Avatar>
+                        <Avatar className={classes.icon}>
                             <SvgIcon>
-
+                                <Icon></Icon>
                             </SvgIcon>
                         </Avatar>
                     </ListItemAvatar>
-                    <ListItemText primary="Photos" primaryTypographyProps={{variant: 'subtitle2', color: 'textPrimary'}} secondary="Jan 9, 2014"></ListItemText>
+                    <ListItemText 
+                        primary={notifications.title} 
+                        primaryTypographyProps={{
+                            variant: 'subtitle2', 
+                            color: 'textPrimary'}} 
+                        secondary={notifications.description}>
+                        </ListItemText>
                 </ListItem>
+                    );
+                })}
             </List>
             </Popover>
         </>

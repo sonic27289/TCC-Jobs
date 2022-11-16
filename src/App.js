@@ -6,9 +6,10 @@ import { Provider } from "react-redux";
 //import GuestRoute from "./routes/authenticatedRoute";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
+import NewPost from "./pages/Post/New";
+
 import theme from "./theme";
 import store from "./store";
-
 
 import './mock';
 import { redirectIfLogged } from "./routes/authenticatedRoute";
@@ -18,7 +19,8 @@ import { redirectIfLogged } from "./routes/authenticatedRoute";
 const router = createBrowserRouter([
   { path: "/", element: <Home></Home>},
   { path: "/login", element: <LogIn></LogIn>, loader: redirectIfLogged },
-  { path: "*", element: <h1>Not Found 404</h1> }
+  { path: "/post/new", element: <NewPost></NewPost>},
+  { path: "*", element: <h1>Erro 404</h1>}
 ])
 
 function App() {
