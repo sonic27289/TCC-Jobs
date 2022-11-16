@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 // import { useSelector } from "react-redux";
 import Header from "../../Home/components/Header";
 import { makeStyles } from '@material-ui/core/styles';
@@ -16,6 +16,7 @@ import Button from '@material-ui/core/Button';
 
 import PostEditor from "./Editor";
 import PostPreview from "./Preview";
+import { PostProvider } from "../../../context/PostContext";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -98,10 +99,10 @@ const useStyles = makeStyles((theme) => ({
 
 function NewPost(){
     const classes = useStyles();
-    const [image, setImage] = useState(null);
-    const [title, setTitle] = useState('');
-    const [tags, setTags] = useState([{title: 'react.js'}]);
-    const [markdownText, setMarkdownText] = useState('');
+    // const [image, setImage] = useState(null);
+    // const [title, setTitle] = useState('');
+    // const [tags, setTags] = useState([]);
+    // const [markdownText, setMarkdownText] = useState('');
     // const account = useSelector((state) => state.account);
 
     // const onDrop = useCallback(acceptedFiles => {
@@ -120,46 +121,30 @@ function NewPost(){
     //     accept: 'image/*',
     // });
 
-    const handleTitleChange = (event) => {
-        setTitle(event.currentTarget.value);
-    }
+    // const handleTitleChange = (event) => {
+    //     setTitle(event.currentTarget.value);
+    // }
 
-    const handleTagsChange = (event, values) => {
-        setTags(values);
-    }
+    // const handleTagsChange = (event, values) => {
+    //     setTags(values);
+    // }
 
-    const handleMarkdownChange = (event) => {
-        setMarkdownText(event.currentTarget.value);
-    }
+    // const handleMarkdownChange = (event) => {
+    //     setMarkdownText(event.currentTarget.value);
+    // }
 
     return ( 
-        <>
+        <PostProvider>
         <div className={classes.root}>
             <Header></Header>
             <div className={classes.toolbar}></div>
             <main className={classes.main}>
                     <Box display="flex" className={classes.box}>
                         <Box className={classes.box1}>
-                            <PostEditor
-                            image={image}
-                            setImage={setImage}
-                            title={title}
-                            setTitle={handleTitleChange}
-                            tags={tags}
-                            setTags={handleTagsChange}
-                            markdownText={markdownText}
-                            setMarkdownText={handleMarkdownChange}
-                            >
-                            </PostEditor>
+                            <PostEditor></PostEditor>
                         </Box>
                         <Box className={classes.box2}>
-                            <PostPreview
-                            image={image}
-                            title={title}
-                            tags={tags}
-                            markdownText={markdownText}
-                            >
-                            </PostPreview>
+                            <PostPreview></PostPreview>
                         </Box>
                     </Box>
             </main>
@@ -170,7 +155,7 @@ function NewPost(){
                 <Button color="secondary" variant="outlined">Publicar</Button>
             </Toolbar>
         </AppBar>
-        </>
+        </PostProvider>
     )
 }
 

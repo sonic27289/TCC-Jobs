@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
@@ -6,6 +6,8 @@ import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box"; 
 import ReactMarkdown from "react-markdown";
 import { makeStyles } from '@material-ui/core/styles';
+
+import { PostContext } from "../../../../context/PostContext";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -80,9 +82,11 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function PostPreview({image, title, tags, markdownText}) {
+function PostPreview() {
     const classes = useStyles();
     const account = useSelector((state) => state.account);
+    const ctx = useContext(PostContext);
+    const { image, title, tags, markdownText } = ctx;
 
     return (
         <>
