@@ -77,7 +77,7 @@ mock.onGet('/api/posts/user/sonic27289').reply(200, {
         avatar: '/images/avatars/iconeperfil.jpg',
       },
       tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
-      image: '/images/posts/post1.png',
+      image: '/images/posts/imagempost1.jpg',
       likes: 10,
       comments: 30,
     },

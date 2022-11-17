@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+import http from '../../utils/axios';
+import PostCard from '../../components/PostCard';
 
 function Posts() {
-    return (
-        <h1>Posts</h1>
-    )
+  const [posts, setPosts] = useState([]);
+  const params = useParams();
+
+  useEffect(() => {
+    async function fetchPosts() {
+      const response = await http.get(`/api/posts/user/${params.username}`);
+      setPosts(response.data.posts);
+    }
+    fetchPosts();
+  });
+
+  return (
+    <>
+      {posts.map((post) => (
+        <PostCard key={post.id} post={post} />
+      ))}
+    </>
+  );
 }
 
 export default Posts;

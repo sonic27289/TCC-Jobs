@@ -47,7 +47,7 @@ function Account(){
     const handleProfile = () => {
         handleClose();
 
-        navigate('/profile');
+        navigate(`/${account.user?.username}`);
     }
 
     return (
