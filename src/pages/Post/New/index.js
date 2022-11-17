@@ -3,9 +3,9 @@ import React from "react";
 import Header from "../../Home/components/Header";
 import { makeStyles } from '@material-ui/core/styles';
 import Box from "@material-ui/core/Box";
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
+// import AppBar from '@material-ui/core/AppBar';
+// import Toolbar from '@material-ui/core/Toolbar';
+// import Button from '@material-ui/core/Button';
 // import TextField from '@material-ui/core/TextField';
 // import Autocomplete from '@material-ui/lab/Autocomplete';
 // import Typography from "@material-ui/core/Typography";
@@ -16,6 +16,7 @@ import Button from '@material-ui/core/Button';
 
 import PostEditor from "./Editor";
 import PostPreview from "./Preview";
+import BottomBar from "./BottomBar";
 import { PostProvider } from "../../../context/PostContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -149,12 +150,7 @@ function NewPost(){
                     </Box>
             </main>
         </div>
-        <AppBar position="fixed" color="inherit" className={classes.appBar}>
-            <Toolbar>
-                <Button className={classes.button}>Salvar rascunho</Button>
-                <Button color="secondary" variant="outlined">Publicar</Button>
-            </Toolbar>
-        </AppBar>
+        <BottomBar></BottomBar>
         </PostProvider>
     )
 }

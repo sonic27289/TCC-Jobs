@@ -9,6 +9,7 @@ import Box from '@material-ui/core/Box';
 //import '../style.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Account from "./Account";
 import Notifications from "./Notifications";
 import WritePost from "./WritePost";
@@ -52,7 +53,9 @@ function Header(){
     return (
         <AppBar position="fixed" color="inherit" className={classes.appbar}>
         <Toolbar>
-            <img src="/images/logoexemplo.jpg" alt="logo" className={classes.img}></img> 
+            <Link to="/">
+                <img src="/images/logoexemplo.jpg" alt="logo" className={classes.img}></img> 
+            </Link>
             <div className={classes.grow}></div>
             <div className={classes.userSection}>
                 <Box marginLeft={2} className={classes.box}>

@@ -1,10 +1,10 @@
-import React from 'react';
-import { makeStyles } from "@material-ui/core/styles";
-
+import React, { useCallback, useEffect, useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Box from "@material-ui/core/Box";
+import Hidden from '@material-ui/core/Hidden';
+import Box from '@material-ui/core/Box';
 
-//import NavBar from './NavBar';
+import axios from '../../../utils/axios';
 import PostCard from '../../../components/PostCard';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,56 +13,31 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const posts = [
-    // { id: 1, description: 'teste 1'},
-    // { id: 2, description: 'teste 2'},
-    {
-        id: 1,
-        author: {
-            id: 1,
-            name: 'Gustavo Barbosa',
-            username: 'sonic27289',
-            avatar: '/images/avatars/iconeperfil.jpg'
-
-        },
-        title: "Comparativo entre jQuery e React.js - Performance",
-        date: "Setembro 15, 2022",
-        description: "Teste para o Trabalho de Conclusão de Curso, JOBS",
-        hashtags: "#frameworks, #javascript, #jquery, #reactjs",
-        image: "/images/posts/imagempost1.jpg"
-    },
-    {
-        id: 2,
-        author: {
-            id: 1,
-            name: 'Gustavo Barbosa',
-            username: 'sonic27289',
-            avatar: '/images/avatars/iconeperfil.jpg'
-
-        },
-        title: "Comparativo entre jQuery e React.js - Performance",
-        date: "Setembro 15, 2022",
-        description: "Teste para o Trabalho de Conclusão de Curso, JOBS",
-        hashtags: "#frameworks, #javascript, #jquery, #reactjs",
-        image: "/images/posts/imagempost1.jpg"
-    }
-];
-
 function Feed(){
     const classes = useStyles();
+    const [posts, setPosts] = useState([]);
+
+    const getPosts = useCallback(async () => {
+    const feed = await axios.get('/api/feed');
+    setPosts(feed.data.posts);
+  }, [setPosts]);
+
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
 
     return (
         <Container maxWidth="lg">
-            <Box display="flex" className={classes.box}>
-                <div>
-                {
-                posts.map(post => (
-                    <PostCard key={post.id} post={post} className={classes.root}></PostCard>
-                ))
-                 }
+            <Box display="flex">
+            <Hidden smDown>
+            </Hidden>
+            <div className={classes.root}>
+            {posts.map((post) => (
+                <PostCard key={post.id} post={post} />
+            ))}
             </div>
-            </Box>
-        </Container>
+      </Box>
+    </Container>
     );
 }
 

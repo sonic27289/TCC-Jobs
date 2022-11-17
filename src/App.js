@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import NewPost from "./pages/Post/New";
+import Post from "./pages/Post";
 
 import theme from "./theme";
 import store from "./store";
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
   { path: "/feed", element: <Home></Home>},
   { path: "/login", element: <LogIn></LogIn>, loader: redirectIfLogged },
   { path: "/post/new", element: <NewPost></NewPost>},
+  { path: "/post/:slug", element: <Post></Post>},
   { path: "*", element: <h1>Erro 404</h1>}
 ])
 
