@@ -10,14 +10,13 @@ import NavBar from "./components/NavBar";
 import Feed from "./components/Feed";
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
-
+        backgroundColor: theme.palette.background.dark
     },
     main: {
-        height: 'calc(100vh - 64px)',
         padding: 24
     },
     toolbar: {
@@ -26,7 +25,7 @@ const useStyles = makeStyles({
     box: {
         display: 'flex'
     }
-})
+}));
 
 function Home(){
     const classes = useStyles();

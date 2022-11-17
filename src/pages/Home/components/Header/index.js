@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import Account from "./Account";
 import Notifications from "./Notifications";
 import WritePost from "./WritePost";
+import Settings from "./Settings";
 //import { CenterFocusStrong } from "@material-ui/icons";
 //import authService from "../../../services/authService";
 
@@ -69,6 +70,9 @@ function Header(){
                 </SvgIcon> */}
                 <Box marginLeft={2} className={classes.box}>
                     <Notifications></Notifications>
+                </Box>
+                <Box marginLeft={2} className={classes.box}>
+                    <Settings></Settings>
                 </Box>
                 <Box marginLeft={2} className={classes.box}>
                     <Account></Account>

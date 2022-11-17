@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   details: {
     display: 'flex',
   },
-  avatar: {
+  avatar: { 
     marginLeft: 'auto',
     height: 110,
     width: 100,
@@ -61,7 +61,7 @@ const AccountProfile = (props) => {
     fetchUser();
   }, [params]);
 
-  const isCurrentUser = currentUser?.id === user?.id;
+  const isCurrentUser = currentUser?.username === user?.username;
 
   return (
     <div {...rest}>

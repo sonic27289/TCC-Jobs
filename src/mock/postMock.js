@@ -64,7 +64,7 @@ mock.onGet('/api/feed').reply(200, {
 });
 
 mock.onGet('/api/posts/user/sonic27289').reply(200, {
-  posts: [
+  posts1: [
     {
       id: 1,
       title:

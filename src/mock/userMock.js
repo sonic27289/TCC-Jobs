@@ -24,7 +24,7 @@ mock.onPost('api/login').reply((config) => {
     //     email: 'sonic27289@gmail.com',
     //     avatar: '/images/avatars/iconeperfil.jpg'
     // }
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYW1lIjoiR3VzdGF2byBCYXJib3NhIiwidXNlcm5hbWUiOiJzb25pYzI3Mjg5IiwiZW1haWwiOiJzb25pYzI3Mjg5QGdtYWlsLmNvbSIsImF2YXRhciI6Ii9pbWFnZXMvYXZhdGFycy9pY29uZXBlcmZpbC5qcGcifQ.UfElcBRWRmUVFXs0ngj8EkrGQs-OIO1NHfVM-7620kQ";
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikd1c3Rhdm8gQmFyYm9zYSIsInVzZXJuYW1lIjoic29uaWMyNzI4OSIsImVtYWlsIjoic29uaWMyNzI4OUBnbWFpbC5jb20iLCJhY2Vzc1Rva2VuIjoieWVlaGFhdXciLCJhdmF0YXIiOiIvaW1hZ2VzL2F2YXRhcnMvaWNvbmVwZXJmaWwuanBnIiwiam9pbmVkSW4iOiIwNSBkZSBkZXplbWJybywgMjAyMiIsIndvcmsiOiJEZXNlbnZvbHZlZG9yIEZyb250LUVuZCIsInRvdGFsUG9zdCI6IjA0In0.3uEK3j6_cy2JUQUXLHj7AGE-ZBGqOUiI6SMFcI_iuQM";
     return[200, { token }]
 });
 
@@ -33,7 +33,7 @@ mock.onGet('/api/home/user/sonic27289').reply(200, {
     name: 'Gustavo Barbosa',
     username: 'sonic27289',
     email: 'sonic27289@gmail.com',
-    acessToken: 'yeehaauw',
+    acessToken: 'token',
     avatar: '/images/avatars/iconeperfil.jpg',
     joinedIn: '05 de dezembro, 2022',
     work: 'Desenvolvedor Front-End',

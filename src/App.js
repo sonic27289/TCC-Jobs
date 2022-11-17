@@ -1,7 +1,6 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from "@material-ui/core/styles";
-import { Provider } from "react-redux";
 
 //import GuestRoute from "./routes/authenticatedRoute";
 import Home from "./pages/Home";
@@ -11,8 +10,9 @@ import Post from "./pages/Post";
 import Profile from "./pages/Profile";
 import LogUp from "./pages/LogUp";
 
-import theme from "./theme";
-import store from "./store";
+//import theme from "./theme";
+import createCurrentTheme from './theme';
+import { useSettings } from "./context/SettingsContext";
 
 import './mock';
 import { redirectIfLogged } from "./routes/authenticatedRoute";
@@ -31,11 +31,11 @@ const router = createBrowserRouter([
 ])
 
 function App() {
+  const { settings } = useSettings();
+
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={createCurrentTheme(settings)}>
         <RouterProvider router={router}/>
-        
       {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
@@ -43,9 +43,7 @@ function App() {
           <Route path="*" element={<h1> Not found 404 !</h1>}></Route>
         </Routes>
       </BrowserRouter> */}
-
       </ThemeProvider>
-    </Provider>
   );
 }
 
