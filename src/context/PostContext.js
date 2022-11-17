@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 export const PostContext = createContext();
 
@@ -31,4 +31,29 @@ export function PostProvider({children}) {
         setMarkdownText: handleMarkdownChange
     }}>{children}
     </PostContext.Provider>
+}
+
+export function usePost(){
+    const ctx = useContext(PostContext);
+    const { 
+        title,
+        setTitle,
+        image,
+        setImage,
+        tags,
+        setTags,
+        markdownText,
+        setMarkdownText
+        } = ctx;
+
+        return {
+            title,
+            setTitle,
+            image,
+            setImage,
+            tags,
+            setTags,
+            markdownText,
+            setMarkdownText
+        }
 }

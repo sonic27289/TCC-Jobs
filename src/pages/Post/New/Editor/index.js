@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from "react";
+import React, { useCallback } from "react";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -6,7 +6,7 @@ import Box from "@material-ui/core/Box";
 import { makeStyles } from '@material-ui/core/styles';
 import {useDropzone} from 'react-dropzone';
 
-import { PostContext } from "../../../../context/PostContext";
+import { usePost} from "../../../../context/PostContext";
 import Title from "./Title";
 
 const useStyles = makeStyles((theme) => ({
@@ -90,7 +90,7 @@ const arrayTags = [
 
 function PostEditor() {
     const classes = useStyles();
-    const ctx = useContext(PostContext);
+    const ctx = usePost();
     const {
         image,
         setImage,
