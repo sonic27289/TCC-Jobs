@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import NewPost from "./pages/Post/New";
 import Post from "./pages/Post";
+import Profile from "./pages/Profile";
+import LogUp from "./pages/LogUp";
 
 import theme from "./theme";
 import store from "./store";
@@ -20,6 +22,8 @@ import { redirectIfLogged } from "./routes/authenticatedRoute";
 const router = createBrowserRouter([
   { path: "/", element: <Home></Home>},
   { path: "/feed", element: <Home></Home>},
+  { path: "/logup", element: <LogUp></LogUp>, loader: redirectIfLogged },
+  { path: "/profile", element: <Profile></Profile>},
   { path: "/login", element: <LogIn></LogIn>, loader: redirectIfLogged },
   { path: "/post/new", element: <NewPost></NewPost>},
   { path: "/post/:slug", element: <Post></Post>},

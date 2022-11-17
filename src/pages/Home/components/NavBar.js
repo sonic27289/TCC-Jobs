@@ -5,6 +5,9 @@ import Button from '@material-ui/core/Button';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
+import { useNavigate } from "react-router";
+
+import './styles.css';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,10 +31,12 @@ const tags = [
 
 function NavBar(){
     const classes = useStyles();
+    const navigate = useNavigate();
 
     return (
+        <div className="navbar">
         <Paper className={classes.root}>
-            <Button variant="outlined" color="secondary" className={classes.button}>
+            <Button variant="outlined" color="secondary" className={classes.button} onClick={() => navigate('/logup')}>
                 Registrar Grátis
                 </Button>
             <ListSubheader>{`Tags em Alta`}</ListSubheader>
@@ -46,6 +51,7 @@ function NavBar(){
                 Exibir mais Tags
             </ListItem>
         </Paper>
+        </div>
     )
 }
 

@@ -38,10 +38,16 @@ function Account(){
         navigate('/login');
     }
 
-    const handleFeed = () => {
+    const handleLogUp = () => {
         handleClose();
 
-        navigate('/feed');
+        navigate('/logup');
+    }
+
+    const handleProfile = () => {
+        handleClose();
+
+        navigate('/profile');
     }
 
     return (
@@ -66,7 +72,7 @@ function Account(){
                 onClose={handleClose}
                 getContentAnchorEl={null}
             >
-                <MenuItem onClick={handleFeed}>Perfil</MenuItem>
+                <MenuItem onClick={handleProfile}>Perfil</MenuItem>
                 <MenuItem>Meus Favoritos</MenuItem>
                 <MenuItem>Meus Posts</MenuItem>
                 <MenuItem>Minhas Conexões</MenuItem>
@@ -84,7 +90,7 @@ function Account(){
                 getContentAnchorEl={null}
             >
                 <MenuItem onClick={handleLogIn}>Entrar</MenuItem>
-                <MenuItem>Se Registrar</MenuItem>
+                <MenuItem onClick={handleLogUp}>Se Registrar</MenuItem>
             </Menu>
         }
         </>

@@ -6,6 +6,7 @@ import Box from '@material-ui/core/Box';
 
 import axios from '../../../utils/axios';
 import PostCard from '../../../components/PostCard';
+import './styles.css';
 
 const useStyles = makeStyles((theme) => ({
     root: {
