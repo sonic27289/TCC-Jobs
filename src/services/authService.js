@@ -22,6 +22,10 @@ class AuthService {
             })
         })
     }
+
+    logUp = (fullName, email, password) => {
+
+    }
     //Classe para a Autenticação de Dados da Rede Social
     //Diversas Funções serão Atríbuidas 
     logOut = () => {

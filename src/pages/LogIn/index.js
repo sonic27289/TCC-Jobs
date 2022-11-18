@@ -11,6 +11,8 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 //import authService from "../../services/authService";
 import { useDispatch } from "react-redux";
 //import { useSelector } from "react-redux";
+import { Formik } from "formik";
+import * as Yup from 'yup';
 
 //import axios from '../../utils/axios';
 //import axios from "axios";
@@ -93,9 +95,9 @@ function Copyright(){
 function LogIn(){
     const classes = useStyles();
     const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState();
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [errorMessage, setErrorMessage] = useState();
     const dispatch = useDispatch();
 
     //const account = useSelector(state => state.user)
@@ -120,18 +122,18 @@ function LogIn(){
     //     })
 //}
 
-async function HandleLogIn(){
-    //Chamada da API da Rede Social
-    try {
-        await dispatch(logIn(email, password));
-        navigate('/');
-        // await authService.logIn(email, password);
-        // // HTTP 200 - Código de Página "OK"
-        // navigate('/');
-    } catch (error){
-        console.log(error)
-        setErrorMessage(error.response.data.message);  
-    }
+// async function HandleLogIn(){
+//     //Chamada da API da Rede Social
+//     try {
+//         await dispatch(logIn(email, password));
+//         navigate('/');
+//         // await authService.logIn(email, password);
+//         // // HTTP 200 - Código de Página "OK"
+//         // navigate('/');
+//     } catch (error){
+//         console.log(error)
+//         setErrorMessage(error.response.data.message);  
+//     }
 
     // const response = await axios.post('api/home/login', { email:'sonic27289@gmail.com', password: 'sonic27289'});
     // console.log(response);
@@ -144,7 +146,7 @@ async function HandleLogIn(){
     //     .catch(error => {
     //         console.log("Ocorreu um Erro !")
     //     })
-}
+// }
 
     return (
        <Grid container className={classes.root}>
@@ -171,57 +173,93 @@ async function HandleLogIn(){
                 <Typography variant="h5">
                     <b>Acesso: </b>
                 </Typography>
-                <form className={classes.form}>
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="email"
-                        label="E-mail"
-                        name="email"
-                        autoComplete="email"
-                        autoFocus
-                        value={email}
-                        onChange={(event) => setEmail(event.target.value)}
-                    >
-                    </TextField>
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
-                        label="Senha"
-                        type="password"
-                        id="password"
-                        autoComplete="current-password"
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                    >
-                    </TextField>
-                    <Button fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.button}
-                        onClick={HandleLogIn}
-                        >Entrar
-                    </Button>
+                <Formik
+                    initialValues={{
+                        email: '',
+                        password: ''
+                    }}
+                    validationSchema={Yup.object().shape({
+                        email: Yup.string().email("Favor informar um e-mail válido.").max(255).required("Favor informar o e-mail"),
+                        password: Yup.string().max(255).required("Favor informar a senha")
+                    })}
+                    onSubmit={async (values, {
+                        setErrors,
+                        setStatus,
+                        setSubmitting
+                    }) => {
+                        try {
+                            await dispatch(logIn(values.email, values.password));
+                            navigate('/');
+                            // await authService.logIn(email, password);
+                            // // HTTP 200 - Código de Página "OK"
+                            // navigate('/');
+                        } catch (error){
+                            const message = (error.response && error.response.data.message) || 'Alguma coisa deu errada';
+
+                            setStatus({ sucess: false });
+                            setErrors({ submit: message });
+                            setSubmitting(false);
+                        }
+                    }}
+                >
                     {
-                        errorMessage &&
-                        <FormHelperText error>
-                            {errorMessage}
-                        </FormHelperText>
-                    }
-                    <Grid container>
-                        <Grid item>
-                            <Link>Esqueceu sua senha? </Link>
-                        </Grid>
-                        <Grid item>
-                            <Link>Não tem uma conta? Registre-se</Link>
-                        </Grid>
-                    </Grid>
-                </form>
+                        ({errors, handleChange, handleSubmit, isSubmitting, values}) => (
+                            <form noValidate className={classes.form} onSubmit={handleSubmit}>
+                                <TextField
+                                    variant="outlined"
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="email"
+                                    label="E-mail"
+                                    name="email"
+                                    autoComplete="email"
+                                    autoFocus
+                                    error={Boolean(errors.email)}
+                                    value={values.email}
+                                    onChange={handleChange}
+                                    helperText={errors.email}
+                                >
+                                </TextField>
+                                <TextField
+                                    variant="outlined"
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    name="password"
+                                    label="Senha"
+                                    type="password"
+                                    id="password"
+                                    autoComplete="current-password"
+                                    error={Boolean(errors.password)}
+                                    value={values.password}
+                                    onChange={handleChange}
+                                    helperText={errors.password}
+                                >
+                                </TextField>
+                                <Button fullWidth
+                                    variant="contained"
+                                    color="primary"
+                                    className={classes.button}
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    >Registrar
+                                </Button>
+                                {
+                                    errors.submit &&
+                                    <FormHelperText error>
+                                        {errors.submit}
+                                    </FormHelperText>
+                                }
+                                <Grid container>
+                                    <Grid item>
+                                        <Link>Já possui uma conta? Clique aqui</Link>
+                                    </Grid>
+                                </Grid>
+                    </form>
+                        )
+                    }   
+                </Formik>
                 <Copyright></Copyright>
             </Box>
         </Grid>
