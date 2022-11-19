@@ -217,10 +217,10 @@ function LogUp(){
                                     name="fullName"
                                     autoComplete="fullName"
                                     autoFocus
-                                    error={Boolean(errors.email)}
-                                    value={values.email}
+                                    error={Boolean(errors.fullName)}
+                                    value={values.fullName}
                                     onChange={handleChange}
-                                    helperText={errors.email}
+                                    helperText={errors.fullName}
                                 >
                                 </TextField>
                                 <TextField

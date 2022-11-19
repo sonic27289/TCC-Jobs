@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
   imagePreview: {
     width: '100%',
   },
+  root: {
+    backgroundColor: theme.palette.background.dark
+  },
   avatar: {
     marginRight: theme.spacing(1),
   },
@@ -26,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     paddingTop: 80,
     variant: 'h2',
-    color: 'textPrimary'
+    color: theme.palette.text.primary
   },
   header: {
     top: 'auto',
@@ -46,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
   },
   box3: {
     marginBottom: 24
+  },
+  darkmode: {
+    color: theme.palette.text.secondary
   }
 }));
 
@@ -54,11 +60,11 @@ function PostView({ post }) {
   const { image, title, date, author, tags, markdownText } = post;
 
   return (
-    <>
+    <div className={classes.root}>
     <Header className={classes.header}></Header>
     <Container maxWidth="lg" className={classes.container}>
       <Box mb={2} className={classes.box1}>
-        <Typography variant="h2" color="textPrimary" className={classes.title}>
+        <Typography variant="h2" color='textPrimary' className={classes.title}>
           {title}
         </Typography>
       </Box>
@@ -67,16 +73,16 @@ function PostView({ post }) {
           <Avatar className={classes.avatar} src={author?.avatar} />
         </Box>
         <Box>
-          <Typography variant="body1" color="textPrimary">
+          <Typography variant="body1" color="textPrimary" className={classes.markdown}>
             {author?.name}
           </Typography>
-          <Typography variant="body2" color="textSecondary">
+          <Typography variant="body2" color="textSecondary" className={classes.darkmode}>
             {moment(date).fromNow()}
           </Typography>
         </Box>
       </Box>
       <Box mb={2} className={classes.box1}>
-        <Typography variant="body1" color="textPrimary">
+        <Typography variant="body1" color="textPrimary" className={classes.markdown}>
           {tags?.map((item) => item).join(', ')}
         </Typography>
       </Box>
@@ -92,6 +98,7 @@ function PostView({ post }) {
             style={{ cursor: 'pointer' }}
             color="textSecondary"
             variant="body2"
+            className={classes.darkmode}
           >
             {post.likes}
           </Typography>
@@ -104,7 +111,7 @@ function PostView({ post }) {
         </div>
       </Box>
     </Container>
-    </>
+    </div>
   );
 }
 

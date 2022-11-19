@@ -7,7 +7,7 @@ import Box from '@material-ui/core/Box';
 //import Avatar from "@material-ui/core/Avatar";
 //import { Bell } from 'react-feather'; 
 //import '../style.css';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Account from "./Account";
@@ -48,14 +48,14 @@ const useStyles = makeStyles({
  
 function Header(){
     const classes = useStyles();
-    const account = useSelector(state => state.account);
-    console.log(account.user);
+    // const account = useSelector(state => state.account);
+    const theme = useTheme();  
 
     return (
         <AppBar position="fixed" color="inherit" className={classes.appbar}>
         <Toolbar>
             <Link to="/">
-                <img src="/images/logoexemplo.jpg" alt="logo" className={classes.img}></img> 
+                <img src={theme.darkMode ? "/images/logoexemplo-branca.jpg" : "/images/logoexemplo.jpg" }alt="logo" className={classes.img}></img> 
             </Link>
             <div className={classes.grow}></div>
             <div className={classes.userSection}>
