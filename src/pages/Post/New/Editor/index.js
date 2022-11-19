@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
+        backgroundColor: theme.palette.background.dark
     },
     main: {
         height: 'calc(100% - 200px)',
@@ -39,29 +40,36 @@ const useStyles = makeStyles((theme) => ({
         width: '50%',
         height: '100%',
         borderRight: '1px solid #DDD',
-        padding: 8
+        padding: 8,
+        
     },
     box2: {
         width: '50%',
         height: '100%',
-        padding: 8
+        padding: 8,
+        
     },
     box3: {
       display: 'flex',
       alignItems: 'center',
-      marginBottom: 16  
+      marginBottom: 16,
+        
     },
     box4: {
-        marginBottom: 16
+        marginBottom: 16,
+        
     },
     box5: {
-        marginBottom: 16
+        marginBottom: 16,
+        
     },
     box6: {
-        marginBottom: 16
+        marginBottom: 16,
+        
     },
     box7: {
-        marginBottom: 16
+        marginBottom: 16,
+        
     },
     image: {
         height: 250,
@@ -79,6 +87,9 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
         marginRight: theme.spacing(1),
+    },
+    darkmode: {
+        color: theme.palette.primary
     }
 }));
 
@@ -116,10 +127,10 @@ function PostEditor() {
     });
     
     return (
-      <>
+      <div className={classes.root}>
       <Box {...getRootProps()} mb={1} className={classes.box4}>
                                 <input {...getInputProps()} />
-                                <Button>Carregar Imagem</Button>
+                                <Button className={classes.darkmode} color="primary">Carregar Imagem</Button>
                             </Box>
                             {image && (
                                 <Box className={classes.box5}>
@@ -147,7 +158,7 @@ function PostEditor() {
                             />
                             </Box>
                             <textarea onChange={setMarkdownText} value={markdownText} className={classes.editor}>Editor</textarea>
-      </>  
+      </div>  
     )
 }
 

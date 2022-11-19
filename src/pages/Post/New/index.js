@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
+        backgroundColor: theme.palette.background.dark
     },
     main: {
         height: 'calc(100% - 200px)',
@@ -40,7 +41,8 @@ const useStyles = makeStyles((theme) => ({
     appBar: {
         top: 'auto',
         bottom: 0,
-        alignItems: 'center'
+        alignItems: 'center',
+    
     },
     button: {
         marginRight: theme.spacing(2),

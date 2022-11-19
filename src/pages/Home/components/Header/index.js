@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box';
 //import { Bell } from 'react-feather'; 
 //import '../style.css';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Account from "./Account";
 import Notifications from "./Notifications";
