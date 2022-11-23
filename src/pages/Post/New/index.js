@@ -35,8 +35,8 @@ const useStyles = makeStyles((theme) => ({
     box: {
         display: 'flex',
         background: '',
-        height: ('calc(100vh - 170px)'),
-        overflow: 'scroll'
+        height: ('calc(100vh - 160px)'),
+        overflow: 'auto'
     },
     appBar: {
         top: 'auto',

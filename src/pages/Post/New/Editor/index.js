@@ -84,6 +84,8 @@ const useStyles = makeStyles((theme) => ({
         border: 'none',
         outline: 'none',
         fontSize: 15,
+        color: theme.palette.primary,
+        backgroundColor: theme.palette.background.dark
     },
     avatar: {
         marginRight: theme.spacing(1),
@@ -157,7 +159,7 @@ function PostEditor() {
                                 )}
                             />
                             </Box>
-                            <textarea onChange={setMarkdownText} value={markdownText} className={classes.editor}>Editor</textarea>
+                            <textarea onChange={setMarkdownText} value={markdownText} className={classes.editor} placeholder="Escreva sua Publicação"></textarea>
       </div>  
     )
 }
