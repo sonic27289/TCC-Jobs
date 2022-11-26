@@ -17,11 +17,11 @@ function Posts() {
   });
 
   return (
-    <>
+    <div>
       {posts1.map((post1) => (
         <PostCard key={post1.id} post={post1} />
       ))}
-    </>
+    </div>
   );
 }
 

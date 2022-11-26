@@ -17,7 +17,8 @@ import Connections from "./Connections";
 const useStyles = makeStyles((theme) => ({
    root: {
     height: '100%',
-    paddingTop: 90,
+    paddingTop: 100,
+    backgroundColor: theme.palette.background.dark
    }
 }));
 
@@ -49,26 +50,29 @@ function Profile() {
     }
 
     return (
-        <Container maxWidth="lg">
+        <div className={classes.root}>
             <Header></Header>
-            <Grid container spacing={4} className={classes.root}>               
-                <Grid item md={4} xs={12}>
-                    <AccountProfile></AccountProfile>
-                </Grid>
-                <Grid item md={8} xs={12}>
-                   <Tabs value={tab} onChange={handleChange}>
-                    <Tab label="Posts"></Tab>
-                    <Tab label="Conexões"></Tab>
-                   </Tabs>
-                   <TabPanel value={tab} index={0}>
-                        <Posts></Posts>
-                   </TabPanel>
-                   <TabPanel value={tab} index={1}>
-                        <Connections></Connections>
-                   </TabPanel>
-                </Grid>
-            </Grid>
-        </Container>
+                <Container maxWidth="lg" >
+                    
+                    <Grid container spacing={4} >               
+                        <Grid item md={4} xs={12}>
+                            <AccountProfile></AccountProfile>
+                        </Grid>
+                        <Grid item md={8} xs={12}>
+                        <Tabs value={tab} onChange={handleChange}>
+                            <Tab label="Posts" color="primary" textColor="primary"></Tab>
+                            <Tab label="Conexões" color="primary" textColor="primary"></Tab>
+                        </Tabs>
+                        <TabPanel value={tab} index={0}>
+                                <Posts></Posts>
+                        </TabPanel>
+                        <TabPanel value={tab} index={1}>
+                                <Connections></Connections>
+                        </TabPanel>
+                        </Grid>
+                    </Grid>
+                </Container>
+        </div>
     )
 }
 

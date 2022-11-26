@@ -1,0 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Leckerli+One);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Josefin+Sans:400,600,700,400italic,600italic);
+
+.title {
+    font-family: 'josefin sans';
+    font-weight: 700;
+    text-shadow: 0 2px rgba(5, 5, 5, 0.5);
+    text-align: center;
+    color: #3123be;
+}

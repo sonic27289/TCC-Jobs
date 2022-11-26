@@ -8,11 +8,12 @@ import Box from "@material-ui/core/Box";
 // import Button from '@material-ui/core/Button';
 // import TextField from '@material-ui/core/TextField';
 // import Autocomplete from '@material-ui/lab/Autocomplete';
-// import Typography from "@material-ui/core/Typography";
+import Typography from "@material-ui/core/Typography";
 // import Divider from "@material-ui/core/Divider";
 // import Avatar from "@material-ui/core/Avatar";
 // import {useDropzone} from 'react-dropzone';
 // import ReactMarkdown from "react-markdown";
+import './styles.css';
 
 import PostEditor from "./Editor";
 import PostPreview from "./Preview";
@@ -91,6 +92,13 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
         marginRight: theme.spacing(1),
+    },
+    title: {
+        color: theme.palette.primary,
+        alignItems: 'center',
+        display: 'flex',
+        paddingLeft: '200px',
+        paddingRight: '150px'
     }
 }));
 
@@ -144,9 +152,11 @@ function NewPost(){
             <main className={classes.main}>
                     <Box display="flex" className={classes.box}>
                         <Box className={classes.box1}>
+                            <Typography variant="h1" class="title">Editor do Post</Typography>
                             <PostEditor></PostEditor>
                         </Box>
                         <Box className={classes.box2}>
+                        <Typography variant="h1" class="title">Preview do Post</Typography>
                             <PostPreview></PostPreview>
                         </Box>
                     </Box>
