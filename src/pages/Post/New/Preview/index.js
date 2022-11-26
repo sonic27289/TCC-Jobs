@@ -79,6 +79,9 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
         marginRight: theme.spacing(1),
+    },
+    post: {
+        paddingBottom: '70px'
     }
 }));
 

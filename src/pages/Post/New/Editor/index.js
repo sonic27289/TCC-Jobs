@@ -85,7 +85,8 @@ const useStyles = makeStyles((theme) => ({
         outline: 'none',
         fontSize: 15,
         color: theme.palette.primary,
-        backgroundColor: theme.palette.background.dark
+        backgroundColor: theme.palette.background.dark,
+        paddingBottom: '100px'
     },
     avatar: {
         marginRight: theme.spacing(1),
