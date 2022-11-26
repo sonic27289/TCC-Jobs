@@ -243,7 +243,7 @@ function LogIn(){
                                     className={classes.button}
                                     type="submit"
                                     disabled={isSubmitting}
-                                    >Registrar
+                                    >Entrar
                                 </Button>
                                 {
                                     errors.submit &&

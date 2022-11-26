@@ -261,7 +261,7 @@ function LogUp(){
                                     className={classes.button}
                                     type="submit"
                                     disabled={isSubmitting}
-                                    >Entrar
+                                    >Registrar
                                 </Button>
                                 {
                                     errors.submit &&
