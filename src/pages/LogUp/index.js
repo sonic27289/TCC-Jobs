@@ -53,6 +53,11 @@ const useStyles = makeStyles((theme) => ({
     },
     form: {
         margin: theme.spacing(2, 4)
+    },
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        marginTop: theme.spacing(1)
     }
     // left: {
     //     background: 'blue',
@@ -269,12 +274,9 @@ function LogUp(){
                                         {errors.submit}
                                     </FormHelperText>
                                 }
-                                <Grid container>
+                                <Grid container className={classes.container}>
                                     <Grid item>
-                                        <Link>Esqueceu sua senha? </Link>
-                                    </Grid>
-                                    <Grid item>
-                                        <Link>Não tem uma conta? Registre-se</Link>
+                                        <Link href="/login">Já possui uma conta? Clique aqui</Link>
                                     </Grid>
                                 </Grid>
                     </form>

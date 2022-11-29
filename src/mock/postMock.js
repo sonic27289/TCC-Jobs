@@ -95,6 +95,6 @@ mock.onGet('/api/posts/user/sonic27289').reply(200, {
       image: '/images/posts/imagempost2.png',
       likes: 5,
       comments: 1,
-    },
+    }
   ],
 });

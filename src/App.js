@@ -9,6 +9,7 @@ import NewPost from "./pages/Post/New";
 import Post from "./pages/Post";
 import Profile from "./pages/Profile";
 import LogUp from "./pages/LogUp";
+import ForgotPassword from "./pages/ForgotPassword";
 
 //import theme from "./theme";
 import createCurrentTheme from './theme';
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
   { path: "/login", element: <LogIn></LogIn>, loader: redirectIfLogged },
   { path: "/post/new", element: <NewPost></NewPost>},
   { path: "/post/:slug", element: <Post></Post>},
+  { path: "/recuperarsenha", element: <ForgotPassword></ForgotPassword>},
   { path: "*", element: <h1>Erro 404</h1>}
 ])
 
