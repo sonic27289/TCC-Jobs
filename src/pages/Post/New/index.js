@@ -59,47 +59,7 @@ const useStyles = makeStyles((theme) => ({
         height: '100%',
         padding: 8
     },
-    box3: {
-      display: 'flex',
-      alignItems: 'center',
-      marginBottom: 16  
-    },
-    box4: {
-        marginBottom: 16
-    },
-    box5: {
-        marginBottom: 16
-    },
-    box6: {
-        marginBottom: 16
-    },
-    box7: {
-        marginBottom: 16
-    },
-    image: {
-        height: 250,
-    },
-    imagePreview: {
-        width: '100%',
-    },
-    editor: {
-        width: '100%',
-        height: '100%',
-        resize: 'none',
-        border: 'none',
-        outline: 'none',
-        fontSize: 15,
-    },
-    avatar: {
-        marginRight: theme.spacing(1),
-    },
-    title: {
-        color: theme.palette.primary,
-        alignItems: 'center',
-        display: 'flex',
-        paddingLeft: '200px',
-        paddingRight: '150px'
-    }
+   
 }));
 
 // const arrayTags = [

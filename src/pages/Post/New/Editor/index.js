@@ -5,6 +5,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import Box from "@material-ui/core/Box";
 import { makeStyles } from '@material-ui/core/styles';
 import {useDropzone} from 'react-dropzone';
+import './styles.css';
 
 import { usePost} from "../../../../context/PostContext";
 import Title from "./Title";
@@ -71,9 +72,6 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: 16,
         
     },
-    image: {
-        height: 250,
-    },
     imagePreview: {
         width: '100%',
     },
@@ -137,7 +135,7 @@ function PostEditor() {
                             </Box>
                             {image && (
                                 <Box className={classes.box5}>
-                                    <img className={classes.image} src={image} alt="background"></img>
+                                    <img className={classes.image} class="image" src={image} alt="background"></img>
                                 </Box>
                             )}
                             <Box className={classes.box6}>

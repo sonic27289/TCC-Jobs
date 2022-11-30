@@ -219,7 +219,7 @@ function ForgotPassword(){
                                         pauseOnHover: true,
                                         draggable: true,
                                         progress: undefined,
-                                        theme: "dark",
+                                        theme: "light",
                                     }),
                                     toast.warn('Tente novamente', {
                                         position: "top-center",
@@ -229,7 +229,7 @@ function ForgotPassword(){
                                         pauseOnHover: true,
                                         draggable: true,
                                         progress: undefined,
-                                        theme: "dark",
+                                        theme: "light",
                                     })
                                 )
                             }

@@ -68,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
     },
     imagePreview: {
         width: '100%',
+        height: '100%'
     },
     editor: {
         width: '100%',
@@ -109,7 +110,7 @@ function PostPreview() {
                 </Box>
                 <Box>
                     <Typography variant="body1">{account.user?.name}</Typography>
-                    <Typography variant="body2" color="textSecondary">10 meses atrás</Typography>
+                    <Typography variant="body2" color="textSecondary">Alguns segundos átras</Typography>
                 </Box>
             </Box>
             <Box className={classes.box4}>

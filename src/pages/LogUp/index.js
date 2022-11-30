@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from 'yup';
 import { toast } from "react-toastify";
+import './styles.css';
 
 //import axios from '../../utils/axios';
 //import axios from "axios";
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     image: {
-        backgroundImage: 'url(/images/loginbackground.jpg)',
+        backgroundImage: 'url(/images/background/background2.png)',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'none',
@@ -164,11 +165,11 @@ function LogUp(){
             alignItems="center" 
             md={7}
             className={classes.image}>
-            <Typography style={{color: '#fff', fontSize: 35, lineHeight: '45px'}}>
-                <strong>Simplificando a forma de conectar desenvolvedores de Software !</strong>
+            <Typography style={{color: '#fff', fontSize: 35, lineHeight: '45px'}} class="title">
+                <strong>Simplificando a forma de conectar profissionais de diversas áreas !</strong>
             </Typography>
-            <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 15, lineHeight: '30px'}}>
-                Compartilhe seu conhecimento com toda nossa rede de desenvolvedores de software.
+            <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 15, lineHeight: '30px'}} class="title2">
+                Compartilhe seu conhecimento com toda nossa rede de profissionais.
             </Typography>
         </Grid>
         <Grid item md={5}>
@@ -206,7 +207,7 @@ function LogUp(){
                                 pauseOnHover: true,
                                 draggable: true,
                                 progress: undefined,
-                                theme: "dark",
+                                theme: "light",
                             })
                             toast.info('Logue-se pela página de login para entrar em sua conta', {
                                 position: "top-center",
@@ -216,7 +217,7 @@ function LogUp(){
                                 pauseOnHover: true,
                                 draggable: true,
                                 progress: undefined,
-                                theme: "dark",
+                                theme: "light",
                             })
                             // await authService.logIn(email, password);
                             // // HTTP 200 - Código de Página "OK"

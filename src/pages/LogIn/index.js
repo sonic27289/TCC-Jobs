@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from 'yup';
 import { toast } from "react-toastify";
+import './styles.css';
 
 //import axios from '../../utils/axios';
 //import axios from "axios";
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     image: {
-        backgroundImage: 'url(/images/background/background2.png)',
+        backgroundImage: 'url(/images/background/background5.png)',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'none',
@@ -164,10 +165,10 @@ function LogIn(){
             alignItems="center" 
             md={7}
             className={classes.image}>
-            <Typography style={{color: '#fff', fontSize: 30, lineHeight: '45px'}}>
+            <Typography style={{color: '#fff', fontSize: 30, lineHeight: '45px'}} class="title">
                 <strong>JOBS é uma rede social que busca conectar jovens indecisos na sua carreira profissional e profissionais disponíveis a ajuda-los.</strong>
             </Typography>
-            <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 18, lineHeight: '30px'}}>
+            <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 18, lineHeight: '30px'}} class="title2">
                 Compartilhe e busque conhecimento com toda a nossa rede de profissionais e jovens em ascensão.
             </Typography>
         </Grid>
@@ -204,7 +205,7 @@ function LogIn(){
                                 pauseOnHover: true,
                                 draggable: true,
                                 progress: undefined,
-                                theme: "dark",
+                                theme: "light",
                             })
                             // await authService.logIn(email, password);
                             // // HTTP 200 - Código de Página "OK"
