@@ -1,6 +1,8 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from "@material-ui/core/styles";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 //import GuestRoute from "./routes/authenticatedRoute";
 import Home from "./pages/Home";
@@ -37,6 +39,19 @@ function App() {
 
   return (
       <ThemeProvider theme={createCurrentTheme(settings)}>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          >
+      </ToastContainer>
         <RouterProvider router={router}/>
       {/* <BrowserRouter>
         <Routes>

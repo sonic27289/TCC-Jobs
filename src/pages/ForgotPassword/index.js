@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from 'yup';
 import Header from "./Header2";
+import { toast } from "react-toastify";
 
 //import axios from '../../utils/axios';
 //import axios from "axios";
@@ -23,6 +24,7 @@ import { useNavigate } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 
 import { forgotPassword } from "../../actions/accountActions";
+//import { Snackbar } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -87,6 +89,11 @@ const useStyles = makeStyles((theme) => ({
     // }
 }));
 
+// const buttons = [
+//     { variant: 'sucess', message:"Sucesso"},
+//     { variant: 'false', message: "Erro" }
+// ]
+
 
 
 function Copyright(){
@@ -108,6 +115,7 @@ function ForgotPassword(){
     // const [password, setPassword] = useState('');
     // const [errorMessage, setErrorMessage] = useState();
     const dispatch = useDispatch();
+    
 
     //const account = useSelector(state => state.user)
     //console.log(account);
@@ -201,7 +209,32 @@ function ForgotPassword(){
                     }) => {
                         try {
                             await dispatch(forgotPassword(values.email));
-                            navigate('/login');
+                            if(values.email !== 'sonic27289@gmail.com'){
+                                return (
+                                    toast.error('Não foi possivel encontrar uma conta com esse e-mail', {
+                                        position: "top-center",
+                                        autoClose: 5000,
+                                        hideProgressBar: false,
+                                        closeOnClick: true,
+                                        pauseOnHover: true,
+                                        draggable: true,
+                                        progress: undefined,
+                                        theme: "dark",
+                                    }),
+                                    toast.warn('Tente novamente', {
+                                        position: "top-center",
+                                        autoClose: 5000,
+                                        hideProgressBar: false,
+                                        closeOnClick: true,
+                                        pauseOnHover: true,
+                                        draggable: true,
+                                        progress: undefined,
+                                        theme: "dark",
+                                    })
+                                )
+                            }
+                            navigate('/login')
+                            
                             // await authService.logIn(email, password);
                             // // HTTP 200 - Código de Página "OK"
                             // navigate('/');

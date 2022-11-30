@@ -21,7 +21,7 @@ const logIn = (email, password) => {
 
 const forgotPassword = (email) => {
     return async (dispatch) => {
-        const user = await authService.forgotPassword(email)
+        const user = await forgotPassword(email)
         
         dispatch({
             type: FORGOTPASSWORD,
