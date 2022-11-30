@@ -41,7 +41,7 @@ function App() {
       <ThemeProvider theme={createCurrentTheme(settings)}>
         <ToastContainer
           position="top-center"
-          autoClose={5000}
+          autoClose={7000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick

@@ -213,7 +213,7 @@ function ForgotPassword(){
                                 return (
                                     toast.error('Não foi possivel encontrar uma conta com esse e-mail', {
                                         position: "top-center",
-                                        autoClose: 5000,
+                                        autoClose: 7000,
                                         hideProgressBar: false,
                                         closeOnClick: true,
                                         pauseOnHover: true,
@@ -223,7 +223,7 @@ function ForgotPassword(){
                                     }),
                                     toast.warn('Tente novamente', {
                                         position: "top-center",
-                                        autoClose: 5000,
+                                        autoClose: 7000,
                                         hideProgressBar: false,
                                         closeOnClick: true,
                                         pauseOnHover: true,
@@ -233,8 +233,9 @@ function ForgotPassword(){
                                     })
                                 )
                             }
-                            navigate('/login')
-                            
+                            toast.success('Conta localizada')
+                            toast.info('Enviaremos um e-mail com instruções para redefinir sua senha')
+                            navigate('/feed')
                             // await authService.logIn(email, password);
                             // // HTTP 200 - Código de Página "OK"
                             // navigate('/');

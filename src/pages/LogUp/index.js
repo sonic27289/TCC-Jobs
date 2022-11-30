@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import LockOpenIcon from "@material-ui/icons/LockOpen";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link"
@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 //import { useSelector } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from 'yup';
+import { toast } from "react-toastify";
 
 //import axios from '../../utils/axios';
 //import axios from "axios";
@@ -173,10 +174,10 @@ function LogUp(){
         <Grid item md={5}>
             <Box className={classes.box}>
                 <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon></LockOutlinedIcon>
+                    <LockOpenIcon></LockOpenIcon>
                 </Avatar>
                 <Typography variant="h5">
-                    <b>Acesso: </b>
+                    <b>Registre-se: </b>
                 </Typography>
                 <Formik
                     initialValues={{
@@ -197,6 +198,26 @@ function LogUp(){
                         try {
                             await dispatch(logUp(values.fullName, values.email, values.password));
                             navigate('/');
+                            toast.success('Conta criada com Sucesso', {
+                                position: "top-center",
+                                autoClose: 7000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "dark",
+                            })
+                            toast.info('Logue-se pela página de login para entrar em sua conta', {
+                                position: "top-center",
+                                autoClose: 7000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "dark",
+                            })
                             // await authService.logIn(email, password);
                             // // HTTP 200 - Código de Página "OK"
                             // navigate('/');

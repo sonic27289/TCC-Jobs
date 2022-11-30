@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 //import { useSelector } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from 'yup';
+import { toast } from "react-toastify";
 
 //import axios from '../../utils/axios';
 //import axios from "axios";
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     image: {
-        backgroundImage: 'url(/images/loginbackground.jpg)',
+        backgroundImage: 'url(/images/background/background2.png)',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'none',
@@ -163,11 +164,11 @@ function LogIn(){
             alignItems="center" 
             md={7}
             className={classes.image}>
-            <Typography style={{color: '#fff', fontSize: 35, lineHeight: '45px'}}>
-                <strong>Simplificando a forma de conectar desenvolvedores de Software !</strong>
+            <Typography style={{color: '#fff', fontSize: 30, lineHeight: '45px'}}>
+                <strong>JOBS é uma rede social que busca conectar jovens indecisos na sua carreira profissional e profissionais disponíveis a ajuda-los.</strong>
             </Typography>
-            <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 15, lineHeight: '30px'}}>
-                Compartilhe seu conhecimento com toda nossa rede de desenvolvedores de software.
+            <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 18, lineHeight: '30px'}}>
+                Compartilhe e busque conhecimento com toda a nossa rede de profissionais e jovens em ascensão.
             </Typography>
         </Grid>
         <Grid item md={5}>
@@ -195,6 +196,16 @@ function LogIn(){
                         try {
                             await dispatch(logIn(values.email, values.password));
                             navigate('/');
+                            toast.success('Logado com Sucesso', {
+                                position: "top-center",
+                                autoClose: 3000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "dark",
+                            })
                             // await authService.logIn(email, password);
                             // // HTTP 200 - Código de Página "OK"
                             // navigate('/');
