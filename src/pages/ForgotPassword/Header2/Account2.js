@@ -1,21 +1,24 @@
 import React, { useState, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Avatar from "@material-ui/core/Avatar";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { useNavigate } from "react-router";
+//import { makeStyles } from "@material-ui/core/styles";
 
-
-import { logOut } from "../../../../actions/accountActions";
+// const useStyles = makeStyles({
+//     avatar: {
+        
+//     }
+// });
 
 function Account(){
     const account = useSelector((state) => state.account);
     const [isOpen, setOpen] = useState(false);
     const ref = useRef();
-    const dispatch = useDispatch();
     const navigate = useNavigate();
+    //const classes = useStyles();
 
-    const isAuthenticated = !!account.user
 
     const handleOpen = () => {
         setOpen(true);
@@ -25,12 +28,6 @@ function Account(){
         setOpen(false);
     }
 
-    const handleLogOut = () => {
-        handleClose();
-
-        dispatch(logOut());
-        navigate('/');
-    }
 
     const handleLogIn = () => {
         handleClose();
@@ -44,12 +41,6 @@ function Account(){
         navigate('/logup');
     }
 
-    const handleProfile = () => {
-        handleClose();
-
-        navigate(`/${account.user?.username}`);
-    }
-
     return (
         <>
             <Avatar 
@@ -59,26 +50,6 @@ function Account(){
             src={account.user && account.user.avatar}
             >
             </Avatar>
-            {
-            isAuthenticated
-            ?
-            <Menu
-                anchorEl={ref.current}
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'center'
-                }}
-                open={isOpen}
-                onClose={handleClose}
-                getContentAnchorEl={null}
-            >
-                <MenuItem onClick={handleProfile}>Perfil</MenuItem>
-                <MenuItem>Meus Favoritos</MenuItem>
-                <MenuItem>Meus Posts</MenuItem>
-                <MenuItem>Minhas Conexões</MenuItem>
-                <MenuItem onClick={handleLogOut} >Sair</MenuItem>
-            </Menu>
-            :
             <Menu
                 anchorEl={ref.current}
                 anchorOrigin={{
@@ -92,7 +63,6 @@ function Account(){
                 <MenuItem onClick={handleLogIn}>Entrar</MenuItem>
                 <MenuItem onClick={handleLogUp}>Se Registrar</MenuItem>
             </Menu>
-        }
         </>
     )
 }

@@ -23,6 +23,26 @@ class AuthService {
         })
     }
 
+    forgotPassword = (email) => {
+
+        // Promise é um objeto usado para processamento assíncrono. 
+        // Uma Promise (de "promessa") representa um valor que pode estar disponível agora, no futuro ou nunca.
+        return new Promise((resolve, reject) => {
+            axios.post('/api/recuperarsenha', {email}) //enviando token pelo header da aplicação
+            .then(response => {
+                const token = response.data.token;
+                if (token){
+                    this.setToken(token)
+                    const user = decode(token);
+                    resolve(user)
+                }
+            })
+            .catch(error => {
+                reject(error)
+            })
+        })
+    }
+
     logUp = (fullName, email, password) => {
 
     }

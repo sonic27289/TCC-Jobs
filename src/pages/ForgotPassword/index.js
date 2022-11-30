@@ -3,11 +3,12 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+//import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link"
 import FormHelperText from '@material-ui/core/FormHelperText';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
 //import authService from "../../services/authService";
 import { useDispatch } from "react-redux";
 //import { useSelector } from "react-redux";
@@ -21,7 +22,7 @@ import Header from "./Header2";
 import { useNavigate } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 
-import { logIn } from "../../actions/accountActions";
+import { forgotPassword } from "../../actions/accountActions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -100,7 +101,7 @@ function Copyright(){
     )
 }
 
-function LogIn(){
+function ForgotPassword(){
     const classes = useStyles();
     const navigate = useNavigate();
     // const [email, setEmail] = useState('');
@@ -178,19 +179,20 @@ function LogIn(){
         <Grid item className={classes.grid}>
             <Box className={classes.box}>
                 <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon></LockOutlinedIcon>
+                    <VpnKeyIcon></VpnKeyIcon>
                 </Avatar>
-                <Typography variant="h5">
-                    <b>Acesso: </b>
+                <Typography variant="h4">
+                    <b>Encontre sua Conta: </b>
+                </Typography>
+                <Typography variant="h6">
+                    Insira seu email para procurar a sua conta.
                 </Typography>
                 <Formik
                     initialValues={{
                         email: '',
-                        password: ''
                     }}
                     validationSchema={Yup.object().shape({
                         email: Yup.string().email("Favor informar um e-mail válido.").max(255).required("Favor informar o e-mail"),
-                        password: Yup.string().max(255).required("Favor informar a senha")
                     })}
                     onSubmit={async (values, {
                         setErrors,
@@ -198,8 +200,8 @@ function LogIn(){
                         setSubmitting
                     }) => {
                         try {
-                            await dispatch(logIn(values.email, values.password));
-                            navigate('/');
+                            await dispatch(forgotPassword(values.email));
+                            navigate('/login');
                             // await authService.logIn(email, password);
                             // // HTTP 200 - Código de Página "OK"
                             // navigate('/');
@@ -231,7 +233,7 @@ function LogIn(){
                                     helperText={errors.email}
                                 >
                                 </TextField>
-                                <TextField
+                                {/* <TextField
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -246,14 +248,14 @@ function LogIn(){
                                     onChange={handleChange}
                                     helperText={errors.password}
                                 >
-                                </TextField>
+                                </TextField> */}
                                 <Button fullWidth
                                     variant="contained"
                                     color="primary"
                                     className={classes.button}
                                     type="submit"
                                     disabled={isSubmitting}
-                                    >Entrar
+                                    >Procurar
                                 </Button>
                                 {
                                     errors.submit &&
@@ -266,7 +268,7 @@ function LogIn(){
                                         <Link href="/logup">Não tem uma conta? Registre-se</Link>
                                     </Grid>
                                     <Grid item>
-                                        <Link href="/recuperarsenha">Esqueceu sua senha?</Link>
+                                        <Link href="/login">Ja possui uma conta? Logue-se</Link>
                                     </Grid>
                                 </Grid>
                     </form>
@@ -301,4 +303,4 @@ function LogIn(){
     )
 }
 
-export default LogIn;
+export default ForgotPassword;
