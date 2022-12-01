@@ -10,11 +10,15 @@ function Posts() {
 
   useEffect(() => {
     async function fetchPosts() {
-      const response = await http.get(`/api/posts/user/${params.username}`);
-      setPosts(response.data.posts1);
+      try {
+        const response = await http.get(`/api/posts/user/${params.username}`);
+        setPosts(response.data.posts1);
+      } catch(error) {
+        console.log(error)
+      }
     }
     fetchPosts();
-  });
+  }, [params]);
 
   return (
     <div>
