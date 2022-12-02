@@ -19,7 +19,7 @@ function Feed(){
     const [posts, setPosts] = useState([]);
 
     const getPosts = useCallback(async () => {
-    const feed = await axios.get('/api/');
+    const feed = await axios.get('/api/feed');
     setPosts(feed.data.posts);
   }, [setPosts]);
 

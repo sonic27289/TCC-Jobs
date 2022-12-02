@@ -67,7 +67,7 @@ mock.onGet('/api/home/user/sonic27289').reply(200, {
     tags: 'react.js, front-end, javascript'
 });
 
-mock.onGet('/api/home/user/sonic272891').reply(200, {
+mock.onGet('/api/home/user/jacksonomagico').reply(200, {
     id: 1,
     name: 'Gustavo Barbosa',
     username: 'sonic272891',

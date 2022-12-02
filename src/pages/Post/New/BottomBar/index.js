@@ -47,7 +47,7 @@ function BottomBar(){
                 theme: 'light'
                 }  
         ),
-        navigate('/login')
+        navigate('/feed')
         )
     }
     
