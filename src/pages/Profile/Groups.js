@@ -19,10 +19,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Connection() {
+function Groups() {
   const classes = useStyles();
   const params = useParams();
-  const [followers, setFollowers] = useState([]);
+  const [following, setFollowing] = useState([]);
   const [user, setUser] = useState([]);
 
   useEffect(() => {
@@ -36,21 +36,21 @@ function Connection() {
   }, [params]);
 
   useEffect(() => {
-    async function fetchFollowers() {
+    async function fetchFollowing() {
       try {
         const response = await http.get(
-          `/api/connections/followers/${params.username}`,
+          `/api/connections/groups/${params.username}`,
         );
-        setFollowers(response.data.followers);
+        setFollowing(response.data.following);
       } catch (error) {}
     }
-    fetchFollowers();
+    fetchFollowing();
   }, [params]);
 
   return (
     <List dense className={classes.root}>
-      <ListSubheader>Seguidores ({user.followers})</ListSubheader>
-      {followers.map((value) => {
+      <ListSubheader>Grupos ({user.groups})</ListSubheader>
+      {following.map((value) => {
         const labelId = `checkbox-list-secondary-label-${value}`;
         return (
           <ListItem key={value} button>
@@ -59,7 +59,7 @@ function Connection() {
             </ListItemAvatar>
             <ListItemText id={labelId} primary={value.user.username} />
             <ListItemSecondaryAction>
-              {!value.following && <Button>Seguir</Button>}
+              <Button>Deixar de participar</Button>
             </ListItemSecondaryAction>
           </ListItem>
         );
@@ -68,4 +68,4 @@ function Connection() {
   );
 }
 
-export default Connection;
+export default Groups;

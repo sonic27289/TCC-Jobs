@@ -23,6 +23,17 @@ function Connection() {
   const classes = useStyles();
   const params = useParams();
   const [following, setFollowing] = useState([]);
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        const response = await http.get(`/api/home/user/${params.username}`);
+        setUser(response.data);
+      } catch (error) {}
+    }
+    fetchUser();
+  }, [params]);
 
   useEffect(() => {
     async function fetchFollowing() {
@@ -38,7 +49,7 @@ function Connection() {
 
   return (
     <List dense className={classes.root}>
-      <ListSubheader>Seguindo (4)</ListSubheader>
+      <ListSubheader>Seguindo ({user.following})</ListSubheader>
       {following.map((value) => {
         const labelId = `checkbox-list-secondary-label-${value}`;
         return (

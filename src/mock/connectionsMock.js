@@ -85,3 +85,17 @@ mock.onGet('/api/connections/following/sonic27289').reply(200, {
     },
   ],
 });
+
+mock.onGet('/api/connections/groups/sonic27289').reply(200, {
+  following: [
+    {
+      id: 1,
+      user: {
+        id: 1,
+        name: 'IFSP',
+        username: 'Instituto Federal de Educação, Ciência e Tecnologia de São Paulo',
+        avatar: '/images/avatars/ifsp.png',
+      },
+    },
+  ],
+});

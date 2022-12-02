@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import AccountProfile from "./AccountProfile";
 import Posts from "./Posts";
 import Connections from "./Connections";
+import Groups from "./Groups";
 
 const useStyles = makeStyles((theme) => ({
    root: {
@@ -62,12 +63,16 @@ function Profile() {
                         <Tabs value={tab} onChange={handleChange}>
                             <Tab label="Posts" color="primary" textColor="primary"></Tab>
                             <Tab label="Conexões" color="primary" textColor="primary"></Tab>
+                            <Tab label="Grupos" color="primary" textColor="primary"></Tab>
                         </Tabs>
                         <TabPanel value={tab} index={0}>
                                 <Posts></Posts>
                         </TabPanel>
                         <TabPanel value={tab} index={1}>
                                 <Connections></Connections>
+                        </TabPanel>
+                        <TabPanel value={tab} index={2}>
+                                <Groups></Groups>
                         </TabPanel>
                         </Grid>
                     </Grid>

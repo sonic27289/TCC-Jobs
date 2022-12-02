@@ -175,3 +175,24 @@ mock.onGet('/api/posts/user/sonic27289').reply(200, {
     }
   ],
 });
+
+mock.onGet('/api/posts/user/jacksonomagico').reply(200, {
+  posts1: [
+    {
+      id: 1,
+      title:
+        'TESTE',
+      slug: 'como-melhorar-seu-codigo-javascript',
+      date: moment().subtract(1, 'day').toDate().getTime(),
+      author: {
+        id: 1,
+        name: 'Gustavo Barbosa',
+        avatar: '/images/avatars/iconeperfil.jpg',
+      },
+      tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
+      image: '/images/posts/imagempost1.jpg',
+      likes: 10,
+      comments: 30,
+    },
+  ],
+});
