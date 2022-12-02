@@ -59,12 +59,17 @@ mock.onGet('/api/home/user/sonic27289').reply(200, {
     joinedIn: '05 de dezembro, 2022',
     work: 'Desenvolvedor Front-End',
     totalPost: '04',
+    totalFollowers: '01',
+    totalFollowing: '01',
+    avaliations: '01',
+    apresentation: 'Bem vindo ao meu perfil, meu nome é Gustavo Barbosa, minhas especialidades são HTML, CSS, Javascript, Typescript, React JS, PHP e SQL, sendo elas as minhas principais linguagens de programação. Também já trabalhei com XML, ASP.NET, Velocity, Java e estudei C#, C++, C e JavaWeb na universidade. Se eu puder ajudar, certamente o farei, se não puder, encontrarei uma maneira de ajudar.',
+    tags: 'react.js, front-end, javascript'
 });
 
 mock.onGet('/api/home/user/sonic272891').reply(200, {
     id: 1,
     name: 'Gustavo Barbosa',
-    username: 'sonic27289',
+    username: 'sonic272891',
     email: 'sonic27289@gmail.com',
     acessToken: 'token',
     avatar: '/images/avatars/iconeperfil.jpg',

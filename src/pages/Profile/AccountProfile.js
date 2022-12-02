@@ -11,11 +11,19 @@ import {
 } from '@material-ui/core';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import http from '../../utils/axios';
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+  input: {
+    display: 'none',
+  },
   card: {
     marginBottom: theme.spacing(2),
   },
@@ -50,6 +58,20 @@ const AccountProfile = (props) => {
   const params = useParams();
   const [user, setUser] = useState([]);
   const currentUser = useSelector((state) => state.account.user);
+  const [flag, setFlag] = React.useState(true);
+  const handleClick = () => {
+    setFlag(!flag);
+  };
+  const notify = () => toast.success('A foto será removida em alguns instantes', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light"
+});
 
   useEffect(() => {
     async function fetchUser() {
@@ -101,7 +123,7 @@ const AccountProfile = (props) => {
                   color="textSecondary"
                   variant="body1"
                 >
-                  23.5k
+                  {user.totalFollowers}
                 </Typography>
               </div>
               <div className={classes.userInfo}>
@@ -117,7 +139,7 @@ const AccountProfile = (props) => {
                   color="textSecondary"
                   variant="body1"
                 >
-                  105
+                  {user.totalFollowing}
                 </Typography>
               </div>
               <div className={classes.userInfo}>
@@ -133,15 +155,15 @@ const AccountProfile = (props) => {
                   color="textSecondary"
                   variant="body1"
                 >
-                  388
+                  {user.avaliations}
                 </Typography>
               </div>
             </div>
             <Avatar className={classes.avatar} src={user.avatar} />
           </div>
           {!isCurrentUser && (
-            <Button variant="contained" color="primary">
-              Seguir
+            <Button variant="contained" color={flag ? "primary" : "default"} onClick={handleClick}>
+              {flag ? "Seguir" : "Seguindo"}
             </Button>
           )}
         </CardContent>
@@ -149,14 +171,19 @@ const AccountProfile = (props) => {
           <>
             <Divider />
             <CardActions>
-              <Button
-                className={classes.uploadButton}
-                color="primary"
-                variant="text"
-              >
+            <input
+              accept="image/*"
+              className={classes.input}
+              id="contained-button-file"
+              multiple
+              type="file"
+            />
+            <label htmlFor="contained-button-file">
+              <Button variant="text" color="primary" component="span" className={classes.uploadButton}>
                 Alterar foto
               </Button>
-              <Button variant="text">Remover foto</Button>
+            </label>
+              <Button variant="text" onClick={notify}>Remover foto</Button>
             </CardActions>
           </>
         )}
@@ -185,19 +212,10 @@ const AccountProfile = (props) => {
               color="textSecondary"
               variant="caption"
             >
-              Bio
+              Apresentação
             </Typography>
             <Typography variant="body1">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+              {user.apresentation}
             </Typography>
           </div>
           <div>
@@ -246,7 +264,7 @@ const AccountProfile = (props) => {
                 color="textSecondary"
                 variant="body1"
               >
-                #reactjs, #dotnetcore, #webdev
+                {user.tags}
               </Typography>
             </div>
           </div>

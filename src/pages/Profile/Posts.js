@@ -14,9 +14,21 @@ function Posts() {
         const response = await http.get(`/api/posts/user/${params.username}`);
         setPosts(response.data.posts1);
       } catch(error) {
-        toast.error('Ocorreu um erro, não foi possível carregar os posts deste usuário', {
+        toast.info('Este usuário não possui posts ou conexões', {
           position: "top-center",
           autoClose: 7000,
+          limit: 1,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
+        toast.error('Ocorreu um erro, este usuário não existe', {
+          position: "top-center",
+          autoClose: 7000,
+          limit: 1,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
