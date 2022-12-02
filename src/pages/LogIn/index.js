@@ -92,7 +92,7 @@ function Copyright(){
         <Typography variant="body2" align="center">
             {'Copyright © '}
             <a color="inherit" href="/login">
-                Gustavo Barbosa
+                TCC - HetoJobs
             </a>{' '}
             {new Date().getFullYear()} 
         </Typography>

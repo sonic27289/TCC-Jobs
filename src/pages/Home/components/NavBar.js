@@ -7,6 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 import './styles.css';
 
@@ -29,6 +30,18 @@ const tags = [
     { id: 5, name: 'reactjs'},
     { id: 6, name: 'reactjs'}
 ]
+
+const notify = () => toast.info('Não existe mais tags a serem exibidas', {
+    position: "top-center",
+    autoClose: 7000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+});
+
 
 function NavBar(){
     const classes = useStyles();
@@ -54,7 +67,7 @@ function NavBar(){
                     </ListItem>
                 ))
             }
-            <ListItem button>
+            <ListItem button onClick={notify}>
                 Exibir mais Tags
             </ListItem>
         </Paper>
