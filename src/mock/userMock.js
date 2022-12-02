@@ -71,13 +71,21 @@ mock.onGet('/api/home/user/sonic27289').reply(200, {
 });
 
 mock.onGet('/api/home/user/jacksonomagico').reply(200, {
-    id: 1,
-    name: 'Gustavo Barbosa',
+    id: 2,
+    name: 'Jackson Lima Gregório',
     username: 'jacksonomagico',
-    email: 'sonic27289@gmail.com',
-    acessToken: 'token',
-    avatar: '/images/avatars/iconeperfil.jpg',
-    joinedIn: '05 de dezembro, 2022',
+    email: 'teste@gmail.com',
+    acessToken: 'teste',
+    avatar: '/images/avatars/iconeperfil4.jpg',
+    joinedIn: '13 de dezembro, 2022',
     work: 'Desenvolvedor Front-End',
+    followers: '01',
+    following: '01',
+    groups: '01',
     totalPost: '04',
+    totalFollowers: '01',
+    totalFollowing: '01',
+    avaliations: '01',
+    apresentation: 'Bem vindo ao meu perfil, meu nome é Gustavo Barbosa, minhas especialidades são HTML, CSS, Javascript, Typescript, React JS, PHP e SQL, sendo elas as minhas principais linguagens de programação. Também já trabalhei com XML, ASP.NET, Velocity, Java e estudei C#, C++, C e JavaWeb na universidade. Se eu puder ajudar, certamente o farei, se não puder, encontrarei uma maneira de ajudar.',
+    tags: 'react.js, front-end, javascript'
 });
