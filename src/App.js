@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   { path: "/logup", element: <LogUp></LogUp>, loader: redirectIfLogged },
   { path: "/:username", element: <Profile></Profile>},
   { path: "/login", element: <LogIn></LogIn>, loader: redirectIfLogged },
-  { path: "/login2", element: <LogIn2></LogIn2>, loader: redirectIfLogged },
+  { path: "/Iogin", element: <LogIn2></LogIn2>, loader: redirectIfLogged },
   { path: "/post/new", element: <NewPost></NewPost>},
   { path: "/post/:slug", element: <Post></Post>},
   { path: "/recuperarsenha", element: <ForgotPassword></ForgotPassword>},

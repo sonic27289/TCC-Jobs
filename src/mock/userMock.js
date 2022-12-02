@@ -29,7 +29,7 @@ mock.onPost('api/login').reply((config) => {
     return[200, { token }]
 });
 
-mock.onPost('api/login2').reply((config) => {
+mock.onPost('api/Iogin').reply((config) => {
     //console.log(config);
     const { email, password } = JSON.parse(config.data);
     //console.log(email, password);

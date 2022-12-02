@@ -28,7 +28,7 @@ class AuthService {
         // Promise é um objeto usado para processamento assíncrono. 
         // Uma Promise (de "promessa") representa um valor que pode estar disponível agora, no futuro ou nunca.
         return new Promise((resolve, reject) => {
-            axios.post('/api/login2', {email, password}) //enviando token pelo header da aplicação
+            axios.post('/api/Iogin', {email, password}) //enviando token pelo header da aplicação
             .then(response => {
                 const token2 = response.data.token2;
                 if (token2){
