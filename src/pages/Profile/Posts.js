@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { toast } from 'react-toastify';
 import http from '../../utils/axios';
 import PostCard from '../../components/PostCard';
 
@@ -14,7 +14,16 @@ function Posts() {
         const response = await http.get(`/api/posts/user/${params.username}`);
         setPosts(response.data.posts1);
       } catch(error) {
-        console.log(error)
+        toast.error('Ocorreu um erro, não foi possível carregar os posts deste usuário', {
+          position: "top-center",
+          autoClose: 7000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
       }
     }
     fetchPosts();
