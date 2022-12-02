@@ -107,7 +107,7 @@ const AccountProfile = (props) => {
                   color="textSecondary"
                   variant="body1"
                 >
-                  {user.totalPost}
+                  {`${user.totalPost}`}
                 </Typography>
               </div>
               <div className={classes.userInfo}>
@@ -123,7 +123,7 @@ const AccountProfile = (props) => {
                   color="textSecondary"
                   variant="body1"
                 >
-                  {user.totalFollowers}
+                  {`${user.totalFollowers}`}
                 </Typography>
               </div>
               <div className={classes.userInfo}>
@@ -139,7 +139,7 @@ const AccountProfile = (props) => {
                   color="textSecondary"
                   variant="body1"
                 >
-                  {user.totalFollowing}
+                  {`${user.totalFollowing}`}
                 </Typography>
               </div>
               <div className={classes.userInfo}>
@@ -155,7 +155,7 @@ const AccountProfile = (props) => {
                   color="textSecondary"
                   variant="body1"
                 >
-                  {user.avaliations}
+                  {`${user.avaliations}`}
                 </Typography>
               </div>
             </div>
@@ -203,7 +203,7 @@ const AccountProfile = (props) => {
               color="textSecondary"
               variant="body1"
             >
-              {user.name}
+              {`${user.name}`}
             </Typography>
           </div>
           <div className={classes.bio}>
@@ -215,7 +215,7 @@ const AccountProfile = (props) => {
               Apresentação
             </Typography>
             <Typography variant="body1">
-              {user.apresentation}
+            {`${user.apresentation}`}
             </Typography>
           </div>
           <div>
@@ -232,7 +232,7 @@ const AccountProfile = (props) => {
                 color="textSecondary"
                 variant="body1"
               >
-                {user.joinedIn}
+                {`${user.joinedIn}`}
               </Typography>
             </div>
             <div className={classes.userInfo}>
@@ -248,7 +248,7 @@ const AccountProfile = (props) => {
                 color="textSecondary"
                 variant="body1"
               >
-                {user.email}
+                {`${user.email}`}
               </Typography>
             </div>
             <div className={classes.userInfo}>
@@ -264,7 +264,7 @@ const AccountProfile = (props) => {
                 color="textSecondary"
                 variant="body1"
               >
-                {user.tags}
+                {`${user.tags}`}
               </Typography>
             </div>
           </div>

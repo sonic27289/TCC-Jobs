@@ -53,7 +53,7 @@ function Header(){
         <AppBar position="fixed" color="inherit" className={classes.appbar}>
         <Toolbar>
             <Link to="/">
-                <img src={theme.darkMode ? "/images/logoexemplo-branca.jpg" : "/images/logoexemplo.jpg" }alt="logo" className={classes.img}></img> 
+                <img src={theme.darkMode ? "/images/logo/logoexemplo.jpg" : "/images/logo/logoexemplo.jpg" }alt="logo" className={classes.img}></img> 
             </Link>
             <div className={classes.grow}></div>
             <div className={classes.userSection}>

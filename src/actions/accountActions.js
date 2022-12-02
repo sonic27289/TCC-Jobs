@@ -19,6 +19,19 @@ const logIn = (email, password) => {
     }
 }
 
+const logIn2 = (email, password) => {
+    return async (dispatch) => {
+        const user = await authService.logIn2(email, password)
+        
+        dispatch({
+            type: LOGIN_SUCCESS,
+            payload: {
+                user
+            }
+        })
+    }
+}
+
 const forgotPassword = (email) => {
     return async (dispatch) => {
         const user = await forgotPassword(email)
@@ -55,4 +68,4 @@ const logOut = () => {
     }
 }
 
-export { logIn, logUp, logOut, forgotPassword };
+export { logIn, logIn2, logUp, logOut, forgotPassword };

@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 //import GuestRoute from "./routes/authenticatedRoute";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
+import LogIn2 from "./pages/LogIn2";
 import NewPost from "./pages/Post/New";
 import Post from "./pages/Post";
 import Profile from "./pages/Profile";
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
   { path: "/logup", element: <LogUp></LogUp>, loader: redirectIfLogged },
   { path: "/:username", element: <Profile></Profile>},
   { path: "/login", element: <LogIn></LogIn>, loader: redirectIfLogged },
+  { path: "/login2", element: <LogIn2></LogIn2>, loader: redirectIfLogged },
   { path: "/post/new", element: <NewPost></NewPost>},
   { path: "/post/:slug", element: <Post></Post>},
   { path: "/recuperarsenha", element: <ForgotPassword></ForgotPassword>},

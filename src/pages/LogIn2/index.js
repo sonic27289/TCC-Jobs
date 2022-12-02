@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link"
@@ -22,7 +22,7 @@ import './styles.css';
 import { useNavigate } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 
-import { logUp } from "../../actions/accountActions";
+import { logIn2 } from "../../actions/accountActions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     image: {
-        backgroundImage: 'url(/images/background/background2.png)',
+        backgroundImage: 'url(/images/background/background5.png)',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'none',
@@ -91,7 +91,7 @@ function Copyright(){
     return (
         <Typography variant="body2" align="center">
             {'Copyright © '}
-            <a color="inherit" href="/login2">
+            <a color="inherit" href="/login">
                 TCC - HetoJobs
             </a>{' '}
             {new Date().getFullYear()} 
@@ -99,7 +99,7 @@ function Copyright(){
     )
 }
 
-function LogUp(){
+function LogIn2(){
     const classes = useStyles();
     const navigate = useNavigate();
     // const [email, setEmail] = useState('');
@@ -165,29 +165,27 @@ function LogUp(){
             alignItems="center" 
             md={7}
             className={classes.image}>
-            <Typography style={{color: '#fff', fontSize: 35, lineHeight: '45px'}} class="title">
-                <strong>Simplificando a forma de conectar profissionais de diversas áreas !</strong>
+            <Typography style={{color: '#fff', fontSize: 30, lineHeight: '45px'}} class="title">
+                <strong>JOBS é uma rede social que busca conectar jovens indecisos na sua carreira profissional e profissionais disponíveis a ajuda-los.</strong>
             </Typography>
-            <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 15, lineHeight: '30px'}} class="title2">
-                Compartilhe seu conhecimento com toda nossa rede de profissionais.
+            <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 18, lineHeight: '30px'}} class="title2">
+                Compartilhe e busque conhecimento com toda a nossa rede de profissionais e jovens em ascensão.
             </Typography>
         </Grid>
         <Grid item md={5}>
             <Box className={classes.box}>
                 <Avatar className={classes.avatar}>
-                    <LockOpenIcon></LockOpenIcon>
+                    <LockOutlinedIcon></LockOutlinedIcon>
                 </Avatar>
                 <Typography variant="h5">
-                    <b>Registre-se: </b>
+                    <b>Acesso: </b>
                 </Typography>
                 <Formik
                     initialValues={{
-                        fullName: '',
                         email: '',
                         password: ''
                     }}
                     validationSchema={Yup.object().shape({
-                        fullName: Yup.string().max(255).required("Favor informar o nome completo"),
                         email: Yup.string().email("Favor informar um e-mail válido.").max(255).required("Favor informar o e-mail"),
                         password: Yup.string().max(255).required("Favor informar a senha")
                     })}
@@ -197,21 +195,11 @@ function LogUp(){
                         setSubmitting
                     }) => {
                         try {
-                            await dispatch(logUp(values.fullName, values.email, values.password));
+                            await dispatch(logIn2(values.email, values.password));
                             navigate('/');
-                            toast.success('Conta criada com Sucesso', {
+                            toast.success('Logado com Sucesso', {
                                 position: "top-center",
-                                autoClose: 7000,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            })
-                            toast.info('Logue-se pela página de login para entrar em sua conta', {
-                                position: "top-center",
-                                autoClose: 7000,
+                                autoClose: 3000,
                                 hideProgressBar: false,
                                 closeOnClick: true,
                                 pauseOnHover: true,
@@ -234,22 +222,6 @@ function LogUp(){
                     {
                         ({errors, handleChange, handleSubmit, isSubmitting, values}) => (
                             <form noValidate className={classes.form} onSubmit={handleSubmit}>
-                                <TextField
-                                    variant="outlined"
-                                    margin="normal"
-                                    required
-                                    fullWidth
-                                    id="fullName"
-                                    label="Nome completo"
-                                    name="fullName"
-                                    autoComplete="fullName"
-                                    autoFocus
-                                    error={Boolean(errors.fullName)}
-                                    value={values.fullName}
-                                    onChange={handleChange}
-                                    helperText={errors.fullName}
-                                >
-                                </TextField>
                                 <TextField
                                     variant="outlined"
                                     margin="normal"
@@ -288,7 +260,7 @@ function LogUp(){
                                     className={classes.button}
                                     type="submit"
                                     disabled={isSubmitting}
-                                    >Registrar
+                                    >Entrar
                                 </Button>
                                 {
                                     errors.submit &&
@@ -298,7 +270,10 @@ function LogUp(){
                                 }
                                 <Grid container className={classes.container}>
                                     <Grid item>
-                                        <Link href="/login">Já possui uma conta? Clique aqui</Link>
+                                        <Link href="/logup">Não tem uma conta? Registre-se</Link>
+                                    </Grid>
+                                    <Grid item>
+                                        <Link href="/recuperarsenha">Esqueceu sua senha?</Link>
                                     </Grid>
                                 </Grid>
                     </form>
@@ -332,4 +307,4 @@ function LogUp(){
     )
 }
 
-export default LogUp;
+export default LogIn2;
