@@ -45,9 +45,9 @@ const forgotPassword = (email) => {
     }
 }
 
-const logUp = (fullName, email, password) => {
+const logUp = (fullName, username, email, password) => {
     return async (dispatch) => {
-        const user = await authService.logUp(fullName, email, password)
+        const user = await authService.logUp(fullName, username, email, password)
         
         dispatch({
             type: LOGUP,

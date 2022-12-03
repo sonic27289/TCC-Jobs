@@ -9,6 +9,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import http from '../../utils/axios';
 
@@ -24,6 +25,20 @@ function Groups() {
   const params = useParams();
   const [following, setFollowing] = useState([]);
   const [user, setUser] = useState([]);
+  const [flag, setFlag] = React.useState(true);
+  const handleClick = () => {
+    setFlag(!flag)
+    toast('Você saiu do Grupo', {
+      position: "top-right",
+      autoClose: 7000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    })
+  };
 
   useEffect(() => {
     async function fetchUser() {
@@ -59,7 +74,7 @@ function Groups() {
             </ListItemAvatar>
             <ListItemText id={labelId} primary={value.user.username} />
             <ListItemSecondaryAction>
-              <Button>Deixar de participar</Button>
+              <Button onClick={handleClick}>{flag ? "Sair do Grupo" : "Solicitar entrada pro Grupo"}</Button>
             </ListItemSecondaryAction>
           </ListItem>
         );

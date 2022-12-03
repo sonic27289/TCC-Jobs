@@ -99,3 +99,38 @@ mock.onGet('/api/connections/groups/sonic27289').reply(200, {
     },
   ],
 });
+
+mock.onGet('/api/connections/followers/jacksonomagico').reply(200, {
+  followers: [
+    {
+      id: 1,
+      user: {
+        id: 1,
+        name: 'Gustavo Barbosa da Silva',
+        username: 'sonic27289',
+        avatar: '/images/avatars/iconeperfil.jpg',
+      },
+      following: false,
+    },
+  ],
+});
+
+mock.onGet('/api/connections/following/jacksonomagico').reply(200, {
+  following: [
+    
+  ],
+});
+
+mock.onGet('/api/connections/groups/jacksonomagico').reply(200, {
+  following: [
+    {
+      id: 1,
+      user: {
+        id: 1,
+        name: 'IFSP',
+        username: 'Instituto Federal de Educação, Ciência e Tecnologia de São Paulo',
+        avatar: '/images/avatars/ifsp.png',
+      },
+    },
+  ],
+});

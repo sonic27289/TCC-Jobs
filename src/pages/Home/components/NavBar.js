@@ -18,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(2)
     },
     button: {
-        width: '100%'
+        width: '100%',
+        marginBottom: '15px'
     }
 }));
 
@@ -54,9 +55,14 @@ function NavBar(){
         <Paper className={classes.root}>
             {
                 !isAuthenticated && (
+                <>
+                <Button variant="outlined" color="primary" className={classes.button} onClick={() => navigate('/login')}>
+                    Logue em sua Conta
+                </Button>   
                 <Button variant="outlined" color="secondary" className={classes.button} onClick={() => navigate('/logup')}>
-                    Registrar Grátis
+                    Registre-se Grátis
                 </Button>
+                </>
                 )
             }
             <ListSubheader>{`Tags em Alta`}</ListSubheader>

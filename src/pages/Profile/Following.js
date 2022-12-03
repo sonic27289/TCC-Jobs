@@ -9,6 +9,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import http from '../../utils/axios';
 
@@ -24,6 +25,20 @@ function Connection() {
   const params = useParams();
   const [following, setFollowing] = useState([]);
   const [user, setUser] = useState([]);
+  const [flag, setFlag] = React.useState(true);
+  const handleClick = () => {
+    setFlag(!flag)
+    toast('Você não esta mais seguindo este usuário', {
+      position: "top-right",
+      autoClose: 7000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    })
+  };
 
   useEffect(() => {
     async function fetchUser() {
@@ -59,7 +74,7 @@ function Connection() {
             </ListItemAvatar>
             <ListItemText id={labelId} primary={value.user.username} />
             <ListItemSecondaryAction>
-              <Button>Deixar de seguir</Button>
+              <Button onClick={handleClick}>{flag ? "Deixar de seguir" : "Seguir"}</Button>
             </ListItemSecondaryAction>
           </ListItem>
         );

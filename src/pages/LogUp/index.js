@@ -183,11 +183,13 @@ function LogUp(){
                 <Formik
                     initialValues={{
                         fullName: '',
+                        username: '',
                         email: '',
                         password: ''
                     }}
                     validationSchema={Yup.object().shape({
                         fullName: Yup.string().max(255).required("Favor informar o nome completo"),
+                        username: Yup.string().max(255).required("Favor informar o nome de usuário"),
                         email: Yup.string().email("Favor informar um e-mail válido.").max(255).required("Favor informar o e-mail"),
                         password: Yup.string().max(255).required("Favor informar a senha")
                     })}
@@ -197,7 +199,7 @@ function LogUp(){
                         setSubmitting
                     }) => {
                         try {
-                            await dispatch(logUp(values.fullName, values.email, values.password));
+                            await dispatch(logUp(values.fullName, values.username, values.email, values.password));
                             navigate('/');
                             toast.success('Conta criada com Sucesso', {
                                 position: "top-center",
@@ -248,6 +250,22 @@ function LogUp(){
                                     value={values.fullName}
                                     onChange={handleChange}
                                     helperText={errors.fullName}
+                                >
+                                </TextField>
+                                <TextField
+                                    variant="outlined"
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="username"
+                                    label="Nome de usuário"
+                                    name="username"
+                                    autoComplete="username"
+                                    autoFocus
+                                    error={Boolean(errors.username)}
+                                    value={values.username}
+                                    onChange={handleChange}
+                                    helperText={errors.username}
                                 >
                                 </TextField>
                                 <TextField
