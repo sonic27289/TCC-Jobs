@@ -10,6 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 import http from '../../utils/axios';
 
@@ -26,6 +27,7 @@ function Connection() {
   const [followers, setFollowers] = useState([]);
   const [user, setUser] = useState([]);
   const [flag, setFlag] = React.useState(true);
+  const navigate = useNavigate();
   const handleClick = () => {
     setFlag(!flag)
     toast('Usuário seguido com sucesso', {
@@ -39,6 +41,10 @@ function Connection() {
       theme: "light",
     })
   };
+
+  const handleProfile = () => {
+    navigate(`/sonic27289`);
+  }
 
   useEffect(() => {
     async function fetchUser() {
@@ -72,7 +78,7 @@ function Connection() {
             <ListItemAvatar>
               <Avatar alt={value.user.username} src={value.user.avatar} />
             </ListItemAvatar>
-            <ListItemText id={labelId} primary={value.user.username} />
+            <ListItemText id={labelId} primary={value.user.username} onClick={handleProfile} />
             <ListItemSecondaryAction>
               {!value.following && <Button onClick={handleClick}>{flag ? "Seguir" : "Deixar de seguir"}</Button>}
             </ListItemSecondaryAction>

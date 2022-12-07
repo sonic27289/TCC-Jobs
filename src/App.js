@@ -29,6 +29,8 @@ const router = createBrowserRouter([
   { path: "/feed", element: <Home2></Home2>},
   { path: "/logup", element: <LogUp></LogUp>, loader: redirectIfLogged },
   { path: "/:username", element: <Profile></Profile>},
+  { path: "/:username/posts", element: <Profile></Profile>},
+  { path: "/:username/connections", element: <Profile></Profile>},
   { path: "/login", element: <LogIn></LogIn>, loader: redirectIfLogged },
   { path: "/Iogin", element: <LogIn2></LogIn2>, loader: redirectIfLogged },
   { path: "/post/new", element: <NewPost></NewPost>},

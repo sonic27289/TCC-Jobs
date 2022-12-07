@@ -123,7 +123,7 @@ const AccountProfile = (props) => {
                   color="textSecondary"
                   variant="body1"
                 >
-                  {`${user.totalFollowers}`}
+                  {flag ? `${user.totalFollowers}` : "02"}
                 </Typography>
               </div>
               <div className={classes.userInfo}>
