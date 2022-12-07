@@ -56,7 +56,7 @@ function NavBar(){
             {
                 !isAuthenticated && (
                 <>
-                <Button variant="outlined" color="primary" className={classes.button} onClick={() => navigate('/login')}>
+                <Button variant="outlined" color="inherit" className={classes.button} onClick={() => navigate('/login')}>
                     Logue em sua Conta
                 </Button>   
                 <Button variant="outlined" color="secondary" className={classes.button} onClick={() => navigate('/logup')}>
