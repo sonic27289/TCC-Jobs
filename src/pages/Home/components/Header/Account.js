@@ -49,6 +49,16 @@ function Account(){
 
         navigate(`/${account.user?.username}`);
     }
+    const handlePosts = () => {
+        handleClose();
+
+        navigate(`/${account.user?.username}/posts`);
+    }
+    const handleConnections = () => {
+        handleClose();
+
+        navigate(`/${account.user?.username}/connections`);
+    }
 
     return (
         <>
@@ -73,10 +83,9 @@ function Account(){
                 getContentAnchorEl={null}
             >
                 <MenuItem onClick={handleProfile}>Perfil</MenuItem>
-                <MenuItem>Meus Favoritos</MenuItem>
-                <MenuItem>Meus Posts</MenuItem>
-                <MenuItem>Minhas Conexões</MenuItem>
-                <MenuItem onClick={handleLogOut} >Sair</MenuItem>
+                <MenuItem onClick={handlePosts}>Meus Posts</MenuItem>
+                <MenuItem onClick={handleConnections}>Minhas Conexões</MenuItem>
+                <MenuItem onClick={handleLogOut}>Sair</MenuItem>
             </Menu>
             :
             <Menu

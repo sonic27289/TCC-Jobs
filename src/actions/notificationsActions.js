@@ -15,4 +15,17 @@ const getNotifications = () => {
     }
 };
 
-export { getNotifications };
+const getNotifications2 = () => {
+    return async (dispatch) => {
+        const notifications = await axios.get('/api/feed/notifications');
+
+        dispatch({
+            type: GET_NOTIFICATIONS,
+            payload: {
+                notifications: notifications.data.notifications
+            }
+        })
+    }
+};
+
+export { getNotifications, getNotifications2 };

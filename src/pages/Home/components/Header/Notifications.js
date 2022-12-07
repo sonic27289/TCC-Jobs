@@ -16,6 +16,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
+import './styles.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -84,7 +85,7 @@ function Notifications(){
             >
             <Box p={2} className={classes.box}>
                 <Typography variant="h6" color="textPrimary">
-                    Notificações
+                    <b class="title2" color="inherit">Notificações</b>
                 </Typography>
             </Box>
             <List>

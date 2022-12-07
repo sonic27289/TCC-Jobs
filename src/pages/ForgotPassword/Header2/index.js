@@ -21,6 +21,7 @@ const useStyles = makeStyles({
     },
     img: {
         maxHeight: 55,
+        maxWidth: 130
     },
     grow: {
          flexGrow: 1
@@ -53,7 +54,7 @@ function Header(){
         <AppBar position="fixed" color="inherit" className={classes.appbar}>
         <Toolbar>
             <Link to="/">
-                <img src={theme.darkMode ? "/images/logo/logoexemplo.jpg" : "/images/logo/logoexemplo.jpg" }alt="logo" className={classes.img}></img> 
+                <img src={theme.darkMode ? "/images/logo/logojobs2.jpeg" : "/images/logo/logojobs2.jpeg" }alt="logo" className={classes.img}></img> 
             </Link>
             <div className={classes.grow}></div>
             <div className={classes.userSection}>

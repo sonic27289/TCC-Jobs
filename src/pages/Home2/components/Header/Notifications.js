@@ -21,7 +21,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { getNotifications } from "../../../../actions/notificationsActions";
+import { getNotifications2 } from "../../../../actions/notificationsActions";
 
 const iconsMap = {
     reviews: StarIcon,
@@ -58,7 +58,7 @@ function Notifications(){
     }
 
     useEffect(() => {
-        dispatch(getNotifications());
+        dispatch(getNotifications2());
     }, [dispatch])
 
     return (
@@ -84,7 +84,7 @@ function Notifications(){
             >
             <Box p={2} className={classes.box}>
                 <Typography variant="h6" color="textPrimary">
-                    Notificações
+                    <b class="title2" color="inherit">Notificações</b>
                 </Typography>
             </Box>
             <List>

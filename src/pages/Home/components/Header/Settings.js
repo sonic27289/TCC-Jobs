@@ -7,6 +7,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import { MoreVertical } from 'react-feather';
 import { useSettings } from '../../../../context/SettingsContext';
+import './styles.css';
 
 function Settings() {
   const ref = useRef(null);
@@ -45,7 +46,7 @@ function Settings() {
       >
         <Box p={3}>
           <Typography variant="h6" color="textPrimary">
-            Configurações
+            <b class="title2" color="inherit">Configurações</b>
           </Typography>
           <FormControlLabel
             control={
