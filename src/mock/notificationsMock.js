@@ -6,7 +6,7 @@ mock.onGet('/api/notifications').reply(200, {
         {
             id: '1p',
             title: 'Novas avaliações recebidas',
-            description: 'Você recebeu 2 nova avaliação ',
+            description: 'Você recebeu 2 novas avaliações ',
             type: 'reviews',
             createdAt: moment()
                 .subtract(2, 'hours')
@@ -15,8 +15,8 @@ mock.onGet('/api/notifications').reply(200, {
         },
         {
             id: '2p',
-            title: 'Novos comentários recebidos',
-            description: 'Você recebeu 3 novos comentarios ',
+            title: 'Comentários recebidos',
+            description: 'Você não recebeu nenhum novo comentario ',
             type: 'new_comment',
             createdAt: moment()
                 .subtract(1, 'day')
@@ -25,7 +25,7 @@ mock.onGet('/api/notifications').reply(200, {
         },
         {
             id: '3p',
-            title: 'Novos "likes" recebidos ',
+            title: 'Curtidas recebidas' ,
             description: 'Você recebeu 1 novo like ',
             type: 'like',
             createdAt: moment()
@@ -36,7 +36,7 @@ mock.onGet('/api/notifications').reply(200, {
         {
             id: '4p',
             title: 'Novos seguidores',
-            description: '2 desenvolvedores começaram a seguir você ',
+            description: '1 novo profissional começou a seguir você ',
             type: 'connection',
             createdAt: moment()
                 .subtract(3, 'days')

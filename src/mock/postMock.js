@@ -16,7 +16,8 @@ mock.onGet('/api/').reply(200, {
       },
       tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
       image: '/images/posts/imagempost1.jpg',
-      likes: 10,
+      likes: 1,
+      likesAfter: 2,
       comments: 30,
     },
     {

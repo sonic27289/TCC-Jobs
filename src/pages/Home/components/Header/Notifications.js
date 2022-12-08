@@ -19,10 +19,12 @@ import Avatar from '@material-ui/core/Avatar';
 import './styles.css';
 
 import { makeStyles } from '@material-ui/core/styles';
+import { useNavigate } from "react-router";
 
 import { useSelector, useDispatch } from "react-redux";
 
 import { getNotifications } from "../../../../actions/notificationsActions";
+import { toast } from "react-toastify";
 
 const iconsMap = {
     reviews: StarIcon,
@@ -49,6 +51,7 @@ function Notifications(){
     const [isOpen, setOpen] = useState(false); 
     const dispatch = useDispatch();
     const classes = useStyles();
+    const navigate = useNavigate();
 
     const handleOpen = () => {
         setOpen(true);
@@ -56,6 +59,20 @@ function Notifications(){
 
     const handleClose = () => {
         setOpen(false);
+    }
+
+    const handleClick = () => {
+        navigate(`/${account.user?.username}`);
+        toast('Você possui novas conexões', {
+            position: "bottom-left",
+            autoClose: 7000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        }  );
     }
 
     useEffect(() => {
@@ -93,7 +110,7 @@ function Notifications(){
                     const Icon = iconsMap[notifications.type];
                     return (
                 <ListItem>
-                    <ListItemAvatar>
+                    <ListItemAvatar onClick={handleClick}>
                         <Avatar className={classes.icon}>
                             <SvgIcon>
                                 <Icon></Icon>
@@ -105,7 +122,8 @@ function Notifications(){
                         primaryTypographyProps={{
                             variant: 'subtitle2', 
                             color: 'textPrimary'}} 
-                        secondary={notifications.description}>
+                        secondary={notifications.description}
+                        onClick={handleClick}>
                         </ListItemText>
                 </ListItem>
                     );

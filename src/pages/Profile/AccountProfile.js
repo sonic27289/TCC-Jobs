@@ -32,8 +32,8 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: { 
     marginLeft: 'auto',
-    height: 110,
-    width: 100,
+    height: 190,
+    width: 200,
     flexShrink: 0,
     flexGrow: 0,
   },

@@ -12,6 +12,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import MessageIcon from '@material-ui/icons/Message';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
+import { toast } from 'react-toastify';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -44,7 +45,12 @@ const useStyles = makeStyles((theme) => ({
 
 function PostCard({ post }){
     const classes = useStyles();
-
+    const [flag, setFlag] = React.useState(true);
+    const handleClick = () => {
+      setFlag(!flag);
+      toast('Ação realizada com sucesso !')
+    };
+    
     const navigate = useNavigate();
 
     const handlePostClick = () => {
@@ -52,7 +58,7 @@ function PostCard({ post }){
     };
 
     return(
-        <Card className={classes.root} onClick={handlePostClick}>
+        <Card className={classes.root}>
       <CardHeader
         avatar={<Avatar src={post.author?.avatar} />}
         title={<Typography variant="h6">{post.title}</Typography>}
@@ -70,7 +76,7 @@ function PostCard({ post }){
           </div>
         }
       />
-      <CardContent className={classes.content}>
+      <CardContent className={classes.content} onClick={handlePostClick}>
         <Typography className={classes.message} variant="body1">
           {post.hashtags}
         </Typography>
@@ -85,8 +91,9 @@ function PostCard({ post }){
             style={{ cursor: 'pointer' }}
             color="textSecondary"
             variant="body2"
+            onClick={handleClick}
           >
-            {post.likes}
+            {flag ? post.likes : post.likesAfter}
           </Typography>
         </IconButton>
         <IconButton aria-label="comment">
