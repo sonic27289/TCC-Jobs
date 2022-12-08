@@ -48,7 +48,7 @@ function PostCard({ post }){
     const [flag, setFlag] = React.useState(true);
     const handleClick = () => {
       setFlag(!flag);
-      toast('Ação realizada com sucesso !')
+      toast('Ação realizada com Sucesso !')
     };
     
     const navigate = useNavigate();
@@ -86,18 +86,17 @@ function PostCard({ post }){
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="like">
-          <FavoriteIcon />
+          <FavoriteIcon onClick={handleClick}/>
           <Typography
             style={{ cursor: 'pointer' }}
             color="textSecondary"
             variant="body2"
-            onClick={handleClick}
           >
             {flag ? post.likes : post.likesAfter}
           </Typography>
         </IconButton>
         <IconButton aria-label="comment">
-          <MessageIcon />
+          <MessageIcon onClick={handlePostClick}/>
           <Typography
             className={classes.reactions}
             color="textSecondary"
