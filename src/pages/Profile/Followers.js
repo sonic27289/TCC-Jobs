@@ -28,9 +28,10 @@ function Connection() {
   const [user, setUser] = useState([]);
   const [flag, setFlag] = React.useState(true);
   const navigate = useNavigate();
+
   const handleClick = () => {
     setFlag(!flag)
-    toast('Usuário seguido com sucesso', {
+    toast('Ação realizada com Sucesso', {
       position: "top-right",
       autoClose: 7000,
       hideProgressBar: false,

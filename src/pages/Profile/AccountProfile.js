@@ -123,7 +123,7 @@ const AccountProfile = (props) => {
                   color="textSecondary"
                   variant="body1"
                 >
-                  {flag ? `${user.totalFollowers}` : "02"}
+                  {flag ? `${user.totalFollowers}` : `${user.totalFollowingAfter}`}
                 </Typography>
               </div>
               <div className={classes.userInfo}>
@@ -162,8 +162,8 @@ const AccountProfile = (props) => {
             <Avatar className={classes.avatar} src={user.avatar} />
           </div>
           {!isCurrentUser && (
-            <Button variant="contained" color={flag ? "primary" : "default"} onClick={handleClick}>
-              {flag ? "Seguir" : "Seguindo"}
+            <Button variant="contained" color={flag ? "default" : "primary"} onClick={handleClick}>
+              {flag ? "Seguindo" : "Seguir"}
             </Button>
           )}
         </CardContent>

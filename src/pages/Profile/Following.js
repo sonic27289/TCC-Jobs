@@ -30,7 +30,7 @@ function Connection() {
   const navigate = useNavigate();
   const handleClick = () => {
     setFlag(!flag)
-    toast('Você não esta mais seguindo este usuário', {
+    toast('Ação realizada com sucesso', {
       position: "top-right",
       autoClose: 7000,
       hideProgressBar: false,
@@ -70,7 +70,7 @@ function Connection() {
 
   return (
     <List dense className={classes.root}>
-      <ListSubheader>Seguindo ({user.following})</ListSubheader>
+      <ListSubheader>Seguindo ({flag ? `${user.following}` : `${user.totalFollowingAfter}`})</ListSubheader>
       {following.map((value) => {
         const labelId = `checkbox-list-secondary-label-${value}`;
         return (
