@@ -8,6 +8,7 @@ import Container from "@material-ui/core/Container";
 import Header from "./components/Header";   
 import NavBar from "./components/NavBar";
 import Feed from "./components/Feed";
+import './styles.css';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -17,13 +18,16 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.dark
     },
     main: {
-        padding: 24
+        padding: 5
     },
     toolbar: {
         minHeight: 64
     },
     box: {
         display: 'flex'
+    },
+    figure: {
+        width: '35%'
     }
 }));
 
@@ -31,9 +35,19 @@ function Home(){
     const classes = useStyles();
     
     return (
+        
         <div className={classes.root}>
             <Header></Header>
             <div className={classes.toolbar}></div>
+            <div>
+                <figure>
+                    <a href="https://www.kenzie.com.br"><img src="images/anuncios/anuncio1.png" alt="anuncios" class="imagem" href="https://www.google.com"></img>
+                        <figcaption class="title2">Cursos referências no setor</figcaption>
+                        <figcaption class="title1">Programação - Tendências e aplicações</figcaption>
+                        <figcaption class="title3"><b>Anúncio</b> - Kenzie Academy</figcaption>
+                    </a>
+                </figure>
+            </div>
             <main className={classes.main}>
                 <Container maxWidth="lg">
                     <Box display="flex" className={classes.box}>

@@ -9,6 +9,8 @@ import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Feed from "./components/Feed";
 
+import './styles2.css';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,6 +36,14 @@ function Home2(){
         <div className={classes.root}>
             <Header></Header>
             <div className={classes.toolbar}></div>
+            <div>
+                <figure>
+                    <img src="images/anuncios/anuncio2.png" alt="anuncios" class="imagem2"></img>
+                    <figcaption class="title1">Informações da Figura</figcaption>
+                    <figcaption class="title2">Informações da Figura</figcaption>
+                    <figcaption class="title3">Informações da Figura</figcaption>
+                </figure>
+            </div>
             <main className={classes.main}>
                 <Container maxWidth="lg">
                     <Box display="flex" className={classes.box}>
