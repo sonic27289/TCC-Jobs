@@ -8,3 +8,12 @@
     text-shadow: 0 1px rgba(5, 5, 5, 0.5);
     text-align: center;
 }
+
+.title6 {
+    font-family: 'montserrat';
+    font-weight: 700;
+    text-shadow: 0 1px rgba(5, 5, 5, 0.5);
+    text-align: center;
+    margin-left: 140px;
+    padding: 7px 0px 0px 0px;
+}

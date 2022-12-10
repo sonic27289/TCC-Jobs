@@ -9,6 +9,7 @@ import {
   Divider,
   Button,
 } from '@material-ui/core';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -50,6 +51,10 @@ const useStyles = makeStyles((theme) => ({
   userInfo: {
     marginBottom: theme.spacing(2),
   },
+  score: {
+    paddingRight: 30,
+    paddingTop: 20,
+  }
 }));
 
 const AccountProfile = (props) => {
@@ -162,9 +167,14 @@ const AccountProfile = (props) => {
             <Avatar className={classes.avatar} src={user.avatar} />
           </div>
           {!isCurrentUser && (
-            <Button variant="contained" color={flag ? "default" : "primary"} onClick={handleClick}>
-              {flag ? "Seguindo" : "Seguir"}
-            </Button>
+            <>
+              <Button variant="contained" color={flag ? "default" : "primary"} onClick={handleClick}>
+                {flag ? "Seguindo" : "Seguir"}
+              </Button><br></br>
+              <div className={classes.score}>
+                <StarBorderIcon></StarBorderIcon><StarBorderIcon></StarBorderIcon><StarBorderIcon></StarBorderIcon><StarBorderIcon></StarBorderIcon><StarBorderIcon></StarBorderIcon>
+              </div> 
+            </>
           )}
         </CardContent>
         {isCurrentUser && (

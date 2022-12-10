@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
     },
     figure: {
         width: '35%'
+    },
+    color: {
+        color: theme.palette.text.primary
     }
 }));
 
@@ -40,7 +43,7 @@ function Home(){
         <div className={classes.root}>
             <Header></Header>
             <div className={classes.toolbar}></div>
-            <div>
+            <div className={classes.color}>
                 <figure>
                     <a color="inherit" href="https://assetstore.unity.com"><img src="images/anuncios/anuncio3.jpg" alt="anuncios" class="imagem" href="https://www.google.com"></img>
                         <figcaption class="title2">Level up your asset library</figcaption>

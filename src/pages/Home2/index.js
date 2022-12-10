@@ -8,6 +8,7 @@ import Container from "@material-ui/core/Container";
 import Header from "./components/Header";   
 import NavBar from "./components/NavBar";
 import Feed from "./components/Feed";
+import Footer from "./components/Footer";
 
 import './styles2.css';
 
@@ -54,6 +55,7 @@ function Home2(){
                     </Box>
                 </Container>
             </main>
+            <Footer></Footer>
         </div>
     );
 }

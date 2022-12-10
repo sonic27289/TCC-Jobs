@@ -66,7 +66,7 @@ mock.onGet('/api/home/user/sonic27289').reply(200, {
     totalPost: '04',
     totalFollowers: '02',
     totalFollowing: '01',
-    totalFollowingAfter: '01',
+    totalFollowingAfter: '00',
     avaliations: '01',
     apresentation: 'Bem vindo ao meu perfil, meu nome é Gustavo Barbosa, minhas especialidades são HTML, CSS, Javascript, Typescript, React JS, PHP e SQL, sendo elas as minhas principais linguagens de programação. Também já trabalhei com XML, ASP.NET, Velocity, Java e estudei C#, C++, C e JavaWeb na universidade. Se eu puder ajudar, certamente o farei, se não puder, encontrarei uma maneira de ajudar.',
     tags: 'react.js, front-end, javascript'

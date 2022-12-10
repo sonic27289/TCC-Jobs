@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header from "../Home/components/Header";
+import Footer from "../Home/components/Footer";
 import { makeStyles } from "@material-ui/core";
 // import { useSelector } from "react-redux";
 // import { useParams } from "react-router-dom";
@@ -14,6 +15,8 @@ import AccountProfile from "./AccountProfile";
 import Posts from "./Posts";
 import Connections from "./Connections";
 import Groups from "./Groups";
+
+import './profileStyles.css';
 
 const useStyles = makeStyles((theme) => ({
    root: {
@@ -77,6 +80,14 @@ function Profile() {
                         </Grid>
                     </Grid>
                 </Container>
+                <figure>
+                    <a color="inherit" href="https://picpay.com/rendimento-online"><img src="images/anuncios/anuncio2.png" alt="anuncios" class="imagem5"></img>
+                        <figcaption class="title2">Seu dinheiro merece mais, vem pro PicPay</figcaption>
+                        <figcaption class="title1">Xi, vai abrir conta num banco que não rende? Vem pro PicPay, o melhor rendimento do Brasil</figcaption>
+                        <figcaption class="title3"><b>Anúncio - </b>PicPay</figcaption>
+                    </a>
+                </figure>
+                <Footer></Footer>
         </div>
     )
 }
