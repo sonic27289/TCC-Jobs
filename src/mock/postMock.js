@@ -12,7 +12,7 @@ mock.onGet('/api/').reply(200, {
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
-        avatar: '/images/avatars/iconeperfil.jpg',
+        avatar: '/images/avatars/perfil1.jpg',
       },
       tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
       image: '/images/posts/imagempost1.jpg',
@@ -28,7 +28,7 @@ mock.onGet('/api/').reply(200, {
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
-        avatar: '/images/avatars/iconeperfil.jpg',
+        avatar: '/images/avatars/perfil1.jpg',
       },
       tags: ['reactjs', 'javascript'],
       image: '/images/posts/imagempost2.png',
@@ -50,7 +50,7 @@ mock.onGet('/api/feed').reply(200, {
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
-        avatar: '/images/avatars/iconeperfil.jpg',
+        avatar: '/images/avatars/perfil1.jpg',
       },
       tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
       image: '/images/posts/imagempost1.jpg',
@@ -65,7 +65,7 @@ mock.onGet('/api/feed').reply(200, {
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
-        avatar: '/images/avatars/iconeperfil.jpg',
+        avatar: '/images/avatars/perfil1.jpg',
       },
       tags: ['reactjs', 'javascript'],
       image: '/images/posts/imagempost2.png',
@@ -80,7 +80,7 @@ mock.onGet('/api/feed').reply(200, {
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
-        avatar: '/images/avatars/iconeperfil.jpg',
+        avatar: '/images/avatars/perfil1.jpg',
       },
       tags: ['reactjs', 'javascript'],
       image: '/images/posts/imagempost2.png',
@@ -99,7 +99,7 @@ mock.onGet('/api/post/como-melhorar-seu-codigo-javascript').reply(200, {
   author: {
     id: 1,
     name: 'Gustavo Barbosa',
-    avatar: '/images/avatars/iconeperfil.jpg',
+    avatar: '/images/avatars/perfil1.jpg',
   },
   markdownText: `
   _Compact style:_
@@ -125,7 +125,7 @@ mock.onGet('/api/post/como-migrar-para-react-hooks').reply(200, {
   author: {
     id: 1,
     name: 'Gustavo Barbosa',
-    avatar: '/images/avatars/iconeperfil.jpg',
+    avatar: '/images/avatars/perfil1.jpg',
   },
   markdownText: `
   _Compact style:_
@@ -153,7 +153,7 @@ mock.onGet('/api/posts/user/sonic27289').reply(200, {
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
-        avatar: '/images/avatars/iconeperfil.jpg',
+        avatar: '/images/avatars/perfil1.jpg',
       },
       tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
       image: '/images/posts/imagempost1.jpg',
@@ -168,7 +168,7 @@ mock.onGet('/api/posts/user/sonic27289').reply(200, {
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
-        avatar: '/images/avatars/iconeperfil.jpg',
+        avatar: '/images/avatars/perfil1.jpg',
       },
       tags: ['reactjs', 'javascript'],
       image: '/images/posts/imagempost2.png',
@@ -189,7 +189,7 @@ mock.onGet('/api/posts/user/jacksonomagico').reply(200, {
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
-        avatar: '/images/avatars/iconeperfil.jpg',
+        avatar: '/images/avatars/perfil2.jpg',
       },
       tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
       image: '/images/posts/imagempost1.jpg',

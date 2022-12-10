@@ -42,9 +42,9 @@ function Home(){
             <div>
                 <figure>
                     <a href="https://www.kenzie.com.br"><img src="images/anuncios/anuncio1.png" alt="anuncios" class="imagem" href="https://www.google.com"></img>
-                        <figcaption class="title2">Cursos referências no setor</figcaption>
-                        <figcaption class="title1">Programação - Tendências e aplicações</figcaption>
-                        <figcaption class="title3"><b>Anúncio</b> - Kenzie Academy</figcaption>
+                        <figcaption class="title2">Programação sem mensalidade</figcaption>
+                        <figcaption class="title1">Aprendizado em profundidade na prática.</figcaption>
+                        <figcaption class="title3"><b>Anúncio - </b>Kenzie Academy Brasil</figcaption>
                     </a>
                 </figure>
             </div>

@@ -38,10 +38,11 @@ function Home2(){
             <div className={classes.toolbar}></div>
             <div>
                 <figure>
-                    <img src="images/anuncios/anuncio2.png" alt="anuncios" class="imagem2"></img>
-                    <figcaption class="title1">Informações da Figura</figcaption>
-                    <figcaption class="title2">Informações da Figura</figcaption>
-                    <figcaption class="title3">Informações da Figura</figcaption>
+                    <a href="https://assetstore.unity.com"><img src="images/anuncios/anuncio3.jpg" alt="anuncios" class="imagem" href="https://www.google.com"></img>
+                        <figcaption class="title2">Level up your asset library</figcaption>
+                        <figcaption class="title1">Get ahead on your game with the latest tools and packs. Create with Unity Asset Store.</figcaption>
+                        <figcaption class="title3"><b>Anúncio - </b>Unity Asset Store</figcaption>
+                    </a>
                 </figure>
             </div>
             <main className={classes.main}>

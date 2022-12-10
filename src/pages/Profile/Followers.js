@@ -31,6 +31,7 @@ function Connection() {
 
   const handleClick = () => {
     setFlag(!flag)
+    
     toast('Ação realizada com Sucesso', {
       position: "top-right",
       autoClose: 7000,
@@ -71,7 +72,7 @@ function Connection() {
 
   return (
     <List dense className={classes.root}>
-      <ListSubheader>Seguidores ({user.followers})</ListSubheader>
+      <ListSubheader>Seguidores ({flag ? `${user.followers}` : `${user.totalFollowers}`})</ListSubheader>
       {followers.map((value) => {
         const labelId = `checkbox-list-secondary-label-${value}`;
         return (

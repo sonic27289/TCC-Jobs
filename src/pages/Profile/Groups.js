@@ -28,7 +28,7 @@ function Groups() {
   const [flag, setFlag] = React.useState(true);
   const handleClick = () => {
     setFlag(!flag)
-    toast('Você saiu do Grupo', {
+    toast('Ação realizada com Sucesso', {
       position: "top-right",
       autoClose: 7000,
       hideProgressBar: false,
@@ -64,7 +64,7 @@ function Groups() {
 
   return (
     <List dense className={classes.root}>
-      <ListSubheader>Grupos ({user.groups})</ListSubheader>
+      <ListSubheader>Grupos ({flag ? `${user.groups}` : `${user.totalGroups}`})</ListSubheader>
       {following.map((value) => {
         const labelId = `checkbox-list-secondary-label-${value}`;
         return (
