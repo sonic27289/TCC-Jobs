@@ -8,6 +8,7 @@ import Container from "@material-ui/core/Container";
 import Header from "./components/Header";   
 import NavBar from "./components/NavBar";
 import Feed from "./components/Feed";
+import Footer from "./components/Footer";
 import './styles.css';
 
 
@@ -41,10 +42,10 @@ function Home(){
             <div className={classes.toolbar}></div>
             <div>
                 <figure>
-                    <a href="https://www.kenzie.com.br"><img src="images/anuncios/anuncio1.png" alt="anuncios" class="imagem" href="https://www.google.com"></img>
-                        <figcaption class="title2">Programação sem mensalidade</figcaption>
-                        <figcaption class="title1">Aprendizado em profundidade na prática.</figcaption>
-                        <figcaption class="title3"><b>Anúncio - </b>Kenzie Academy Brasil</figcaption>
+                    <a color="inherit" href="https://assetstore.unity.com"><img src="images/anuncios/anuncio3.jpg" alt="anuncios" class="imagem" href="https://www.google.com"></img>
+                        <figcaption class="title2">Level up your asset library</figcaption>
+                        <figcaption class="title1">Get ahead on your game with the latest tools and packs. Create with Unity Asset Store.</figcaption>
+                        <figcaption class="title3"><b>Anúncio - </b>Unity Asset Store</figcaption>
                     </a>
                 </figure>
             </div>
@@ -56,6 +57,7 @@ function Home(){
                     </Box>
                 </Container>
             </main>
+            <Footer></Footer>
         </div>
     );
 }

@@ -46,7 +46,7 @@ function Settings() {
       >
         <Box p={3}>
           <Typography variant="h6" color="textPrimary">
-            <b class="title2" color="inherit">Configurações</b>
+            <b class="title5" color="inherit">Configurações</b>
           </Typography>
           <FormControlLabel
             control={

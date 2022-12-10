@@ -102,7 +102,7 @@ function Notifications(){
             >
             <Box p={2} className={classes.box}>
                 <Typography variant="h6" color="textPrimary">
-                    <b class="title2" color="inherit">Notificações</b>
+                    <b class="title5" align="center" color="inherit">Notificações</b>
                 </Typography>
             </Box>
             <List>
