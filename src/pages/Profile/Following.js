@@ -70,7 +70,7 @@ function Connection() {
 
   return (
     <List dense className={classes.root}>
-      <ListSubheader>Seguindo ({flag ? `${user.following}` : `${user.totalFollowingAfter}`})</ListSubheader>
+      <ListSubheader>Seguindo ({flag ? `${user.following}` : `${user.totalFollowing}`})</ListSubheader>
       {following.map((value) => {
         const labelId = `checkbox-list-secondary-label-${value}`;
         return (

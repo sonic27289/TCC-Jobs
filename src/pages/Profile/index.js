@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
    }
 }));
 
+const handleClick = () => {
+    alert('Você vai ser redirecionado para a página da propaganda.')
+}
+
 function Profile() {
     const classes = useStyles();
     // const account = useSelector((state) => state.account);
@@ -80,7 +84,7 @@ function Profile() {
                         </Grid>
                     </Grid>
                 </Container>
-                <figure>
+                <figure onClick={handleClick}>
                     <a color="inherit" href="https://picpay.com/rendimento-online"><img src="images/anuncios/anuncio2.png" alt="anuncios" class="imagem5"></img>
                         <figcaption class="title2">Seu dinheiro merece mais, vem pro PicPay</figcaption>
                         <figcaption class="title1">Xi, vai abrir conta num banco que não rende? Vem pro PicPay, o melhor rendimento do Brasil</figcaption>

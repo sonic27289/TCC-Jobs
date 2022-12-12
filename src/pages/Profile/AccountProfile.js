@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, withStyles } from '@material-ui/styles';
 import {
   Card,
   CardActions,
@@ -9,10 +9,17 @@ import {
   Divider,
   Button,
 } from '@material-ui/core';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+//import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import ReactStars from 'react-stars';
+import Dialog from '@material-ui/core/Dialog';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogActions from '@material-ui/core/DialogActions';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 
 import http from '../../utils/axios';
 
@@ -54,8 +61,54 @@ const useStyles = makeStyles((theme) => ({
   score: {
     paddingRight: 30,
     paddingTop: 20,
+  },
+  imagemformacao: {
+    width: '60%',
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto'
   }
 }));
+
+const styles = (theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(3),
+  },
+  closeButton: {
+    position: 'absolute',
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500],
+  },
+});
+
+const DialogTitle = withStyles(styles)((props) => {
+  const { children, classes, onClose, ...other } = props;
+  return (
+    <MuiDialogTitle disableTypography className={classes.root} {...other}>
+      <Typography variant="h6">{children}</Typography>
+      {onClose ? (
+        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </MuiDialogTitle>
+  );
+});
+
+const DialogContent = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiDialogContent);
+
+const DialogActions = withStyles((theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(1),
+  },
+}))(MuiDialogActions);
 
 const AccountProfile = (props) => {
   const { ...rest } = props;
@@ -64,6 +117,7 @@ const AccountProfile = (props) => {
   const [user, setUser] = useState([]);
   const currentUser = useSelector((state) => state.account.user);
   const [flag, setFlag] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const handleClick = () => {
     setFlag(!flag);
   };
@@ -77,6 +131,26 @@ const AccountProfile = (props) => {
     progress: undefined,
     theme: "light"
 });
+
+const handleClickOpen = () => {
+  setOpen(true);
+};
+const handleClose = () => {
+  setOpen(false);
+};
+
+const ratingChanged = (newRating) => {
+  toast('Usuário avaliado com Sucesso', {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark"
+  })
+}
 
   useEffect(() => {
     async function fetchUser() {
@@ -172,7 +246,12 @@ const AccountProfile = (props) => {
                 {flag ? "Seguindo" : "Seguir"}
               </Button><br></br>
               <div className={classes.score}>
-                <StarBorderIcon></StarBorderIcon><StarBorderIcon></StarBorderIcon><StarBorderIcon></StarBorderIcon><StarBorderIcon></StarBorderIcon><StarBorderIcon></StarBorderIcon>
+              <ReactStars
+              count={5}
+              onChange={ratingChanged}
+              size={35}
+              color2={'#ffd700'} 
+              />
               </div> 
             </>
           )}
@@ -226,6 +305,57 @@ const AccountProfile = (props) => {
             </Typography>
             <Typography variant="body1">
             {`${user.apresentation}`}
+            </Typography>
+          </div>
+          <div className={classes.bio}>
+            <Typography
+              className={classes.locationText}
+              color="textSecondary"
+              variant="caption"
+            >
+              Formação
+            </Typography>
+            <Typography variant="body1">
+              <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                Formação Acadêmica
+              </Button>
+              <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+                <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+                  <b class="title5">Formação Acadêmica</b>
+                </DialogTitle>
+                <DialogContent dividers>
+                  <Typography gutterBottom>
+                    <img src={`${user.apresentation}`} alt='formacao' className={classes.imagemformacao}></img>
+                  </Typography>
+                  <Typography gutterBottom>
+
+                  </Typography>
+                  <Typography gutterBottom>
+                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
+                    lacus vel augue laoreet rutrum faucibus dolor auctor.
+                  </Typography>
+                  <Typography gutterBottom>
+                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
+                    scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
+                    auctor fringilla.
+                  </Typography>
+                  <Typography gutterBottom>
+                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
+                    scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
+                    auctor fringilla.
+                  </Typography>
+                  <Typography gutterBottom>
+                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
+                    scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
+                    auctor fringilla.
+                  </Typography>
+                  </DialogContent>
+                <DialogActions>
+          <Button autoFocus onClick={handleClose} color="primary">
+            Fechar
+          </Button>
+        </DialogActions>
+      </Dialog>
             </Typography>
           </div>
           <div>

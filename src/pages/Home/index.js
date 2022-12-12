@@ -11,7 +11,6 @@ import Feed from "./components/Feed";
 import Footer from "./components/Footer";
 import './styles.css';
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -35,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+const handleClick = () => {
+    alert('Você vai ser redirecionado para a página da propaganda.')
+}
+
 function Home(){
     const classes = useStyles();
     
@@ -44,7 +47,7 @@ function Home(){
             <Header></Header>
             <div className={classes.toolbar}></div>
             <div className={classes.color}>
-                <figure>
+                <figure onClick={handleClick}>
                     <a color="inherit" href="https://assetstore.unity.com"><img src="images/anuncios/anuncio3.jpg" alt="anuncios" class="imagem" href="https://www.google.com"></img>
                         <figcaption class="title2">Level up your asset library</figcaption>
                         <figcaption class="title1">Get ahead on your game with the latest tools and packs. Create with Unity Asset Store.</figcaption>

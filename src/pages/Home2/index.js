@@ -30,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+const handleClick = () => {
+    alert('Você vai ser redirecionado para a página da propaganda.')
+}
+
 function Home2(){
     const classes = useStyles();
     
@@ -38,7 +42,7 @@ function Home2(){
             <Header></Header>
             <div className={classes.toolbar}></div>
             <div>
-                <figure>
+                <figure onClick={handleClick}>
                     <a color="inherit" href="https://www.kenzie.com.br"><img src="images/anuncios/anuncio1.png" alt="anuncios" class="imagem" href="https://www.google.com"></img>
                         <figcaption class="title2">Programação sem mensalidade</figcaption>
                         <figcaption class="title1">Aprendizado em profundidade na prática.</figcaption>
