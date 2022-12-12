@@ -325,10 +325,10 @@ const ratingChanged = (newRating) => {
                 </DialogTitle>
                 <DialogContent dividers>
                   <Typography gutterBottom>
-                    <img src={`${user.apresentation}`} alt='formacao' className={classes.imagemformacao}></img>
+                    <img src={`${user.formationImg}`} alt='formacao' className={classes.imagemformacao}></img>
                   </Typography>
                   <Typography gutterBottom>
-
+                  {`${user.formation}`}
                   </Typography>
                   <Typography gutterBottom>
                     Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
