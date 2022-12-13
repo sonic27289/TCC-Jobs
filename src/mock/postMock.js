@@ -24,7 +24,7 @@ mock.onGet('/api/').reply(200, {
       id: 2,
       title: 'IFSP - CAMPUS CUBATÃO | Um ótimo ambiente para a formação de profissionais qualificados',
       slug: 'ifsp-campus-cubatao',
-      date: moment().subtract(1, 'day').toDate().getTime(),
+      date: moment().subtract(2, 'day').toDate().getTime(),
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
@@ -38,16 +38,16 @@ mock.onGet('/api/').reply(200, {
     },
     {
       id: 3,
-      title: 'IFSP - CAMPUS CUBATÃO | Um ótimo ambiente para a formação de profissionais qualificados',
-      slug: 'ifsp-campus-cubatao',
-      date: moment().subtract(1, 'day').toDate().getTime(),
+      title: 'COMO ESCOLHER SUA PROFISSÃO | Nossa rede social é um ótimo ambiente para se conectar com profissionais de diversas áreas',
+      slug: 'como-escolher-sua-profissao',
+      date: moment().subtract(3, 'day').toDate().getTime(),
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
         avatar: '/images/avatars/perfil1.jpg',
       },
       tags: ['ifsp', 'cubatao'],
-      image: '/images/posts/postifsp.jpg',
+      image: '/images/posts/postprofissao.jpg',
       likes: 0,
       likesAfter: 1,
       comments: 1,
@@ -60,7 +60,7 @@ mock.onGet('/api/feed').reply(200, {
     {
       id: 1,
       title:
-        'COMO MELHORAR SEU CODIGO JAVASCRIPT (ESLINT + PRETTIER + EDITORCONFIG) | Dicas e Truques #02',
+        'COMO MELHORAR SEU CODIGO JAVASCRIPT (MELHORES CURSOS) | Dicas de Cursos Qualificados #01',
       slug: 'como-melhorar-seu-codigo-javascript',
       date: moment().subtract(1, 'day').toDate().getTime(),
       author: {
@@ -69,7 +69,7 @@ mock.onGet('/api/feed').reply(200, {
         avatar: '/images/avatars/perfil1.jpg',
       },
       tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
-      image: '/images/posts/imagempost1.jpg',
+      image: '/images/posts/postalura.png',
       likes: 10,
       comments: 30,
     },
@@ -109,7 +109,7 @@ mock.onGet('/api/feed').reply(200, {
 mock.onGet('/api/post/como-melhorar-seu-codigo-javascript').reply(200, {
   id: 1,
   title:
-    'COMO MELHORAR SEU CODIGO JAVASCRIPT (ESLINT + PRETTIER + EDITORCONFIG) | Dicas e Truques #02',
+    'COMO MELHORAR SEU CODIGO JAVASCRIPT (MELHORES CURSOS) | Dicas de Cursos Qualificados #01',
   slug: 'como-melhorar-seu-codigo-javascript',
   date: moment().subtract(1, 'day').toDate().getTime(),
   author: {
@@ -126,10 +126,10 @@ mock.onGet('/api/post/como-melhorar-seu-codigo-javascript').reply(200, {
   Term 2
     ~ Definition 2a
     ~ Definition 2b`,
-  tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
-  image: '/images/posts/imagempost1.jpg',
-  likes: 10,
-  comments: 30,
+  tags: ['javascript', 'cursos', 'vscode'],
+  image: '/images/posts/postalura.png',
+  likes: 2,
+  comments: 1,
 });
 
 mock.onGet('/api/post/como-migrar-para-react-hooks').reply(200, {
