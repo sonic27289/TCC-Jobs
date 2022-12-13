@@ -11,6 +11,10 @@ import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Header from '../../pages/Home/components/Header';
 import BottomBar from './BottomBar';
+import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
+
+import './styles.css';
 
 const useStyles = makeStyles((theme) => ({
   imagePreview: {
@@ -49,13 +53,24 @@ const useStyles = makeStyles((theme) => ({
   },
   darkmode: {
     color: theme.palette.text.secondary
+  },
+  img: {
+    width: '10%',
+    borderRadius: '50%'
   }
 }));
 
+
 function PostView({ post }) {
   const classes = useStyles();
-  const { image, title, date, author, tags, markdownText } = post;
+  const { image, title, date, author, tags, markdownText, markdownComment } = post;
   const [flag] = React.useState(true);
+  const navigate = useNavigate();
+  const account = useSelector((state) => state.account);
+
+  const handleClick = () => {
+    navigate(`/${account.user?.username}`);
+  }
 
   return (
     <div className={classes.root}>
@@ -106,6 +121,21 @@ function PostView({ post }) {
         <Box mb={8} className={classes.box3}>
           <div>
               <ReactMarkdown children={markdownText} className={classes.markdown}/>
+          </div>
+          <div>
+            <Typography variant='h1' class='title8'>Comentários:</Typography><br></br>
+            <Box>
+              <img src={post.perfilImg} alt='perfil' className={classes.img} onClick={handleClick}></img>
+            </Box>
+            <Box>
+              <Typography variant="body1" color="textPrimary" className={classes.markdown}>
+                {author?.name}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" className={classes.darkmode}>
+                {moment(date).fromNow()}
+              </Typography>
+            </Box>  
+              <ReactMarkdown children={markdownComment} className={classes.markdown}/>
           </div>
         </Box>
       </Container>
