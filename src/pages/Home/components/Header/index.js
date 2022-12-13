@@ -55,7 +55,7 @@ function Header(){
     return (
         <AppBar position="fixed" color="inherit" className={classes.appbar}>
         <Toolbar>   
-            <Link to="/">
+            <Link to="/feed">
                 <img src={theme.darkMode ? "/images/logo/logojobs2.jpeg" : "/images/logo/logojobs2.jpeg" }alt="logo" className={classes.img}></img> 
             </Link>
             <div className={classes.grow}></div>

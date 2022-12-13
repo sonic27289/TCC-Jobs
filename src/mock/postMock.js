@@ -221,12 +221,57 @@ mock.onGet('/api/post/como-escolher-sua-profissao').reply(200, {
   comments: 1,
 });
 
+mock.onGet('/api/post/design-patterns-em-java').reply(200, {
+  id: 4,
+  title:
+    'DESIGN PATTERNS EM JAVA | Dicas de Cursos Qualificados #02',
+  slug: 'design-patterns-em-java',
+  date: moment().subtract(2, 'minutes').toDate().getTime(),
+  author: {
+    id: 2,
+    name: 'Jackson Gregorio',
+    avatar: '/images/avatars/perfil2.jpg',
+  },
+  markdownText: `
+# Como escolher uma profissão: 9 dicas para tomar essa decisão !
+
+- #### Velocidade do mercado de trabalho transforma crianças em profissionais precoces.
+
+### [Artigo Completo](https://www.vagas.com.br/profissoes/por-que-escolher-uma-profissao-e-tao-dificil/)
+
+- #### Escolher uma profissão para entrar no mercado de trabalho é sempre uma tarefa difícil, especialmente quando somos jovens e temos muitas dúvidas em relação a quase tudo. E é justamente nesse momento onde tudo é absolutamente incerto em que precisamos tomar essa decisão.
+
+## Dicas para voce escolher uma profissão ideal: 
+- ### Por que escolher uma profissão é sempre um desafio?
+- ### O que levar em conta na hora de escolher sua profissão? 
+- ### Como escolher a profissão ideal?
+ - 1. Identifique seus interesses
+ - 2. Conheça suas habilidades
+ - 3. Faça um teste vocacional 
+ - 4. Pesquise sobre as profissões do futuro 
+ - 5. Liste opções de carreira
+ - 6. Pesquise sobre as profissões selecionadas
+ - 7. Entenda o mercado de trabalho com profissionais da área
+ - 8. Pesquise cargos e salários 
+ - 9. Liste os prós e contras das profissões
+    `,
+    markdownComment: `
+- ### Decidir qual carreira seguir envolve pesquisas, autoconhecimento e análise do mercado de trabalho. Portanto, não tenha pressa em fazer a escolha. Reflita cuidadosamente sobre cada questão e anote as opções mais interessantes para você.
+
+    `,
+  tags: ['design', 'java'],
+  image: '/images/posts/postprofissao.jpg',
+  perfilImg: '/images/avatars/perfil1.jpg',
+  likes: 0,
+  comments: 0,
+});
+
 mock.onGet('/api/posts/user/sonic27289').reply(200, {
   posts1: [
     {
       id: 1,
       title:
-        'COMO MELHORAR SEU CODIGO JAVASCRIPT (ESLINT + PRETTIER + EDITORCONFIG) | Dicas e Truques #02',
+        'COMO MELHORAR SEU CODIGO JAVASCRIPT (MELHORES CURSOS) | Dicas de Cursos Qualificados #01',
       slug: 'como-melhorar-seu-codigo-javascript',
       date: moment().subtract(1, 'day').toDate().getTime(),
       author: {
@@ -234,24 +279,42 @@ mock.onGet('/api/posts/user/sonic27289').reply(200, {
         name: 'Gustavo Barbosa',
         avatar: '/images/avatars/perfil1.jpg',
       },
-      tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
-      image: '/images/posts/imagempost1.jpg',
-      likes: 10,
-      comments: 30,
+      tags: ['javascript', 'cursos', 'vscode'],
+      image: '/images/posts/postalura.png',
+      likes: 2,
+      likesAfter: 1,
+      comments: 1,
     },
     {
       id: 2,
-      title: 'COMO MIGRAR PARA REACT HOOKS | Tips & Tricks - React.js #01',
-      slug: 'como-migrar-para-react-hooks',
-      date: moment().subtract(1, 'day').toDate().getTime(),
+      title: 'IFSP - CAMPUS CUBATÃO | Um ótimo ambiente para a formação de profissionais qualificados',
+      slug: 'ifsp-campus-cubatao',
+      date: moment().subtract(2, 'days').toDate().getTime(),
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
         avatar: '/images/avatars/perfil1.jpg',
       },
-      tags: ['reactjs', 'javascript'],
-      image: '/images/posts/imagempost2.png',
-      likes: 5,
+      tags: ['ifsp', 'cubatao'],
+      image: '/images/posts/postifsp.jpg',
+      likes: 1,
+      likesAfter: 0,
+      comments: 1,
+    },
+    {
+      id: 3,
+      title: 'COMO ESCOLHER SUA PROFISSÃO | Nossa rede social é um ótimo ambiente para se conectar com profissionais de diversas áreas',
+      slug: 'como-escolher-sua-profissao',
+      date: moment().subtract(3, 'days').toDate().getTime(),
+      author: {
+        id: 1,
+        name: 'Gustavo Barbosa',
+        avatar: '/images/avatars/perfil1.jpg',
+      },
+      tags: ['ifsp', 'cubatao'],
+      image: '/images/posts/postprofissao.jpg',
+      likes: 1,
+      likesAfter: 0,
       comments: 1,
     }
   ],
@@ -260,20 +323,21 @@ mock.onGet('/api/posts/user/sonic27289').reply(200, {
 mock.onGet('/api/posts/user/jacksonomagico').reply(200, {
   posts1: [
     {
-      id: 1,
+      id: 4,
       title:
-        'TESTE',
-      slug: 'como-melhorar-seu-codigo-javascript',
-      date: moment().subtract(1, 'day').toDate().getTime(),
+        'DESIGN PATTERNS EM JAVA | Dicas de Cursos Qualificados #02',
+      slug: 'design-patterns-em-java',
+      date: moment().subtract(10, 'seconds').toDate().getTime(),
       author: {
-        id: 1,
-        name: 'Gustavo Barbosa',
+        id: 2,
+        name: 'Jackson Gregorio',
         avatar: '/images/avatars/perfil2.jpg',
       },
-      tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
-      image: '/images/posts/imagempost1.jpg',
-      likes: 10,
-      comments: 30,
+      tags: ['design', 'java'],
+      image: '/images/posts/postalura2.png',
+      likes: 0,
+      likesAfter: 1,
+      comments: 0,
     },
   ],
 });

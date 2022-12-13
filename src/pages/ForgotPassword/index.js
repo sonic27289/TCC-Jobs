@@ -235,7 +235,7 @@ function ForgotPassword(){
                             }
                             toast.success('Conta localizada')
                             toast.info('Enviaremos um e-mail com instruções para redefinir sua senha')
-                            navigate('/feed')
+                            navigate('/')
                             // await authService.logIn(email, password);
                             // // HTTP 200 - Código de Página "OK"
                             // navigate('/');
