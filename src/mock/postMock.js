@@ -211,7 +211,7 @@ mock.onGet('/api/post/como-escolher-sua-profissao').reply(200, {
  - 9. Liste os prós e contras das profissões
     `,
     markdownComment: `
-- ### Sempre ouvi falar da Alura antes mesmo de decidir entrar na área de tecnologia e quando iniciei meus estudos na plataforma, me vi entusiasmado a aprender cada vez mais...
+- ### Decidir qual carreira seguir envolve pesquisas, autoconhecimento e análise do mercado de trabalho. Portanto, não tenha pressa em fazer a escolha. Reflita cuidadosamente sobre cada questão e anote as opções mais interessantes para você.
 
     `,
   tags: ['profissao'],
