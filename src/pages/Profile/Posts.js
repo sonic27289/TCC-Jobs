@@ -25,17 +25,6 @@ function Posts() {
           progress: undefined,
           theme: "light",
         })
-        toast.error('Ocorreu um erro, este usuário não existe', {
-          position: "top-center",
-          autoClose: 7000,
-          limit: 1,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        })
       }
     }
     fetchPosts();

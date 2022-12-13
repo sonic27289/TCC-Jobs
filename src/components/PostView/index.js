@@ -128,11 +128,8 @@ function PostView({ post }) {
               <img src={post.perfilImg} alt='perfil' className={classes.img} onClick={handleClick}></img>
             </Box>
             <Box>
-              <Typography variant="body1" color="textPrimary" className={classes.markdown}>
-                {author?.name}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" className={classes.darkmode}>
-                {moment(date).fromNow()}
+              <Typography variant="h2" color="textPrimary" className={classes.markdown} class="title8">
+                {author?.name2}
               </Typography>
             </Box>  
               <ReactMarkdown children={markdownComment} className={classes.markdown}/>

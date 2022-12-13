@@ -16,6 +16,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -48,6 +50,7 @@ function Notifications(){
     const [isOpen, setOpen] = useState(false); 
     const dispatch = useDispatch();
     const classes = useStyles();
+    const navigate = useNavigate();
 
     const handleOpen = () => {
         setOpen(true);
@@ -55,6 +58,20 @@ function Notifications(){
 
     const handleClose = () => {
         setOpen(false);
+    }
+
+    const handleClick = () => {
+        navigate(`/${account.user?.username}`);
+        toast('Você possui novas conexões', {
+            position: "bottom-left",
+            autoClose: 7000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        }  );
     }
 
     useEffect(() => {
@@ -91,7 +108,7 @@ function Notifications(){
                 {notifications.map((notifications) => {
                     const Icon = iconsMap[notifications.type];
                     return (
-                <ListItem>
+                <ListItem onClick={handleClick}>
                     <ListItemAvatar>
                         <Avatar className={classes.icon}>
                             <SvgIcon>
@@ -104,7 +121,8 @@ function Notifications(){
                         primaryTypographyProps={{
                             variant: 'subtitle2', 
                             color: 'textPrimary'}} 
-                        secondary={notifications.description}>
+                        secondary={notifications.description}
+                        onClick={handleClick}>
                         </ListItemText>
                 </ListItem>
                     );

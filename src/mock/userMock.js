@@ -105,3 +105,31 @@ mock.onGet('/api/home/user/jacksonomagico').reply(200, {
     formation4: 'Curso Técnico Integrado em Gestão da Cadeia de Suprimentos e Logística / 2016 - 2018',
     tags: 'design, java'
 });
+
+mock.onGet('/api/home/user/tuler').reply(200, {
+    id: 3,
+    name: 'Wellington Tuler Moraes',
+    username: 'tulermoraes',
+    email: 'wellingtontm@ifsp.edu.br',
+    acessToken: 'teste1',
+    avatar: '/images/avatars/tulericon.jpg',
+    joinedIn: '11 de dezembro, 2022',
+    work: 'Professor no Instituto Federal',
+    followers: '00',
+    following: '00',
+    groups: '00',
+    totalGroups: '00',
+    totalPost: '00',
+    totalFollowers: '01',
+    totalFollowing: '00',
+    totalFollowingAfter: '00',
+    avaliations: '00',
+    apresentation: 'Masters Degree. 20+ years of IT experience. 17+ years of teaching experience.  3+ years of experience coordinating large IT Systems Projects from initiation to closure on a Global Company. Implementation of greenfield and brownfield Terminal TOS System. Experience with core IT infrastructure components, database and service concepts. Experience managing conflict, escalations, negotiating compromise and influencing others and problem solving. Proficiency in Portuguese, English and medium compreension of spanish. Strong oral and written communication skills Ability to successfully manage cross-functional projects involving multiple stakeholders and varying levels of management Experience as a leader and mentor for project and carreer. Experience in Port, manufacturing, logistics, warehouse and education environments. High-level knowledge in: Systems Administration, Database Administration and System coordination. Proficiency with MS Project, Excel, Jira agile, Object Pascal - Delphi, C#, C, Java, ASP, HTML, XML, PL/SQL and JavaScript.',
+    formationImg1: 'images/formacao/unisanta.png',
+    formation1: 'Universidade Santa Cecília',
+    formation2: 'Masters degree, Digital Image Processing / 2014 - 2016',
+    formationImg2: 'images/formacao/unisantos.jpg',
+    formation3: 'Universidade Católica de Santos',
+    formation4: 'MBA, IT Management / 2006 - 2007',
+    tags: 'java, ifsp'
+});

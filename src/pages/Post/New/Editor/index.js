@@ -98,6 +98,15 @@ const arrayTags = [
     { title: 'react.js', },
     { title: 'node.js', },
     { title: 'webdev', },
+    { title: 'javascript', },
+    { title: 'ifsp', },
+    { title: 'java', },
+    { title: 'design', },
+    { title: 'material-ui', },
+    { title: 'front-end', },
+    { title: 'back-end', },
+    { title: 'cubatao', },
+    { title: 'profissao', },
 ]
 
 function PostEditor() {

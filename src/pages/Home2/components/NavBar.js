@@ -24,12 +24,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const tags = [
-    { id: 1, name: 'reactjs'},
-    { id: 2, name: 'reactjs'},
-    { id: 3, name: 'reactjs'},
-    { id: 4, name: 'reactjs'},
-    { id: 5, name: 'reactjs'},
-    { id: 6, name: 'reactjs'}
+    { id: 1, name: 'javascript'},
+    { id: 2, name: 'cursos'},
+    { id: 3, name: 'ifsp'},
+    { id: 4, name: 'cubatao'},
+    { id: 5, name: 'profissao'},
+    { id: 6, name: 'design'},
+    { id: 7, name: 'java'},
 ]
 
 const notify = () => toast.info('Não existe mais tags a serem exibidas', {

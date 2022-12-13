@@ -12,6 +12,7 @@ mock.onGet('/api/').reply(200, {
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
+        name2: 'Gustavo Barbosa da Silva',
         avatar: '/images/avatars/perfil1.jpg',
       },
       tags: ['javascript', 'cursos', 'vscode'],
@@ -28,6 +29,7 @@ mock.onGet('/api/').reply(200, {
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
+        name2: 'Gustavo Barbosa da Silva',
         avatar: '/images/avatars/perfil1.jpg',
       },
       tags: ['ifsp', 'cubatao'],
@@ -44,6 +46,7 @@ mock.onGet('/api/').reply(200, {
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
+        name2: 'Gustavo Barbosa da Silva',
         avatar: '/images/avatars/perfil1.jpg',
       },
       tags: ['profissao'],
@@ -60,49 +63,72 @@ mock.onGet('/api/feed').reply(200, {
     {
       id: 1,
       title:
+        'DESIGN PATTERNS EM JAVA | Dicas de Cursos Qualificados #02',
+      slug: 'design-patterns-em-java',
+      date: moment().subtract(10, 'seconds').toDate().getTime(),
+      author: {
+        id: 2,
+        name: 'Jackson Gregorio',
+        avatar: '/images/avatars/perfil2.jpg',
+      },
+      tags: ['design', 'java'],
+      image: '/images/posts/postalura2.png',
+      likes: 0,
+      likesAfter: 1,
+      comments: 0,
+    },
+    {
+      id: 2,
+      title:
         'COMO MELHORAR SEU CODIGO JAVASCRIPT (MELHORES CURSOS) | Dicas de Cursos Qualificados #01',
       slug: 'como-melhorar-seu-codigo-javascript',
       date: moment().subtract(1, 'day').toDate().getTime(),
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
+        name2: 'Gustavo Barbosa da Silva',
         avatar: '/images/avatars/perfil1.jpg',
       },
-      tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
+      tags: ['javascript', 'cursos', 'vscode'],
       image: '/images/posts/postalura.png',
-      likes: 10,
-      comments: 30,
-    },
-    {
-      id: 2,
-      title: 'COMO MIGRAR PARA REACT HOOKS | Tips & Tricks - React.js #01',
-      slug: 'como-migrar-para-react-hooks',
-      date: moment().subtract(1, 'day').toDate().getTime(),
-      author: {
-        id: 1,
-        name: 'Gustavo Barbosa',
-        avatar: '/images/avatars/perfil1.jpg',
-      },
-      tags: ['reactjs', 'javascript'],
-      image: '/images/posts/imagempost2.png',
-      likes: 5,
+      likes: 1,
+      likesAfter: 2,
       comments: 1,
     },
     {
       id: 3,
-      title: 'COMO MIGRAR PARA REACT HOOKS | Tips & Tricks - React.js #01',
-      slug: 'como-migrar-para-react-hooks',
-      date: moment().subtract(1, 'day').toDate().getTime(),
+      title: 'IFSP - CAMPUS CUBATÃO | Um ótimo ambiente para a formação de profissionais qualificados',
+      slug: 'ifsp-campus-cubatao',
+      date: moment().subtract(2, 'day').toDate().getTime(),
       author: {
         id: 1,
         name: 'Gustavo Barbosa',
+        name2: 'Gustavo Barbosa da Silva',
         avatar: '/images/avatars/perfil1.jpg',
       },
-      tags: ['reactjs', 'javascript'],
-      image: '/images/posts/imagempost2.png',
-      likes: 5,
+      tags: ['ifsp', 'cubatao'],
+      image: '/images/posts/postifsp.jpg',
+      likes: 0,
+      likesAfter: 1,
       comments: 1,
-    }
+    },
+    {
+      id: 4,
+      title: 'COMO ESCOLHER SUA PROFISSÃO | Nossa rede social é um ótimo ambiente para se conectar com profissionais de diversas áreas',
+      slug: 'como-escolher-sua-profissao',
+      date: moment().subtract(3, 'day').toDate().getTime(),
+      author: {
+        id: 1,
+        name: 'Gustavo Barbosa',
+        name2: 'Gustavo Barbosa da Silva',
+        avatar: '/images/avatars/perfil1.jpg',
+      },
+      tags: ['profissao'],
+      image: '/images/posts/postprofissao.jpg',
+      likes: 0,
+      likesAfter: 1,
+      comments: 1,
+    },
   ],
 });
 
@@ -115,6 +141,7 @@ mock.onGet('/api/post/como-melhorar-seu-codigo-javascript').reply(200, {
   author: {
     id: 1,
     name: 'Gustavo Barbosa',
+    name2: 'Gustavo Barbosa da Silva',
     avatar: '/images/avatars/perfil1.jpg',
   },
   markdownText: `
@@ -154,6 +181,7 @@ mock.onGet('/api/post/ifsp-campus-cubatao').reply(200, {
   author: {
     id: 1,
     name: 'Gustavo Barbosa',
+    name2: 'Gustavo Barbosa da Silva',
     avatar: '/images/avatars/perfil1.jpg',
   },
   markdownText: `
@@ -185,6 +213,7 @@ mock.onGet('/api/post/como-escolher-sua-profissao').reply(200, {
   author: {
     id: 1,
     name: 'Gustavo Barbosa',
+    name2: 'Gustavo Barbosa da Silva',
     avatar: '/images/avatars/perfil1.jpg',
   },
   markdownText: `
@@ -230,38 +259,24 @@ mock.onGet('/api/post/design-patterns-em-java').reply(200, {
   author: {
     id: 2,
     name: 'Jackson Gregorio',
+    name2: '',
     avatar: '/images/avatars/perfil2.jpg',
   },
   markdownText: `
-# Como escolher uma profissão: 9 dicas para tomar essa decisão !
+# Enfim, fazer os cursos da alura vale a pena ?
 
-- #### Velocidade do mercado de trabalho transforma crianças em profissionais precoces.
+- #### Na nossa análise, o site de cursos Alura é bom e vale a pena mesmo, pois oferece conteúdos de qualidade e um bom suporte aos alunos. Atualmente, a plataforma apresenta mais de 1.300 cursos focados em diferentes áreas do segmento tecnológico, todos produzidos por profissionais qualificados.
 
-### [Artigo Completo](https://www.vagas.com.br/profissoes/por-que-escolher-uma-profissao-e-tao-dificil/)
+- #### Além disso, os usuários contam com vários recursos tecnológicos e conteúdos extras que ajudam muito na jornada de aprendizado. Desde sua fundação, milhares de profissionais se capacitaram na plataforma que, por sua vez, proporciona um ambiente de estudos seguro, inovador e super prático. 
 
-- #### Escolher uma profissão para entrar no mercado de trabalho é sempre uma tarefa difícil, especialmente quando somos jovens e temos muitas dúvidas em relação a quase tudo. E é justamente nesse momento onde tudo é absolutamente incerto em que precisamos tomar essa decisão.
-
-## Dicas para voce escolher uma profissão ideal: 
-- ### Por que escolher uma profissão é sempre um desafio?
-- ### O que levar em conta na hora de escolher sua profissão? 
-- ### Como escolher a profissão ideal?
- - 1. Identifique seus interesses
- - 2. Conheça suas habilidades
- - 3. Faça um teste vocacional 
- - 4. Pesquise sobre as profissões do futuro 
- - 5. Liste opções de carreira
- - 6. Pesquise sobre as profissões selecionadas
- - 7. Entenda o mercado de trabalho com profissionais da área
- - 8. Pesquise cargos e salários 
- - 9. Liste os prós e contras das profissões
     `,
     markdownComment: `
-- ### Decidir qual carreira seguir envolve pesquisas, autoconhecimento e análise do mercado de trabalho. Portanto, não tenha pressa em fazer a escolha. Reflita cuidadosamente sobre cada questão e anote as opções mais interessantes para você.
+## Não existe comentários disponíveis
 
     `,
   tags: ['design', 'java'],
-  image: '/images/posts/postprofissao.jpg',
-  perfilImg: '/images/avatars/perfil1.jpg',
+  image: '/images/posts/postalura2.png',
+  perfilImg: '/images/posts/infoicon.png',
   likes: 0,
   comments: 0,
 });
