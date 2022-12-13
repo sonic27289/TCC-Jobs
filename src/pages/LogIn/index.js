@@ -168,7 +168,7 @@ function LogIn(){
             <Typography style={{color: '#fff', fontSize: 30, lineHeight: '45px'}} class="title">
                 <strong>JOBS é uma rede social que busca conectar jovens indecisos na sua carreira profissional e profissionais disponíveis a ajuda-los.</strong>
             </Typography>
-            <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 18, lineHeight: '30px'}} class="title2">
+            <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 18, lineHeight: '30px'}} class="title">
                 Compartilhe e busque conhecimento com toda a nossa rede de profissionais e jovens em ascensão.
             </Typography>
         </Grid>

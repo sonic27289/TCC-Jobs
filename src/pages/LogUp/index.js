@@ -168,7 +168,7 @@ function LogUp(){
             <Typography style={{color: '#fff', fontSize: 35, lineHeight: '45px'}} class="title">
                 <strong>Simplificando a forma de conectar profissionais de diversas áreas !</strong>
             </Typography>
-            <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 15, lineHeight: '30px'}} class="title2">
+            <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: 30, fontSize: 15, lineHeight: '30px'}} class="title">
                 Compartilhe seu conhecimento com toda nossa rede de profissionais.
             </Typography>
         </Grid>
@@ -185,13 +185,15 @@ function LogUp(){
                         fullName: '',
                         username: '',
                         email: '',
-                        password: ''
+                        password: '',
+                        repeatPassword: ''
                     }}
                     validationSchema={Yup.object().shape({
                         fullName: Yup.string().max(255).required("Favor informar o nome completo"),
                         username: Yup.string().max(255).required("Favor informar o nome de usuário"),
                         email: Yup.string().email("Favor informar um e-mail válido.").max(255).required("Favor informar o e-mail"),
-                        password: Yup.string().max(255).required("Favor informar a senha")
+                        password: Yup.string().max(255).required("Favor informar a senha"),
+                        repeatPassword: Yup.string().max(255).required("Favor informar a mesma senha utilizada")
                     })}
                     onSubmit={async (values, {
                         setErrors,
@@ -199,7 +201,7 @@ function LogUp(){
                         setSubmitting
                     }) => {
                         try {
-                            await dispatch(logUp(values.fullName, values.username, values.email, values.password));
+                            await dispatch(logUp(values.fullName, values.username, values.email, values.password, values.repeatPassword));
                             navigate('/');
                             toast.success('Conta criada com Sucesso', {
                                 position: "top-center",
@@ -274,7 +276,7 @@ function LogUp(){
                                     required
                                     fullWidth
                                     id="email"
-                                    label="E-mail"
+                                    label="Informe seu E-mail"
                                     name="email"
                                     autoComplete="email"
                                     autoFocus
@@ -290,7 +292,7 @@ function LogUp(){
                                     required
                                     fullWidth
                                     name="password"
-                                    label="Senha"
+                                    label="Escolha sua senha"
                                     type="password"
                                     id="password"
                                     autoComplete="current-password"
@@ -298,6 +300,22 @@ function LogUp(){
                                     value={values.password}
                                     onChange={handleChange}
                                     helperText={errors.password}
+                                >
+                                </TextField>
+                                <TextField
+                                    variant="outlined"
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    name="repeatPassword"
+                                    label="Confirme sua senha"
+                                    type="repeatPassword"
+                                    id="repeatPassword"
+                                    autoComplete="repeat-password"
+                                    error={Boolean(errors.repeatPassword)}
+                                    value={values.repeatPassword}
+                                    onChange={handleChange}
+                                    helperText={errors.repeatPassword}
                                 >
                                 </TextField>
                                 <Button fullWidth

@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 20,
   },
   imagemformacao: {
-    width: '60%',
+    width: '70%',
     display: 'block',
     marginLeft: 'auto',
     marginRight: 'auto'
@@ -325,29 +325,27 @@ const ratingChanged = (newRating) => {
                 </DialogTitle>
                 <DialogContent dividers>
                   <Typography gutterBottom>
-                    <img src={`${user.formationImg}`} alt='formacao' className={classes.imagemformacao}></img>
+                    <img src={`${user.formationImg1}`} alt='formacao' className={classes.imagemformacao}></img>
                   </Typography>
+                  <Divider></Divider><br></br>
                   <Typography gutterBottom>
-                  {`${user.formation}`}
+                  {`${user.formation1}`}
                   </Typography>
+                  <Divider></Divider><br></br>
                   <Typography gutterBottom>
-                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-                    lacus vel augue laoreet rutrum faucibus dolor auctor.
+                  {`${user.formation2}`}
                   </Typography>
+                  <Divider></Divider><br></br>
                   <Typography gutterBottom>
-                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-                    scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-                    auctor fringilla.
+                    <img src={`${user.formationImg2}`} alt='formacao' className={classes.imagemformacao}></img>
                   </Typography>
+                  <Divider></Divider><br></br>
                   <Typography gutterBottom>
-                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-                    scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-                    auctor fringilla.
+                    {`${user.formation3}`}
                   </Typography>
+                  <Divider></Divider><br></br>
                   <Typography gutterBottom>
-                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-                    scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-                    auctor fringilla.
+                    {`${user.formation4}`}
                   </Typography>
                   </DialogContent>
                 <DialogActions>

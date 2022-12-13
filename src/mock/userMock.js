@@ -69,8 +69,12 @@ mock.onGet('/api/home/user/sonic27289').reply(200, {
     totalFollowingAfter: '01',
     avaliations: '01',
     apresentation: 'Bem vindo ao meu perfil, meu nome é Gustavo Barbosa, minhas especialidades são HTML, CSS, Javascript, Typescript, React JS, PHP e SQL, sendo elas as minhas principais linguagens de programação. Também já trabalhei com XML, ASP.NET, Velocity, Java e estudei C#, C++, C e JavaWeb na universidade. Se eu puder ajudar, certamente o farei, se não puder, encontrarei uma maneira de ajudar.',
-    formationImg: 'images/avatars/ifsp.png',
-    formation: 'IFSP',
+    formationImg1: 'images/formacao/ifspformacao.png',
+    formation1: 'IFSP - Instituto Federal de Educação, Ciência e Tecnologia de São Paulo - IFSP Tecnólogo',
+    formation2: 'Graduação em Análise e Desenvolvimento de Sistemas / 2017 - 2020',
+    formationImg2: 'images/formacao/etecformacao.png',
+    formation3: 'ETEC - Escola Técnica Estadual - Tecnólogo',
+    formation4: 'Tecnólogo em Informática para Internet / 2014 - 2017',
     tags: 'react.js, front-end, javascript'
 });
 
@@ -93,5 +97,11 @@ mock.onGet('/api/home/user/jacksonomagico').reply(200, {
     totalFollowingAfter: '00',
     avaliations: '01',
     apresentation: 'Bem vindo ao meu perfil, meu nome é Gustavo Barbosa, minhas especialidades são HTML, CSS, Javascript, Typescript, React JS, PHP e SQL, sendo elas as minhas principais linguagens de programação. Também já trabalhei com XML, ASP.NET, Velocity, Java e estudei C#, C++, C e JavaWeb na universidade. Se eu puder ajudar, certamente o farei, se não puder, encontrarei uma maneira de ajudar.',
+    formationImg1: 'images/formacao/ifspformacao.png',
+    formation1: 'IFSP - Instituto Federal de Educação, Ciência e Tecnologia de São Paulo - IFSP Tecnólogo',
+    formation2: 'Bacharelado em Análise e Desenvolvimento de Sistemas / 2017 - 2020',
+    formationImg2: 'images/formacao/etecformacao.png',
+    formation3: 'ETEC - Escola Técnica Estadual de São Paulo - Curso Técnico',
+    formation4: 'Curso Técnico Integrado em Gestão da Cadeia de Suprimentos e Logística / 2016 - 2018',
     tags: 'react.js, front-end, javascript'
 });
